@@ -1,15 +1,23 @@
 using UnityEditor;
 using AudioSystem;
+using UnityEngine;
 
 [CustomEditor(typeof(Audio))]
 public class SoundEditor : Editor
 {
+    SerializedProperty clipList;
+
+    private void OnEnable() { clipList = serializedObject.FindProperty("clip"); }
+
     public override void OnInspectorGUI()
     {
+        serializedObject.Update();
+
         //base.OnInspectorGUI();
 
         Audio _audio = (Audio)target;
         _audio.isMusic = EditorGUILayout.Toggle("Is Music", _audio.isMusic);
+        EditorGUILayout.PropertyField(clipList, new GUIContent("Clips"), true);
 
         if (_audio.isMusic)
         {
@@ -25,5 +33,6 @@ public class SoundEditor : Editor
             _audio.maxPitch = EditorGUILayout.FloatField("Max", _audio.maxPitch);
             EditorGUILayout.EndToggleGroup();
         }
+        serializedObject.ApplyModifiedProperties();
     }
 }
