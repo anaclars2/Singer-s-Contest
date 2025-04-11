@@ -74,16 +74,17 @@ namespace CharacterSystem
         private void HighlightTarget(GameObject newTarget)
         {
             // removendo destaque anterior
-            if (currentTarget != null && targetOutline != null)
+            if (currentTarget != null)
             {
-                targetOutline.enabled = false;
+                Outline oldOutline = currentTarget.GetComponent<Outline>();
+                if (oldOutline != null) oldOutline.OutlineWidth = 0;
             }
 
             currentTarget = newTarget;
             if (currentTarget != null)
             {
-                targetOutline = currentTarget.GetComponent<Outline>();
-                if (targetOutline != null) { targetOutline.enabled = true; }
+                Outline newOutline = currentTarget.GetComponent<Outline>();
+                if (newOutline != null) newOutline.OutlineWidth = 7;
             }
         }
 
