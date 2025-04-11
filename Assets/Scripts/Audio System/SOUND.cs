@@ -5,8 +5,9 @@ namespace AudioSystem
     public enum SOUND
     {
         None,
-        Jump,
-        Explosion,
-        PowerUp
+        Hit,
+        Miss,
+        PowerUp,
+        Button
     }
 }

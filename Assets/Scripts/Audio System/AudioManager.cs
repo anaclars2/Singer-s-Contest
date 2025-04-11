@@ -6,7 +6,7 @@ namespace AudioSystem
     public class AudioManager : MonoBehaviour
     {
         // referenciando os audios sources, em outras palavras, os caras que sao fonte de som
-        [SerializeField] private AudioSource musicSource;
+        public AudioSource musicSource;
         [SerializeField] private AudioSource sfxSource;
 
         [SerializeField] private List<Audio> sfxList;
@@ -21,10 +21,7 @@ namespace AudioSystem
 
             DontDestroyOnLoad(gameObject);
         }
-        private void Start()
-        {
-            LoadVolumes();
-        }
+        private void Start() { LoadVolumes(); }
 
         // tocar os audios
         #region PlayAudio
@@ -33,9 +30,9 @@ namespace AudioSystem
             Audio audio = sfxList.Find(a => a.soundID == audioID);
             if (audio != null && index < audio.clip.Count)
             {
-                Debug.Log("audio encontrado: " + audio.soundID +
+                /*Debug.Log("audio encontrado: " + audio.soundID +
                 "\nquantidade de clips: " + audio.clip.Count +
-                "\nindice do audio: " + index);
+                "\nindice do audio: " + index);*/
 
                 if (index == -1) { index = UnityEngine.Random.Range(0, audio.clip.Count); } // determinando o audio p sorte
 
@@ -53,9 +50,9 @@ namespace AudioSystem
             Audio audio = musicList.Find(a => a.musicID == musicID);
             if (audio != null && index < audio.clip.Count)
             {
-                Debug.Log("audio encontrado: " + audio.musicID +
+                /*Debug.Log("audio encontrado: " + audio.musicID +
                 "\nquantidade de clips: " + audio.clip.Count +
-                "\nindice do audio: " + index);
+                "\nindice do audio: " + index);*/
 
                 if (index == -1) { index = UnityEngine.Random.Range(0, audio.clip.Count); } // determinando o audio p sorte
 
