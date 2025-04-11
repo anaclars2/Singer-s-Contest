@@ -4,27 +4,28 @@ namespace CharacterSystem
 {
     public class Player : Character
     {
-        [Header("Interact")]
+        [Header("Interact Settings")]
         [SerializeField] float detectionRadius = 3f;
         [SerializeField] LayerMask interactableLayer;
         [SerializeField] LayerMask obstructionLayer;
+        [SerializeField] KeyCode input = KeyCode.E;
 
         GameObject currentTarget; // alvo visivel mais proximo
-        Renderer targetRenderer;
-        Color originalColor;
+        Outline targetOutline;
 
         private void Update()
         {
             Move();
             DetectObjects();
 
-            if (Input.GetKeyDown(KeyCode.E) && currentTarget != null)
+            if (Input.GetKeyDown(input) && currentTarget != null)
             {
                 Debug.Log("Interacting with: " + currentTarget.name);
                 // currentTarget.GetComponent<SeuScriptInterativo>()?.Interagir();
             }
         }
 
+        #region Move
         public override void Move()
         {
             // capturando o input continuo (valores entre -1 e 1)
@@ -34,7 +35,9 @@ namespace CharacterSystem
             moveDirection = new Vector3(x, y, 0f).normalized;
             transform.position += moveDirection * moveSpeed * Time.deltaTime;
         }
+        #endregion
 
+        #region Interact
         private void DetectObjects()
         {
             // deteccao em formato de esfera
@@ -61,27 +64,26 @@ namespace CharacterSystem
                     }
                     else { Debug.Log("Something is blocking the view to " + collider.name); }
 
-                    Debug.DrawRay(transform.position, direction * distance, Color.cyan);
+                    Debug.DrawRay(transform.position, direction * distance, Color.red);
                 }
             }
 
             HighlightTarget(closest);
         }
 
-        private void HighlightTarget(GameObject newTarget) 
+        private void HighlightTarget(GameObject newTarget)
         {
             // removendo destaque anterior
-            if (currentTarget != null && targetRenderer != null) { targetRenderer.material.color = originalColor; }
+            if (currentTarget != null && targetOutline != null)
+            {
+                targetOutline.enabled = false;
+            }
 
             currentTarget = newTarget;
             if (currentTarget != null)
             {
-                targetRenderer = currentTarget.GetComponent<Renderer>();
-                if (targetRenderer != null)
-                {
-                    originalColor = targetRenderer.material.color;
-                    targetRenderer.material.color = Color.yellow;
-                }
+                targetOutline = currentTarget.GetComponent<Outline>();
+                if (targetOutline != null) { targetOutline.enabled = true; }
             }
         }
 
@@ -90,5 +92,6 @@ namespace CharacterSystem
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(transform.position, detectionRadius);
         }
+        #endregion
     }
 }
