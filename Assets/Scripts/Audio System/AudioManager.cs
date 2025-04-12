@@ -6,11 +6,13 @@ namespace AudioSystem
     public class AudioManager : MonoBehaviour
     {
         // referenciando os audios sources, em outras palavras, os caras que sao fonte de som
+        public AudioSource playerSource;
         public AudioSource musicSource;
         [SerializeField] private AudioSource sfxSource;
 
         [SerializeField] private List<Audio> sfxList;
         [SerializeField] private List<Audio> musicList;
+        [SerializeField] private List<Audio> playerList;
 
         public static AudioManager instance;
 
@@ -45,9 +47,18 @@ namespace AudioSystem
             Debug.Log("index sfx: " + index + "\nrandom pitch: " + sfxSource.pitch);
         }
 
-        public void PlayMusic(MUSIC musicID, int index = -1)
+        public void PlayRhythmMusic(MUSIC musicID, int index = -1)
         {
-            Audio audio = musicList.Find(a => a.musicID == musicID);
+            PlayMusic(musicID, musicSource);
+            PlayMusic(musicID, playerSource);
+        }
+
+        public void PlayMusic(MUSIC musicID, AudioSource audioSource, int index = -1)
+        {
+            Audio audio;
+            if (audioSource == playerSource) { audio = playerList.Find(a => a.musicID == musicID); }
+            else { audio = musicList.Find(a => a.musicID == musicID); }
+
             if (audio != null && index < audio.clip.Count)
             {
                 /*Debug.Log("audio encontrado: " + audio.musicID +
@@ -56,10 +67,10 @@ namespace AudioSystem
 
                 if (index == -1) { index = UnityEngine.Random.Range(0, audio.clip.Count); } // determinando o audio p sorte
 
-                musicSource.Stop();
-                musicSource.clip = audio.clip[index];
-                musicSource.loop = true;
-                musicSource.Play();
+                audioSource.Stop();
+                audioSource.clip = audio.clip[index];
+                audioSource.loop = true;
+                audioSource.Play();
             }
 
             Debug.Log("index music: " + index);

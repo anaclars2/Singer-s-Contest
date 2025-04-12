@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 173d2e9cea30e6c4191b70b0ae62228a, type: 3}
-  m_Name: TestMusic
+  m_Name: TestPlayer
   m_EditorClassIdentifier: 
-  isMusic: 1
-  musicID: 1
+  isMusic: 0
+  musicID: 0
   soundID: 0
   clip:
-  - {fileID: 8300000, guid: 7a910d418aa2796409f6a2b38640ff22, type: 3}
+  - {fileID: 8300000, guid: b17f9eb83bdb68f42b5fe394777198d3, type: 3}
   isLoop: 0
   hasPitchVariation: 0
   minPitch: 1

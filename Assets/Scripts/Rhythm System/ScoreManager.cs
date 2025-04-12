@@ -36,7 +36,7 @@ namespace RhythmSystem
 
         public static void Miss()
         {
-            comboScore = comboScore - _scoreRemove;
+            // comboScore = comboScore - _scoreRemove;
             AudioManager.instance.PlaySfx(SOUND.Miss);
         }
 

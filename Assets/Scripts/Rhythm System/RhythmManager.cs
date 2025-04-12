@@ -55,7 +55,7 @@ namespace RhythmSystem
             Invoke(nameof(StartMusic), songDelay);
         }
 
-        private void StartMusic() { AudioManager.instance.PlayMusic(musicID); }
+        private void StartMusic() { AudioManager.instance.PlayRhythmMusic(musicID); }
 
         public static double GetAudioSourceTime()
         {
