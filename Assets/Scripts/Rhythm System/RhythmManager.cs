@@ -28,7 +28,6 @@ namespace RhythmSystem
         public float noteTime; // tempo na tela
         public float noteSpawnY;
         [SerializeField] float noteTapY;
-        public double marginError;
         public float noteDespawnY { get { return noteTapY - (noteSpawnY - noteTapY); } }
 
         private void Awake() // singleton
@@ -60,7 +59,7 @@ namespace RhythmSystem
         public static double GetAudioSourceTime()
         {
             // retorna o tempo do audio
-            return (double)AudioManager.instance.musicSource.timeSamples / AudioManager.instance.musicSource.clip.frequency;
+            return (double)AudioManager.instance.playerSource.timeSamples / AudioManager.instance.playerSource.clip.frequency;
         }
 
         private string GetFileLocation()

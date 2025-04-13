@@ -1,20 +1,44 @@
 using Melanchall.DryWetMidi.Interaction;
+using Melanchall.DryWetMidi.MusicTheory;
 using System;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace RhythmSystem
 {
     public class Lane : MonoBehaviour
     {
         public Melanchall.DryWetMidi.MusicTheory.NoteName noteRestriction; // restringe as notas a uma 'tonalidade'
-        [SerializeField] KeyCode input;
+        public KeyCode input;
         [SerializeField] GameObject notePrefab;
+        [SerializeField] Arrow arrow;
         List<Note> notes = new List<Note>();
         [HideInInspector] public List<double> timeStamps = new List<double>();
 
         int spawnIndex = 0;
         int inputIndex = 0;
+
+        // para os inputs
+        static float normalMargin = 0.5f;
+        static float goodMargin = 0.25f;
+        static float perfectMargin = 0.1f;
+
+        [Header("Effects Settings")]
+        [SerializeField] GameObject normalHit;
+        [SerializeField] GameObject goodHit;
+        [SerializeField] GameObject perfectHit;
+        [SerializeField] GameObject missHit;
+        Vector3 effectPosition;
+        Quaternion effectRotation;
+
+        private void Start()
+        {
+            arrow = GetComponentInChildren<Arrow>();
+            effectPosition = arrow.gameObject.transform.position;
+            effectRotation = normalHit.gameObject.transform.rotation; // tanto faz pq todos tem a mesma rotacao
+        }
 
         // decididndo as notas que precisamos e nao precisamos
         public void SetTimeStamps(Melanchall.DryWetMidi.Interaction.Note[] array)
@@ -43,44 +67,78 @@ namespace RhythmSystem
                 if (RhythmManager.GetAudioSourceTime() >= timeStamps[spawnIndex] - RhythmManager.instance.noteTime)
                 {
                     var note = Instantiate(notePrefab, transform);
-                    notes.Add(note.GetComponent<Note>()); // referencia
+
+                    Note n = note.GetComponent<Note>();
+                    n.lane = this;
+                    notes.Add(n); // referencia
+
                     note.GetComponent<Note>().assignedTime = (float)timeStamps[spawnIndex]; // para a nota saber onde se posicionar
                     spawnIndex++; // ir para proxima nota 
                 }
             }
         }
 
+        public void CheckMargin(float collider, float position)
+        {
+            float distance = Mathf.Abs(collider - position);
+            string hit = " ";
+
+            if (distance <= perfectMargin)
+            {
+                Instantiate(perfectHit, effectPosition, effectRotation);
+                hit = "perfect";
+            }
+            else if (distance <= goodMargin)
+            {
+                Instantiate(goodHit, effectPosition, effectRotation);
+                hit = "good";
+            }
+            else if (distance <= normalMargin)
+            {
+                Instantiate(normalHit, effectPosition, effectRotation);
+                hit = "normal";
+            }
+
+            ScoreManager.instance.Hit(hit);
+
+            // Debug.Log($"DISTANCE: {distance} | PERFECT: {perfectMargin}, GOOD: {goodMargin}, NORMAL: {normalMargin}");
+            // Debug.Log($"POSITION NOTE: {collider} | TRANSFORM: {transform.position.y}\n| HIT TYPE: {hit}");
+        }
+
         private void PlayerInput()
         {
             if (inputIndex < timeStamps.Count) // verificando as notas
             {
-                double timeStamp = timeStamps[inputIndex];
-                double marginError = RhythmManager.instance.marginError;
-                double audioTime = RhythmManager.GetAudioSourceTime() - (RhythmManager.instance.inputDelay / 1000.0);
-
                 if (Input.GetKeyDown(input))
                 {
-                    // verificando se o jogador conseguiu dar um 'hit' na margem permitida
-                    if (Math.Abs(audioTime - timeStamp) < marginError)
+                    bool find = false;
+                    for (int i = notes.Count - 1; i >= 0; i--)
                     {
-                        Hit();
-                        Debug.Log($"Hit on {inputIndex} note");
-                        Destroy(notes[inputIndex].gameObject);
+                        if (notes[i].canBePressed == true)
+                        {
+                            float colliderPosition = notes[i].colliderPosition;
+                            float position = notes[i].transform.position.y;
+                            CheckMargin(colliderPosition, position);
+
+                            Note temp = notes[i];
+                            notes.RemoveAt(i);
+                            Destroy(temp.gameObject);
+
+                            inputIndex++;
+                            // Debug.Log($"Hit on {inputIndex} note");
+                            find = true;
+                            break;
+                        }
+                    }
+                    if (find == false) // quando o jogador errar :P
+                    {
+                        ScoreManager.instance.Miss();
+                        Instantiate(missHit, effectPosition, effectRotation);
+                        // Debug.Log($"Missed {inputIndex} note");
                         inputIndex++;
                     }
-                    else { Debug.Log($"Hit inaccurate on {inputIndex} note with {Math.Abs(audioTime - timeStamp)} delay"); }
-                }
-                if (timeStamp + marginError <= audioTime) // quando o jogador errar :P
-                {
-                    Miss();
-                    print($"Missed {inputIndex} note");
-                    inputIndex++;
                 }
             }
         }
-
-        private void Hit() { ScoreManager.Hit(); }
-
-        private void Miss() { ScoreManager.Miss(); }
     }
 }
