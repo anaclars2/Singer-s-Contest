@@ -18,27 +18,34 @@ namespace RhythmSystem
         [Header("Long Notes Settings")]
         public bool isLong = false;
         public float duration = 0; // apenas para notas longas
-        [SerializeField] LineRenderer lineRenderer;
-        [SerializeField] GameObject endedNote;
+        [SerializeField] GameObject spriteEnd;
 
         private void Start()
         {
             timeInstantiated = RhythmManager.GetAudioSourceTime();
             GetComponent<SpriteRenderer>().enabled = true;
-            /*lineRenderer = GetComponent<LineRenderer>();
-            endedNote = GetComponentInChildren<GameObject>();
 
             if (isLong == true)
             {
-                endedNote.SetActive(true);
-                lineRenderer.enabled = true;
-                DrawLineRenderer();
+                spriteEnd.SetActive(true);
+                RotationSpriteEnd();
             }
-            else
-            {
-                endedNote.SetActive(false);
-                lineRenderer.enabled = false;
-            }*/
+            else { spriteEnd.SetActive(false); }
+        }
+
+        private void RotationSpriteEnd()
+        {
+            float holdLength = noteSpeed * duration;
+            Vector3 endOffset = Vector3.zero;
+            Vector3 rot = transform.eulerAngles;
+
+            // direcao baseada na rotacao
+            // respectivamente, up arrow, down arrow e right/left arrow
+            if (Mathf.Approximately(rot.z, 90)) { endOffset = new Vector3(holdLength, 0, 0); }
+            else if (Mathf.Approximately(rot.z, 270)) { endOffset = new Vector3(-holdLength, 0, 0); }
+            else { endOffset = new Vector3(0, holdLength, 0); }
+
+            spriteEnd.transform.localPosition = endOffset;
         }
 
         private void Update()
@@ -50,16 +57,12 @@ namespace RhythmSystem
             float yOffset = (float)timeSinceInstantiated * noteSpeed;
             Vector3 vector = Vector3.up * (RhythmManager.instance.noteSpawnY - yOffset);
             transform.localPosition = vector;
-        }
 
-        private void DrawLineRenderer()
-        {
-            lineRenderer.SetPosition(0, transform.position); // comeco do lineRenderer
-
-            // fim da nota longa
-            float holdLength = noteSpeed * duration;
-            Vector3 endPosition = transform.position + Vector3.down * holdLength;
-            lineRenderer.SetPosition(1, endPosition);
+            if (isLong == true && spriteEnd != null)
+            {
+                float holdLength = noteSpeed * duration;
+                RotationSpriteEnd();
+            }
         }
 
         private void OnTriggerEnter2D(Collider2D collision)

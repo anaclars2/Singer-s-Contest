@@ -2,6 +2,7 @@ using Melanchall.DryWetMidi.Interaction;
 using Melanchall.DryWetMidi.MusicTheory;
 using System;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEditor.ShaderGraph;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -25,6 +26,8 @@ namespace RhythmSystem
         static float normalMargin = 0.5f;
         static float goodMargin = 0.25f;
         static float perfectMargin = 0.1f;
+        Note currentHeld; // para notas longas
+        float holdTimer = 0f; // para notas longas
 
         [Header("Effects Settings")]
         [SerializeField] GameObject normalHit;
@@ -84,10 +87,10 @@ namespace RhythmSystem
 
                     // verificando se a duracao é suficiente para ser uma nota longa
                     float duration = noteDurations[spawnIndex];
-                    if (duration > 0.7f) 
+                    n.duration = duration;
+                    if (duration > 0.03f)
                     {
                         n.isLong = true;
-                        n.duration = duration;
                     }
 
                     spawnIndex++; // ir para proxima nota 
@@ -126,35 +129,87 @@ namespace RhythmSystem
         {
             if (inputIndex < timeStamps.Count) // verificando as notas
             {
-                if (Input.GetKeyDown(input))
+                KeyDown();
+                KeyPressed(); // para as notas longas, segurando a tecla :D
+                KeyUp(); // tbm para notas longas
+            }
+        }
+
+        private void KeyDown()
+        {
+            if (Input.GetKeyDown(input))
+            {
+                for (int i = notes.Count - 1; i >= 0; i--)
                 {
-                    bool find = false;
-                    for (int i = notes.Count - 1; i >= 0; i--)
+                    if (notes[i].canBePressed == true)
                     {
-                        if (notes[i].canBePressed == true)
+                        Note note = notes[i];
+                        if (note.isLong == true)
                         {
-                            float colliderPosition = notes[i].colliderPosition;
-                            float position = notes[i].transform.position.y;
+                            currentHeld = note;
+                            holdTimer = 0f;
+                            Debug.Log("DOWN LONG NOTE");
+                        }
+                        else
+                        {
+                            float colliderPosition = note.colliderPosition;
+                            float position = note.transform.position.y;
                             CheckMargin(colliderPosition, position);
 
-                            Note temp = notes[i];
                             notes.RemoveAt(i);
-                            Destroy(temp.gameObject);
-
+                            Destroy(note.gameObject);
                             inputIndex++;
-                            // Debug.Log($"Hit on {inputIndex} note");
-                            find = true;
-                            break;
                         }
-                    }
-                    if (find == false) // quando o jogador errar :P
-                    {
-                        ScoreManager.instance.Miss();
-                        Instantiate(missHit, effectPosition, effectRotation);
-                        // Debug.Log($"Missed {inputIndex} note");
-                        inputIndex++;
+
+                        // Debug.Log($"Hit on {inputIndex} note");
+                        return;
                     }
                 }
+
+                // quando o jogador errar :P
+                ScoreManager.instance.Miss();
+                Instantiate(missHit, effectPosition, effectRotation);
+                inputIndex++;
+
+                // Debug.Log($"Missed {inputIndex} note");
+            }
+        }
+
+        private void KeyPressed()
+        {
+            if (Input.GetKey(input) == true && currentHeld != null)
+            {
+                holdTimer += Time.deltaTime;
+                // currentHeld.UpdateLine(holdTimer / currentHeld.duration);
+                Debug.Log("PRESSED LONG NOTE HAPPEN");
+
+                if (holdTimer >= currentHeld.duration) // nota longa concluida com sucesso
+                {
+                    float colliderPosition = currentHeld.colliderPosition;
+                    float position = currentHeld.transform.position.y;
+                    CheckMargin(colliderPosition, position);
+                    Debug.Log("PRESSED LONG NOTE SUCESS");
+                    notes.Remove(currentHeld);
+                    Destroy(currentHeld.gameObject);
+                    currentHeld = null;
+                    inputIndex++;
+                }
+            }
+        }
+
+        private void KeyUp()
+        {
+            // soltou antes do tempo
+            if (Input.GetKeyUp(input) == true && currentHeld != null)
+            {
+                ScoreManager.instance.Miss();
+                Instantiate(missHit, effectPosition, effectRotation);
+                Debug.Log("DOWN LONG NOTE PROBLEM");
+
+                notes.Remove(currentHeld);
+                Destroy(currentHeld.gameObject);
+                currentHeld = null;
+                inputIndex++;
             }
         }
     }
