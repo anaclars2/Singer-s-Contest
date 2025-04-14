@@ -6,12 +6,19 @@ using UnityEngine.Networking;
 using System;
 using System.Collections;
 using Melanchall.DryWetMidi.Interaction;
+using UnityEngine.UI;
 
 namespace RhythmSystem
 {
     public class RhythmManager : MonoBehaviour
     {
         public static RhythmManager instance;
+
+        [Header("Visual Settings")]
+        [SerializeField] Image imageProgress;
+        float songDuration;
+        float songTime;
+        bool songIsOver = false;
 
         [Header("Song Settings")]
         [SerializeField] MUSIC musicID;
@@ -27,8 +34,7 @@ namespace RhythmSystem
         [Header("Note Settings")]
         public float noteTime; // tempo na tela
         public float noteSpawnY;
-        [SerializeField] float noteTapY;
-        public float noteDespawnY { get { return noteTapY - (noteSpawnY - noteTapY); } }
+        public float noteTapY;
 
         private void Awake() // singleton
         {
@@ -42,7 +48,11 @@ namespace RhythmSystem
             fileLocation = GetFileLocation();
             midiFile = MidiFile.Read(Application.streamingAssetsPath + "/" + fileLocation);
             GetDataFromMidi();
+
+            songIsOver = false;
         }
+
+        private void Update() { ProgressMusic(); }
 
         private void GetDataFromMidi()
         {
@@ -80,6 +90,22 @@ namespace RhythmSystem
                     return midiLocation[i];
             }
             return null;
+        }
+
+        private void ProgressMusic()
+        {
+            songTime = AudioManager.instance.playerSource.time;
+            songDuration = AudioManager.instance.playerSource.clip.length;
+
+            if (songDuration > 0 && songIsOver == false)
+            {
+                imageProgress.fillAmount = songTime / songDuration;
+                if (songTime / songDuration > 0.99f)
+                {
+                    imageProgress.fillAmount = 1;
+                    songIsOver = true;
+                }
+            }
         }
     }
 }

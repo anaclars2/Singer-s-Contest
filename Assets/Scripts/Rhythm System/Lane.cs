@@ -16,6 +16,7 @@ namespace RhythmSystem
         [SerializeField] Arrow arrow;
         List<Note> notes = new List<Note>();
         [HideInInspector] public List<double> timeStamps = new List<double>();
+        List<float> noteDurations = new List<float>();
 
         int spawnIndex = 0;
         int inputIndex = 0;
@@ -43,12 +44,19 @@ namespace RhythmSystem
         // decididndo as notas que precisamos e nao precisamos
         public void SetTimeStamps(Melanchall.DryWetMidi.Interaction.Note[] array)
         {
+            var tempoMap = RhythmManager.midiFile.GetTempoMap();
             foreach (var note in array)
             {
                 if (note.NoteName == noteRestriction)
                 {
-                    var metricTimeSpan = TimeConverter.ConvertTo<MetricTimeSpan>(note.Time, RhythmManager.midiFile.GetTempoMap());
-                    timeStamps.Add((double)metricTimeSpan.Minutes * 60f + metricTimeSpan.Seconds + (double)metricTimeSpan.Milliseconds / 1000f);
+                    var metricTimeSpan = TimeConverter.ConvertTo<MetricTimeSpan>(note.Time, tempoMap);
+                    var durationTimeSpan = TimeConverter.ConvertTo<MetricTimeSpan>(note.Length, tempoMap);
+
+                    double startSeconds = metricTimeSpan.Minutes * 60f + metricTimeSpan.Seconds + (double)metricTimeSpan.Milliseconds / 1000f;
+                    double durationSeconds = durationTimeSpan.Minutes * 60f + durationTimeSpan.Seconds + (double)durationTimeSpan.Milliseconds / 1000f;
+
+                    timeStamps.Add(startSeconds);
+                    noteDurations.Add((float)durationSeconds);
                 }
             }
         }
@@ -72,7 +80,16 @@ namespace RhythmSystem
                     n.lane = this;
                     notes.Add(n); // referencia
 
-                    note.GetComponent<Note>().assignedTime = (float)timeStamps[spawnIndex]; // para a nota saber onde se posicionar
+                    n.assignedTime = (float)timeStamps[spawnIndex]; // para a nota saber onde se posicionar
+
+                    // verificando se a duracao é suficiente para ser uma nota longa
+                    float duration = noteDurations[spawnIndex];
+                    if (duration > 0.7f) 
+                    {
+                        n.isLong = true;
+                        n.duration = duration;
+                    }
+
                     spawnIndex++; // ir para proxima nota 
                 }
             }
