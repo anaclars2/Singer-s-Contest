@@ -6,11 +6,13 @@ namespace AudioSystem
     public class AudioManager : MonoBehaviour
     {
         // referenciando os audios sources, em outras palavras, os caras que sao fonte de som
+        public AudioSource playerSource;
         public AudioSource musicSource;
         [SerializeField] private AudioSource sfxSource;
 
         [SerializeField] private List<Audio> sfxList;
         [SerializeField] private List<Audio> musicList;
+        [SerializeField] private List<Audio> playerList;
 
         public static AudioManager instance;
 
@@ -42,12 +44,21 @@ namespace AudioSystem
                 sfxSource.PlayOneShot(audio.clip[index]);
             }
 
-            Debug.Log("index sfx: " + index + "\nrandom pitch: " + sfxSource.pitch);
+            // Debug.Log("index sfx: " + index + "\nrandom pitch: " + sfxSource.pitch);
         }
 
-        public void PlayMusic(MUSIC musicID, int index = -1)
+        public void PlayRhythmMusic(MUSIC musicID, int index = -1)
         {
-            Audio audio = musicList.Find(a => a.musicID == musicID);
+            PlayMusic(musicID, musicSource);
+            PlayMusic(musicID, playerSource);
+        }
+
+        public void PlayMusic(MUSIC musicID, AudioSource audioSource, int index = -1)
+        {
+            Audio audio;
+            if (audioSource == playerSource) { audio = playerList.Find(a => a.musicID == musicID); }
+            else { audio = musicList.Find(a => a.musicID == musicID); }
+
             if (audio != null && index < audio.clip.Count)
             {
                 /*Debug.Log("audio encontrado: " + audio.musicID +
@@ -56,19 +67,20 @@ namespace AudioSystem
 
                 if (index == -1) { index = UnityEngine.Random.Range(0, audio.clip.Count); } // determinando o audio p sorte
 
-                musicSource.Stop();
-                musicSource.clip = audio.clip[index];
-                musicSource.loop = true;
-                musicSource.Play();
+                audioSource.Stop();
+                audioSource.clip = audio.clip[index];
+                if (audio.isLoop == true) { audioSource.loop = true; }
+                audioSource.Play();
             }
 
-            Debug.Log("index music: " + index);
+            // Debug.Log("index music: " + index);
         }
         #endregion
 
         // parar de tocar os audios
         #region StopAudio
         public void StopMusic() { musicSource.Stop(); }
+        public void StopPlayer() { playerSource.Stop(); }
 
         public void StopSFX() { sfxSource.Stop(); }
         #endregion
@@ -82,7 +94,13 @@ namespace AudioSystem
             PlayerPrefs.Save();
             Debug.Log("volume music: " + volume);
         }
-
+        public void SetPlayerVolume(float volume)
+        {
+            playerSource.volume = volume;
+            PlayerPrefs.SetFloat("VolumePlayer", volume);
+            PlayerPrefs.Save();
+            Debug.Log("volume player: " + volume);
+        }
         public void SetSFXVolume(float volume)
         {
             sfxSource.volume = volume;
@@ -99,7 +117,11 @@ namespace AudioSystem
             float volume = PlayerPrefs.GetFloat("VolumeMusic", 0.2f);
             musicSource.volume = volume;
         }
-
+        public void GetPlayerVolume()
+        {
+            float volume = PlayerPrefs.GetFloat("VolumePlayer", 0.2f);
+            playerSource.volume = volume;
+        }
         public void GetSFXVolume()
         {
             float volume = PlayerPrefs.GetFloat("VolumeSFX", 0.5f);
@@ -110,7 +132,22 @@ namespace AudioSystem
         private void LoadVolumes()
         {
             GetMusicVolume();
+            GetPlayerVolume();
             GetSFXVolume();
         }
+
+        #region UnpauseAudio
+        public void UnpauseMusic() { musicSource.UnPause(); }
+        public void UnpausePlayer() { playerSource.UnPause(); }
+
+        public void UnpauseSFX() { sfxSource.UnPause(); }
+        #endregion
+
+        #region PauseAudio
+        public void PauseMusic() { musicSource.Pause(); }
+        public void PausePlayer() { playerSource.Pause(); }
+
+        public void PauseSFX() { sfxSource.Pause(); }
+        #endregion
     }
 }

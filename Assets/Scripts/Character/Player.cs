@@ -8,10 +8,10 @@ namespace CharacterSystem
         [SerializeField] float detectionRadius = 3f;
         [SerializeField] LayerMask interactableLayer;
         [SerializeField] LayerMask obstructionLayer;
+        [SerializeField] LayerMask playerLayer;
         [SerializeField] KeyCode input = KeyCode.E;
 
         GameObject currentTarget; // alvo visivel mais proximo
-        Outline targetOutline;
 
         private void Update()
         {
@@ -53,6 +53,9 @@ namespace CharacterSystem
 
                 if (Physics.Raycast(transform.position, direction, out RaycastHit hit, distance, interactableLayer | obstructionLayer))
                 {
+                    // se o que estiver na frente for o jogador
+                    // nao destaca o objeto
+                    if (((1 << hit.collider.gameObject.layer) & playerLayer) != 0) { Debug.Log("Player is blocking the view to " + GetComponent<Collider>().name); continue; ; }
                     if (hit.collider.gameObject == collider.gameObject)
                     {
                         Debug.Log("Interactive object detected: " + collider.name);
@@ -62,7 +65,7 @@ namespace CharacterSystem
                             closestDistance = distance;
                         }
                     }
-                    else { Debug.Log("Something is blocking the view to " + collider.name); }
+                    else { Debug.Log(hit.collider.gameObject.name + " is blocking the view to " + collider.name); }
 
                     Debug.DrawRay(transform.position, direction * distance, Color.red);
                 }

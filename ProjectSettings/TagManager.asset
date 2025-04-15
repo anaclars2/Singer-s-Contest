@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 3
   tags:
   - Activator
+  - Destroy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - Interactable
@@ -41,6 +42,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Arrow
+    uniqueID: 4092402855
     locked: 0
   m_RenderingLayers:
   - Default
