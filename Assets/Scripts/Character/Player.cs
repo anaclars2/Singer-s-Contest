@@ -55,7 +55,7 @@ namespace CharacterSystem
                 {
                     // se o que estiver na frente for o jogador
                     // nao destaca o objeto
-                    if (((1 << hit.collider.gameObject.layer) & playerLayer) != 0) { Debug.Log("Player is blocking the view to " + GetComponent<Collider>().name); continue; ; }
+                    if (((1 << hit.collider.gameObject.layer) & playerLayer) != 0) { Debug.Log("Player is blocking the view to " + collider.name); continue; ; }
                     if (hit.collider.gameObject == collider.gameObject)
                     {
                         Debug.Log("Interactive object detected: " + collider.name);

@@ -88,7 +88,7 @@ namespace RhythmSystem
                     // verificando se a duracao é suficiente para ser uma nota longa
                     float duration = noteDurations[spawnIndex];
                     n.duration = duration;
-                    if (duration > 0.03f)
+                    if (duration > 0.5f)
                     {
                         n.isLong = true;
                     }
@@ -148,6 +148,7 @@ namespace RhythmSystem
                         {
                             currentHeld = note;
                             holdTimer = 0f;
+                            note.isPressed = true;
                             Debug.Log("DOWN LONG NOTE");
                         }
                         else
@@ -188,7 +189,9 @@ namespace RhythmSystem
                     float colliderPosition = currentHeld.colliderPosition;
                     float position = currentHeld.transform.position.y;
                     CheckMargin(colliderPosition, position);
+
                     Debug.Log("PRESSED LONG NOTE SUCESS");
+
                     notes.Remove(currentHeld);
                     Destroy(currentHeld.gameObject);
                     currentHeld = null;

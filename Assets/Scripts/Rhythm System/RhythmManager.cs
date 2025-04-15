@@ -23,7 +23,6 @@ namespace RhythmSystem
         [Header("Song Settings")]
         [SerializeField] MUSIC musicID;
         public float songDelay; // em segundos
-        public int inputDelay; // em milisegundos
         [SerializeField] Lane[] lanes;
 
         [Header("MIDI Settings")]

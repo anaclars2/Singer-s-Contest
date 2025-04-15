@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2417474207209755633}
   - component: {fileID: 1558444558839599570}
+  - component: {fileID: 4371450157440027682}
   m_Layer: 0
   m_Name: sprite-end
   m_TagString: Untagged
@@ -87,6 +88,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4371450157440027682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736892046544687178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bae7b2859d8794e4eab4fd7758575706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noteSpeed: 0
+  note: {fileID: 0}
 --- !u!1 &5695886312208963425
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,8 +209,10 @@ MonoBehaviour:
   canBePressed: 0
   colliderPosition: 0
   isLong: 0
+  isPressed: 0
   duration: 0
   spriteEnd: {fileID: 736892046544687178}
+  spriteStart: {fileID: 0}
 --- !u!58 &7048171608681270581
 CircleCollider2D:
   m_ObjectHideFlags: 0

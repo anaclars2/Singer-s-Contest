@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace RhythmSystem
 {
@@ -17,23 +18,27 @@ namespace RhythmSystem
 
         [Header("Long Notes Settings")]
         public bool isLong = false;
+        [HideInInspector] public bool isPressed = false;
         public float duration = 0; // apenas para notas longas
         [SerializeField] GameObject spriteEnd;
+        [SerializeField] SpriteRenderer spriteStart;
 
         private void Start()
         {
+            spriteStart = GetComponent<SpriteRenderer>();
+            isPressed = false;
             timeInstantiated = RhythmManager.GetAudioSourceTime();
             GetComponent<SpriteRenderer>().enabled = true;
 
             if (isLong == true)
             {
                 spriteEnd.SetActive(true);
-                RotationSpriteEnd();
+                SpriteEndFollowParent();
             }
             else { spriteEnd.SetActive(false); }
         }
 
-        private void RotationSpriteEnd()
+        private void SpriteEndFollowParent()
         {
             float holdLength = noteSpeed * duration;
             Vector3 endOffset = Vector3.zero;
@@ -50,18 +55,25 @@ namespace RhythmSystem
 
         private void Update()
         {
-            // posicionando as notas com base no 'tempo de instanciacao' e 'quando deve ser tocada'
-            double timeSinceInstantiated = RhythmManager.GetAudioSourceTime() - timeInstantiated;
-
-            // calculando a nova posicao com base na velocidade constante
-            float yOffset = (float)timeSinceInstantiated * noteSpeed;
-            Vector3 vector = Vector3.up * (RhythmManager.instance.noteSpawnY - yOffset);
-            transform.localPosition = vector;
-
-            if (isLong == true && spriteEnd != null)
+            if (isPressed == false)
             {
-                float holdLength = noteSpeed * duration;
-                RotationSpriteEnd();
+                // posicionando as notas com base no 'tempo de instanciacao' e 'quando deve ser tocada'
+                double timeSinceInstantiated = RhythmManager.GetAudioSourceTime() - timeInstantiated;
+
+                // calculando a nova posicao com base na velocidade constante
+                float yOffset = (float)timeSinceInstantiated * noteSpeed;
+                Vector3 vector = Vector3.up * (RhythmManager.instance.noteSpawnY - yOffset);
+                transform.localPosition = vector;
+            }
+            else
+            {
+                if (isLong == true && spriteEnd != null)
+                {
+                    // garantindo que ele fique na mesma posicao depois de remover o pai
+                    spriteEnd.transform.SetParent(null, true);
+                    spriteEnd.gameObject.GetComponent<LongNoteEffect>().noteSpeed = noteSpeed;
+                    spriteEnd.gameObject.GetComponent<LongNoteEffect>().note = this;
+                }
             }
         }
 

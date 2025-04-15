@@ -12,7 +12,6 @@ namespace AudioSystem
 
         [SerializeField] private List<Audio> sfxList;
         [SerializeField] private List<Audio> musicList;
-        [SerializeField] private List<Audio> playerList;
 
         public static AudioManager instance;
 
@@ -49,15 +48,13 @@ namespace AudioSystem
 
         public void PlayRhythmMusic(MUSIC musicID, int index = -1)
         {
-            PlayMusic(musicID, musicSource);
-            PlayMusic(musicID, playerSource);
+            PlayMusic(musicID, musicSource, 0);
+            PlayMusic(musicID, playerSource, 1);
         }
 
         public void PlayMusic(MUSIC musicID, AudioSource audioSource, int index = -1)
         {
-            Audio audio;
-            if (audioSource == playerSource) { audio = playerList.Find(a => a.musicID == musicID); }
-            else { audio = musicList.Find(a => a.musicID == musicID); }
+            Audio audio = musicList.Find(a => a.musicID == musicID);
 
             if (audio != null && index < audio.clip.Count)
             {

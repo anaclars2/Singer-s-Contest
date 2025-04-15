@@ -17,6 +17,7 @@ MonoBehaviour:
   soundID: 0
   clip:
   - {fileID: 8300000, guid: 7a910d418aa2796409f6a2b38640ff22, type: 3}
+  - {fileID: 8300000, guid: b17f9eb83bdb68f42b5fe394777198d3, type: 3}
   isLoop: 0
   hasPitchVariation: 0
   minPitch: 1
