@@ -14,6 +14,10 @@ public class InventorySlot : MonoBehaviour
         currentItem = item;
         manager = inventoryManager;
         iconImage.sprite = item.icon;
+        iconImage.color = Color.white;
+        iconImage.enabled = true;
+
+        Debug.Log("Sprite atribuído ao slot: " + item.icon);
 
         GetComponent<Button>().onClick.RemoveAllListeners();
         GetComponent<Button>().onClick.AddListener(onClick);

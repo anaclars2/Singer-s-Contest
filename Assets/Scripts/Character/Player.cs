@@ -10,8 +10,11 @@ namespace CharacterSystem
         [SerializeField] LayerMask obstructionLayer;
         [SerializeField] LayerMask playerLayer;
         [SerializeField] KeyCode input = KeyCode.E;
+        [SerializeField] private GameObject inventoryUI;
+
 
         GameObject currentTarget; // alvo visivel mais proximo
+
 
         private void Update()
         {
@@ -22,8 +25,15 @@ namespace CharacterSystem
             {
                 Debug.Log("Interacting with: " + currentTarget.name);
                 // currentTarget.GetComponent<SeuScriptInterativo>()?.Interagir();
+                currentTarget.GetComponent<PickupItem>()?.interact();
+            }
+
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                inventoryUI.SetActive(!inventoryUI.activeSelf);
             }
         }
+
 
         #region Move
         public override void Move()
@@ -40,6 +50,7 @@ namespace CharacterSystem
         #region Interact
         private void DetectObjects()
         {
+            Debug.Log("Interact foi chamado");
             // deteccao em formato de esfera
             Collider[] hitColliders = Physics.OverlapSphere(transform.position, detectionRadius, interactableLayer);
 

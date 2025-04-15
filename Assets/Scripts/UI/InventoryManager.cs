@@ -29,6 +29,7 @@ public class InventoryManager : MonoBehaviour
     public void AddItem(InventoryItemSO newItem)
     {
         items.Add(newItem);
+        Debug.Log("Adicionado ao inventário: " + newItem.name + " | Sprite: " + newItem.icon);
         PopulateInventory();
     }
 
