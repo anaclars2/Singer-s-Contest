@@ -25,7 +25,6 @@ namespace CharacterSystem
             {
                 Debug.Log("Interacting with: " + currentTarget.name);
                 // currentTarget.GetComponent<SeuScriptInterativo>()?.Interagir();
-                currentTarget.GetComponent<PickupItem>()?.interact();
             }
 
             if (Input.GetKeyDown(KeyCode.I))
