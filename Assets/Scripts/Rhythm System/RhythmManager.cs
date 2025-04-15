@@ -9,13 +9,13 @@ using Melanchall.DryWetMidi.Interaction;
 using UnityEngine.UI;
 using UnityEditor.SearchService;
 using TMPro;
+using UserInterface;
+using UnityEngine.SceneManagement;
 
 namespace RhythmSystem
 {
     public class RhythmManager : MonoBehaviour
     {
-        public static RhythmManager instance;
-
         [Header("Visual Settings")]
         [SerializeField] Image imageProgress;
         float songDuration;
@@ -43,6 +43,8 @@ namespace RhythmSystem
         public int notesError;
         [SerializeField] TMP_Text allowedText;
         [SerializeField] TMP_Text errorText;
+        bool statisticsActived = false;
+        public static RhythmManager instance;
 
         private void Awake() // singleton
         {
@@ -129,9 +131,11 @@ namespace RhythmSystem
 
         private void CheckErrorNotes()
         {
-            if (notesError > allowedErrorRate)
+            if (notesError > allowedErrorRate && statisticsActived == false)
             {
-                // mostrar canvas de derrota e recarregar cena
+                statisticsActived = true;
+                InterfaceManager.instance.DoTransition(TRANSITION.CloseOpen, SCENES.Statistics);
+                // Time.timeScale = 0f;
             }
         }
     }

@@ -40,6 +40,8 @@ namespace RhythmSystem
         private void Start()
         {
             arrow = GetComponentInChildren<Arrow>();
+            arrow.transform.localPosition = new Vector3 (arrow.transform.localPosition.x, RhythmManager.instance.noteTapY, arrow.transform.localPosition.z);
+
             effectPosition = arrow.gameObject.transform.position;
             effectRotation = normalHit.gameObject.transform.rotation; // tanto faz pq todos tem a mesma rotacao
         }
