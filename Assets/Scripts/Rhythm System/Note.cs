@@ -89,11 +89,12 @@ namespace RhythmSystem
                 canBePressed = true;
             }
             else if (collision.tag == "Destroy") { Destroy(gameObject); }
+            else if (collision.tag == "Miss") { lane.MissNote(false); }
         }
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            if (collision.tag == "Activator") { canBePressed = false; }
+            if (collision.tag == "Activator") {  canBePressed = false;   }
         }
     }
 }

@@ -7,6 +7,8 @@ using System;
 using System.Collections;
 using Melanchall.DryWetMidi.Interaction;
 using UnityEngine.UI;
+using UnityEditor.SearchService;
+using TMPro;
 
 namespace RhythmSystem
 {
@@ -35,6 +37,13 @@ namespace RhythmSystem
         public float noteSpawnY;
         public float noteTapY;
 
+        [Header("Error Settings")]
+        [SerializeField, Range(0, 100)] int percentageError;
+        int allowedErrorRate;
+        public int notesError;
+        [SerializeField] TMP_Text allowedText;
+        [SerializeField] TMP_Text errorText;
+
         private void Awake() // singleton
         {
             if (instance == null) { instance = this; }
@@ -51,7 +60,14 @@ namespace RhythmSystem
             songIsOver = false;
         }
 
-        private void Update() { ProgressMusic(); }
+        private void Update()
+        {
+            ProgressMusic();
+            CheckErrorNotes();
+
+            errorText.text = "Error: " + notesError;
+            allowedText.text = "Allowed Error: " + allowedErrorRate;
+        }
 
         private void GetDataFromMidi()
         {
@@ -61,6 +77,10 @@ namespace RhythmSystem
 
             foreach (var lane in lanes) { lane.SetTimeStamps(arrayNote); }
             Invoke(nameof(StartMusic), songDelay);
+
+            // descobrindo o valor de notas que pode errar
+            int numberNotes = notes.Count;
+            allowedErrorRate = (numberNotes * percentageError) / 100;
         }
 
         private void StartMusic() { AudioManager.instance.PlayRhythmMusic(musicID); }
@@ -104,6 +124,14 @@ namespace RhythmSystem
                     imageProgress.fillAmount = 1;
                     songIsOver = true;
                 }
+            }
+        }
+
+        private void CheckErrorNotes()
+        {
+            if (notesError > allowedErrorRate)
+            {
+                // mostrar canvas de derrota e recarregar cena
             }
         }
     }

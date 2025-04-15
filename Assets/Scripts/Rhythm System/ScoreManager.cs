@@ -60,13 +60,15 @@ namespace RhythmSystem
             AudioManager.instance.PlaySfx(SOUND.Hit);
         }
 
-        public void Miss()
+        public void Miss(bool withSound = true)
         {
             RemoveMultipler();
 
-            comboScore -= scoreRemove;
-            scoreText.text = "Score: " + comboScore.ToString();
-            AudioManager.instance.PlaySfx(SOUND.Miss);
+            // comboScore -= scoreRemove;
+            // scoreText.text = "Score: " + comboScore.ToString();
+
+            if (withSound == true) { AudioManager.instance.PlaySfx(SOUND.Miss); }
+            RhythmManager.instance.notesError++;
         }
 
         private void AddMultipler()

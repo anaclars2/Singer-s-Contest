@@ -23,7 +23,7 @@ namespace RhythmSystem
         int inputIndex = 0;
 
         // para os inputs
-        static float normalMargin = 0.5f;
+        static float normalMargin = 0.8f;
         static float goodMargin = 0.25f;
         static float perfectMargin = 0.1f;
         Note currentHeld; // para notas longas
@@ -98,7 +98,7 @@ namespace RhythmSystem
             }
         }
 
-        public void CheckMargin(float collider, float position)
+        private void CheckMargin(float collider, float position)
         {
             float distance = Mathf.Abs(collider - position);
             string hit = " ";
@@ -137,29 +137,28 @@ namespace RhythmSystem
 
         private void KeyDown()
         {
-            if (Input.GetKeyDown(input))
+            if (Input.GetKeyDown(input)) // deu input
             {
                 for (int i = notes.Count - 1; i >= 0; i--)
                 {
                     if (notes[i].canBePressed == true)
                     {
                         Note note = notes[i];
-                        if (note.isLong == true)
+                        if (note.isLong == true) // se for longa 
                         {
                             currentHeld = note;
                             holdTimer = 0f;
                             note.isPressed = true;
                             Debug.Log("DOWN LONG NOTE");
                         }
-                        else
+                        else // se for uma nota curta
                         {
+                            // tem que destruir ela pq eke acertou
                             float colliderPosition = note.colliderPosition;
                             float position = note.transform.position.y;
                             CheckMargin(colliderPosition, position);
 
-                            notes.RemoveAt(i);
-                            Destroy(note.gameObject);
-                            inputIndex++;
+                            RemoveNote(note);
                         }
 
                         // Debug.Log($"Hit on {inputIndex} note");
@@ -168,8 +167,7 @@ namespace RhythmSystem
                 }
 
                 // quando o jogador errar :P
-                ScoreManager.instance.Miss();
-                Instantiate(missHit, effectPosition, effectRotation);
+                MissNote();
                 inputIndex++;
 
                 // Debug.Log($"Missed {inputIndex} note");
@@ -192,10 +190,9 @@ namespace RhythmSystem
 
                     Debug.Log("PRESSED LONG NOTE SUCESS");
 
-                    notes.Remove(currentHeld);
-                    Destroy(currentHeld.gameObject);
-                    currentHeld = null;
+                    RemoveNote(currentHeld);
                     inputIndex++;
+                    currentHeld = null;
                 }
             }
         }
@@ -205,15 +202,26 @@ namespace RhythmSystem
             // soltou antes do tempo
             if (Input.GetKeyUp(input) == true && currentHeld != null)
             {
-                ScoreManager.instance.Miss();
-                Instantiate(missHit, effectPosition, effectRotation);
-                Debug.Log("DOWN LONG NOTE PROBLEM");
-
-                notes.Remove(currentHeld);
-                Destroy(currentHeld.gameObject);
-                currentHeld = null;
+                MissNote();
+                RemoveNote(currentHeld);
                 inputIndex++;
+                currentHeld = null;
+
+                Debug.Log("DOWN LONG NOTE PROBLEM");
             }
         }
+
+        private void RemoveNote(Note _note = null)
+        {
+            notes.Remove(_note);
+            Destroy(_note.gameObject);
+        }
+
+        public void MissNote(bool withFeedback = true)
+        {
+            if (withFeedback == true) { Instantiate(missHit, effectPosition, effectRotation); }
+            ScoreManager.instance.Miss(withFeedback);
+        }
+
     }
 }
