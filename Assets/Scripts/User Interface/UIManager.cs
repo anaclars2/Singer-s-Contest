@@ -76,7 +76,6 @@ namespace UISystem
         {
             UIAnimation animation = animations.First(a => a.type == animationType);
             if (animation == null) { yield break; }
-            Debug.Log("AA");
             yield return animation.AnimateAnimationIn();
         }
 
