@@ -1,11 +1,6 @@
 using Melanchall.DryWetMidi.Interaction;
-using Melanchall.DryWetMidi.MusicTheory;
-using System;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
-using UnityEditor.ShaderGraph;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace RhythmSystem
 {
@@ -40,7 +35,7 @@ namespace RhythmSystem
         private void Start()
         {
             arrow = GetComponentInChildren<Arrow>();
-            arrow.transform.localPosition = new Vector3 (arrow.transform.localPosition.x, RhythmManager.instance.noteTapY, arrow.transform.localPosition.z);
+            arrow.transform.localPosition = new Vector3(arrow.transform.localPosition.x, RhythmManager.instance.noteTapY, arrow.transform.localPosition.z);
 
             effectPosition = arrow.gameObject.transform.position;
             effectRotation = normalHit.gameObject.transform.rotation; // tanto faz pq todos tem a mesma rotacao

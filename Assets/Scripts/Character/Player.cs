@@ -12,6 +12,7 @@ namespace CharacterSystem
         [SerializeField] KeyCode input = KeyCode.E;
 
         GameObject currentTarget; // alvo visivel mais proximo
+        [SerializeField] Animator animator;
 
         private void Update()
         {

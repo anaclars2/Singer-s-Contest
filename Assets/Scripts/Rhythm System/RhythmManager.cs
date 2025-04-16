@@ -1,16 +1,11 @@
-using UnityEngine;
 using AudioSystem;
 using Melanchall.DryWetMidi.Core;
-using System.IO;
-using UnityEngine.Networking;
-using System;
-using System.Collections;
 using Melanchall.DryWetMidi.Interaction;
-using UnityEngine.UI;
-using UnityEditor.SearchService;
+using System;
 using TMPro;
-using UserInterface;
-using UnityEngine.SceneManagement;
+using UISystem;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace RhythmSystem
 {
@@ -134,7 +129,7 @@ namespace RhythmSystem
             if (notesError > allowedErrorRate && statisticsActived == false)
             {
                 statisticsActived = true;
-                InterfaceManager.instance.DoTransition(TRANSITION.CloseOpen, SCENES.Statistics);
+                UIManager.instance.Transition(TRANSITION.CloseAndOpen, SCENES.Statistics);
                 // Time.timeScale = 0f;
             }
         }

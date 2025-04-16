@@ -2,7 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 
-namespace UserInterface
+namespace UISystem
 {
     public class CrossFade : SceneTransition
     {

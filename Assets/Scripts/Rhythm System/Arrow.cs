@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.Windows;
-using System;
 
 namespace RhythmSystem
 {

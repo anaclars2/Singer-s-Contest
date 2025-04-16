@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace RhythmSystem
 {
@@ -94,7 +93,7 @@ namespace RhythmSystem
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            if (collision.tag == "Activator") {  canBePressed = false;   }
+            if (collision.tag == "Activator") { canBePressed = false; }
         }
     }
 }

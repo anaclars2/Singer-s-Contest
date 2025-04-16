@@ -1,8 +1,7 @@
 using System.Collections;
 using UnityEngine;
-using UserInterface;
 
-namespace UserInterface
+namespace UISystem
 {
     public abstract class SceneTransition : MonoBehaviour
     {

@@ -1,11 +1,9 @@
-using UnityEngine;
-
-namespace UserInterface
+namespace UISystem
 {
     public enum TRANSITION
     {
         None,
         CrossFade,
-        CloseOpen
+        CloseAndOpen,
     }
 }

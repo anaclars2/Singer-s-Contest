@@ -1,7 +1,6 @@
-using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 using AudioSystem;
+using TMPro;
+using UnityEngine;
 
 namespace RhythmSystem
 {
