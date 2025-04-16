@@ -31,9 +31,6 @@ namespace UISystem
 
         private void Start()
         {
-            animationContainer.SetActive(false);
-            transitionContainer.SetActive(false);
-
             if (transitionContainer != null) { transitions = transitionContainer.GetComponentsInChildren<SceneTransition>(); }
             if (animationContainer != null) { animations = animationContainer.GetComponentsInChildren<UIAnimation>(); }
         }
@@ -41,7 +38,6 @@ namespace UISystem
         #region SceneTransition
         public void Transition(TRANSITION transitionType, SCENES scene = SCENES.None)
         {
-            transitionContainer.SetActive(true);
             StartCoroutine(IEnumeratorTransition(transitionType, scene));
         }
 
@@ -61,16 +57,12 @@ namespace UISystem
             }
             else { yield return new WaitForSeconds(0.7f); ; }
             yield return transition.AnimateTransitionOut();
-
-            transitionContainer.SetActive(false);
-            yield return null;
         }
         #endregion
 
         #region Animation
         public void Animation(ANIMATION animationType, bool starting)
         {
-            animationContainer.SetActive(true);
             if (starting == true) { StartCoroutine(IEnumeratorAnimationIn(animationType)); }
             else { StartCoroutine(IEnumeratorAnimationOut(animationType)); }
         }
@@ -79,10 +71,7 @@ namespace UISystem
         {
             UIAnimation animation = animations.First(a => a.type == animationType);
             if (animation == null) { yield break; }
-            Debug.Log("AA");
             yield return animation.AnimateAnimationIn();
-            animationContainer.SetActive(false);
-            yield return null;
         }
 
         private IEnumerator IEnumeratorAnimationOut(ANIMATION animationType)
@@ -91,8 +80,6 @@ namespace UISystem
             if (animation == null) { yield break; }
 
             yield return animation.AnimateAnimationOut();
-            animationContainer.SetActive(false);
-            yield return null;
         }
         #endregion
     }

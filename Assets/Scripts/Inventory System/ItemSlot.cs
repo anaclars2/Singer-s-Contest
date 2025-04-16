@@ -18,6 +18,7 @@ namespace InventorySystem
 
         [HideInInspector] public TMP_Text textName;
         [HideInInspector] public TMP_Text textDescription;
+        [HideInInspector] public Image imagemDescription;
 
         [HideInInspector] public bool isFull;
         [HideInInspector] public bool isSelected;
@@ -43,13 +44,23 @@ namespace InventorySystem
         public void OnLeftClick()
         {
             InventoryManager.instance.DeselectAllSlots();
-            Debug.Log("aaaaaaaaa");
 
-            itemSelected.SetActive(true);
-            isSelected = true;
+            if (isFull == true)
+            {
+                itemSelected.SetActive(true);
+                isSelected = true;
 
-            textName.text = itemName;
-            textDescription.text = itemDescription;
+                imagemDescription.sprite = itemSprite;
+                imagemDescription.gameObject.SetActive(true);
+                textName.text = itemName;
+                textDescription.text = itemDescription;
+            }
+            else
+            {
+                imagemDescription.gameObject.SetActive(false);
+                textName.text = null;
+                textDescription.text = null;
+            }
         }
 
         public void OnRightClick()

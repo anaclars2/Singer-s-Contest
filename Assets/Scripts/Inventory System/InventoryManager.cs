@@ -3,6 +3,7 @@ using TMPro;
 using UISystem;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Windows;
 using static UnityEditor.Progress;
 
@@ -16,6 +17,7 @@ namespace InventorySystem
         public GameObject inventoryMenu;
         [SerializeField] TMP_Text textName;
         [SerializeField] TMP_Text textDescription;
+        [SerializeField] Image imagemDescription;
 
         bool menuActivated; // ver se menu ta ativado :D
 
@@ -33,18 +35,28 @@ namespace InventorySystem
 
         private void Start()
         {
+            imagemDescription.gameObject.SetActive(false);
+            textName.text = null;
+            textDescription.text = null;
+
             if (containerSlot != null) { slots = containerSlot.GetComponentsInChildren<ItemSlot>(); }
             for (int i = 0; i < slots.Length; i++)
             {
                 slots[i].textName = textName;
                 slots[i].textDescription = textDescription;
+                slots[i].imagemDescription = imagemDescription;
             }
         }
 
         private void Update()
         {
             #region Input
-            if (UnityEngine.Input.GetKeyDown(input))
+            if (UnityEngine.Input.GetKeyDown(KeyCode.Escape) && menuActivated == true)
+            {
+                inventoryMenu.SetActive(false);
+                menuActivated = false;
+            }
+            else if (UnityEngine.Input.GetKeyDown(input))
             {
                 menuActivated = !menuActivated;
                 inventoryMenu.SetActive(menuActivated);
@@ -66,13 +78,11 @@ namespace InventorySystem
 
         public void DeselectAllSlots()
         {
-            Debug.Log("bbbbbbbbbb");
             for (int i = 0; i < slots.Length; i++)
             {
-                slots[i].itemSelected.SetActive(false);
                 slots[i].isSelected = false;
-                return;
-            }
+                slots[i].itemSelected.SetActive(false);
+            }            
         }
     }
 }

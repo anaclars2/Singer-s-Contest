@@ -16,7 +16,6 @@ namespace UISystem
 
         public override IEnumerator AnimateAnimationIn()
         {
-            Debug.Log("BB");
             image.rectTransform.anchoredPosition = new Vector2(0f, -image.rectTransform.rect.height);
             var tween = image.rectTransform.DOAnchorPosY(0, 1f);
             yield return tween.WaitForCompletion();
