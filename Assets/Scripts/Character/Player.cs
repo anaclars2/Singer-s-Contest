@@ -1,4 +1,5 @@
 using UnityEngine;
+using InventorySystem;
 
 namespace CharacterSystem
 {
@@ -22,7 +23,16 @@ namespace CharacterSystem
             if (Input.GetKeyDown(input) && currentTarget != null)
             {
                 Debug.Log("Interacting with: " + currentTarget.name);
-                // currentTarget.GetComponent<SeuScriptInterativo>()?.Interagir();
+                if (currentTarget.GetComponent<Item>() == true)
+                {
+                    Item item = currentTarget.GetComponent<Item>();
+                    InventoryManager.instance.AddItem(item);
+                    Destroy(currentTarget);
+                }
+                else
+                {
+                    // npc talk
+                }
             }
         }
 

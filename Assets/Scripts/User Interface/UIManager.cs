@@ -76,7 +76,6 @@ namespace UISystem
         {
             UIAnimation animation = animations.First(a => a.type == animationType);
             if (animation == null) { yield break; }
-            Debug.Log("AA");
             yield return animation.AnimateAnimationIn();
         }
 
@@ -91,7 +90,9 @@ namespace UISystem
 
         public void Play()
         {
+            Debug.Log("Funcionando?");
             SceneManager.LoadScene(levelName); //Adicionar a cena em que está o jogo
+            
         }
 
         public void OpenOptions()
