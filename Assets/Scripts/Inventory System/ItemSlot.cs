@@ -38,17 +38,19 @@ namespace InventorySystem
         public void OnPointerClick(PointerEventData eventData)
         {
             if (eventData.button == PointerEventData.InputButton.Left) { OnLeftClick(); }
-            if (eventData.button == PointerEventData.InputButton.Right) { OnRightClick(); }
         }
 
-        public void OnLeftClick()
+        private void OnLeftClick()
         {
             InventoryManager.instance.DeselectAllSlots();
+            
+            itemSelected.SetActive(true);
+            isSelected = true;
 
             if (isFull == true)
             {
-                itemSelected.SetActive(true);
-                isSelected = true;
+                textName.text = null;
+                textDescription.text = null;
 
                 imagemDescription.sprite = itemSprite;
                 imagemDescription.gameObject.SetActive(true);
@@ -61,12 +63,6 @@ namespace InventorySystem
                 textName.text = null;
                 textDescription.text = null;
             }
-        }
-
-        public void OnRightClick()
-        {
-            //  itemSelected.SetActive(false);
-            //  isSelected = false;
         }
     }
 }

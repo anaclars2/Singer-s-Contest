@@ -13,5 +13,21 @@ MonoBehaviour:
   m_Name: sword
   m_EditorClassIdentifier: 
   _name: ESPADA DA DONA
-  description: Rei arthur versao diva
+  description: 'Maecenas efficitur auctor velit. Suspendisse potenti. Aenean vehicula
+    malesuada neque. Nulla ullamcorper pharetra risus, at accumsan dolor. Sed gravida
+    leo vitae magna condimentum sagittis. Suspendisse et venenatis erat. Quisque
+    non suscipit purus. Fusce aliquam sed felis sed imperdiet.
+
+    
+
+    Suspendisse
+    potenti. Mauris lacinia facilisis feugiat. Quisque ullamcorper sem neque, vel
+    feugiat orci molestie ut. Aenean sit amet ipsum eu purus malesuada cursus. Nullam
+    vel rutrum est. Pellentesque id rhoncus lacus. In hac habitasse platea dictumst.
+    Vestibulum dignissim vitae odio in faucibus. Nulla non faucibus nunc. Mauris
+    maximus ex vitae tellus faucibus dictum. Quisque a tortor a nibh fermentum auctor
+    in id nunc. Donec accumsan eu lectus id luctus. Integer lorem dui, auctor non
+    laoreet eu, imperdiet et purus. Integer non ante et sem faucibus bibendum. Nunc
+    maximus massa purus, et mattis dolor commodo ut. Aenean eleifend euismod eros
+    eget mattis.'
   spriteIcon: {fileID: 21300000, guid: 06cd634b9321ab841b8df2a1d348c15b, type: 3}
