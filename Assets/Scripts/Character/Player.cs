@@ -5,46 +5,58 @@ namespace CharacterSystem
 {
     public class Player : Character
     {
+        public Animator animatorAnimations;
+        [SerializeField] Animator animatorFlip;
+        bool isMoving;
+        bool isMovingBackwards;
+
         [Header("Interact Settings")]
         [SerializeField] float detectionRadius = 3f;
         [SerializeField] LayerMask interactableLayer;
         [SerializeField] LayerMask obstructionLayer;
         [SerializeField] LayerMask playerLayer;
-        [SerializeField] KeyCode input = KeyCode.E;
+        public KeyCode input = KeyCode.E;
 
         GameObject currentTarget; // alvo visivel mais proximo
-        [SerializeField] Animator animator;
+
+        private void Start()
+        {
+            if (animatorFlip == null) { animatorFlip = GetComponent<Animator>(); }
+            if (animatorAnimations == null) { animatorAnimations = GetComponentInChildren<Animator>(); }
+            if (sprite == null) { sprite = GetComponentInChildren<SpriteRenderer>(); }
+        }
 
         private void Update()
         {
-            Move();
+            CharacterMove();
             DetectObjects();
 
-            if (Input.GetKeyDown(input) && currentTarget != null)
-            {
-                // Debug.Log("Interacting with: " + currentTarget.name);
-                if (currentTarget.GetComponent<Item>() == true)
-                {
-                    Item item = currentTarget.GetComponent<Item>();
-                    InventoryManager.instance.AddItem(item);
-                    Destroy(currentTarget);
-                }
-                else if (currentTarget.GetComponent<NPC>() == true)
-                {
-                    // npc talk
-                }
-            }
+            if (UnityEngine.Input.GetKeyDown(input) == true) { animatorAnimations.SetTrigger("isInteracting"); }
         }
 
         #region Move
-        public override void Move()
+        public override void CharacterMove()
         {
             // capturando o input continuo (valores entre -1 e 1)
             float x = Input.GetAxisRaw("Horizontal");
-            float y = Input.GetAxisRaw("Vertical");
+            float z = Input.GetAxisRaw("Vertical");
+            // Debug.Log("X: " + x + " | Z: " + z);
 
-            moveDirection = new Vector3(x, y, 0f).normalized;
+            moveDirection = new Vector3(x, 0f, z).normalized;
             transform.position += moveDirection * moveSpeed * Time.deltaTime;
+
+            // flip em x, para andar direita e esquerda
+            if (sprite.flipX == false && moveDirection.x < 0) { sprite.flipX = true; animatorFlip.SetTrigger("Flip"); }
+            else if (sprite.flipX == true && moveDirection.x > 0) { sprite.flipX = false; animatorFlip.SetTrigger("Flip"); }
+
+            // movendo-se
+            isMoving = moveDirection.magnitude > 0;
+            animatorAnimations.SetBool("isMoving", isMoving);
+
+            // movendo-se de costas
+            /* if (isMovingBackwards == false && moveDirection.y > 0) { isMovingBackwards = true; animatorFlip.SetTrigger("Flip"); }
+            else if(isMovingBackwards == true && moveDirection.y < 0) { isMovingBackwards = false; animatorFlip.SetTrigger("Flip"); }
+            animatorAnimations.SetBool("isMovingBackwards", isMovingBackwards);*/
         }
         #endregion
 
@@ -83,6 +95,24 @@ namespace CharacterSystem
             }
 
             HighlightTarget(closest);
+        }
+
+        public void Interact()
+        {
+            if (currentTarget != null)
+            {
+                // Debug.Log("Interacting with: " + currentTarget.name);
+                if (currentTarget.GetComponent<Item>() == true)
+                {
+                    Item item = currentTarget.GetComponent<Item>();
+                    InventoryManager.instance.AddItem(item);
+                    Destroy(currentTarget);
+                }
+                else if (currentTarget.GetComponent<NPC>() == true)
+                {
+                    // npc talk
+                }
+            }
         }
 
         private void HighlightTarget(GameObject newTarget)

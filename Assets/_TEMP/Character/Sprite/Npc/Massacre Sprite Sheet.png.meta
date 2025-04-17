@@ -1,0 +1,646 @@
+fileFormatVersion: 2
+guid: 5ec8e35c248320442b2ba4e5f0941470
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Massacre Sprite Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 192
+        width: 61
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69e323274c3f8a74a9fe6e2b7d43379b
+      internalID: 452276159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Massacre Sprite Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 192
+        width: 61
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f84e9b40f2fb5504ebcca4db7b404b38
+      internalID: 43863533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Massacre Sprite Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 192
+        width: 61
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 226dcc1c9b653454dbbd85adf348a5cd
+      internalID: -1540986003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Massacre Sprite Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 192
+        width: 61
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47b1ee1667b79d64d81bd45d6d8440b0
+      internalID: -1118864147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Massacre Sprite Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 192
+        width: 61
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 730f29f1892e86740b3a2d9271bf9300
+      internalID: -1155889844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Massacre Sprite Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 192
+        width: 61
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6c7a10cf8973634e9ec981b99493f8d
+      internalID: 794022194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Massacre Sprite Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 128
+        width: 57
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f23e138529295524e94faa1470af9a69
+      internalID: 539628224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Massacre Sprite Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 130
+        width: 58
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a03f60f030ecff40b47f6495fd6a69b
+      internalID: -860613355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Massacre Sprite Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 134
+        width: 62
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbad347dceb27514b9cd1e117472d91c
+      internalID: -1178794971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Massacre Sprite Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 133
+        width: 55
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ac88044ae717a74aa92f861fedbfbd0
+      internalID: -629474456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Massacre Sprite Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 128
+        width: 55
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1754a46aedeadb4487311e634c1396b
+      internalID: -2015245439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Massacre Sprite Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 64
+        width: 50
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 395a4d7bd33ea724f937cb31b7575e99
+      internalID: 644711618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Massacre Sprite Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 64
+        width: 48
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f83e13a22135ef45b652d720b17122e
+      internalID: 1816593706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Massacre Sprite Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 64
+        width: 50
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9dc982491f2a754d9d92319d3e1a184
+      internalID: -882083263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Massacre Sprite Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 64
+        width: 60
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dd9fb4209a72eb4684d720795680fd2
+      internalID: -217290263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Massacre Sprite Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 0
+        width: 60
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6030404e351507549b0c6953504382e8
+      internalID: -1401955259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Massacre Sprite Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 0
+        width: 60
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43d411caa66bfe644aa324cc000c200c
+      internalID: -965911126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Massacre Sprite Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 0
+        width: 60
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b10b0c158c62bf24e9c1668b7f8fe11a
+      internalID: -146510650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Massacre Sprite Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 0
+        width: 60
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c77d736038fe2248ac168be6a1de89a
+      internalID: 1841172379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Massacre Sprite Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 0
+        width: 53
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efb950befc5a9104d8289b8843098b67
+      internalID: 720164620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Massacre Sprite Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 0
+        width: 55
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a538843659bb7474e829df240da06c9c
+      internalID: 1497597441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Massacre Sprite Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 0
+        width: 47
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 644cd2c4e5bdf3f4f9ca20528ce23e8b
+      internalID: 811961995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: d9951c80f13b3764bbf2abecca870294
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Massacre Sprite Sheet_0: 452276159
+      Massacre Sprite Sheet_1: 43863533
+      Massacre Sprite Sheet_10: -2015245439
+      Massacre Sprite Sheet_11: 644711618
+      Massacre Sprite Sheet_12: 1816593706
+      Massacre Sprite Sheet_13: -882083263
+      Massacre Sprite Sheet_14: -217290263
+      Massacre Sprite Sheet_15: -1401955259
+      Massacre Sprite Sheet_16: 321966597
+      Massacre Sprite Sheet_17: -965911126
+      Massacre Sprite Sheet_18: 1379336692
+      Massacre Sprite Sheet_19: -146510650
+      Massacre Sprite Sheet_2: -1540986003
+      Massacre Sprite Sheet_20: 513439818
+      Massacre Sprite Sheet_21: 1841172379
+      Massacre Sprite Sheet_22: 1616762407
+      Massacre Sprite Sheet_23: -271082371
+      Massacre Sprite Sheet_24: 720164620
+      Massacre Sprite Sheet_25: 1285306015
+      Massacre Sprite Sheet_26: -734367537
+      Massacre Sprite Sheet_27: 1497597441
+      Massacre Sprite Sheet_28: -1043440444
+      Massacre Sprite Sheet_29: 811961995
+      Massacre Sprite Sheet_3: -1118864147
+      Massacre Sprite Sheet_30: -1325293776
+      Massacre Sprite Sheet_31: 918578799
+      Massacre Sprite Sheet_4: -1155889844
+      Massacre Sprite Sheet_5: 794022194
+      Massacre Sprite Sheet_6: 539628224
+      Massacre Sprite Sheet_7: -860613355
+      Massacre Sprite Sheet_8: -1178794971
+      Massacre Sprite Sheet_9: -629474456
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
