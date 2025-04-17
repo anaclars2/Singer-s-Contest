@@ -28,14 +28,6 @@ public class GameManager : MonoBehaviour
         // decidir ainda AudioManager.instance.PlaySfx();
     }
 
-    private void Awake()
-    {
-        if (instance == null) { instance = this; } 
-        else Destroy(gameObject);
-
-        DontDestroyOnLoad(gameObject);
-    }
-
     public void StartGame()
     {
         Debug.Log("Carregando cena..");
