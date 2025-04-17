@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 50abcfebabb6cf8408983cb8ddf38f58, type: 3}
-  m_Name: fish
+  m_Name: Fish
   m_EditorClassIdentifier: 
   _name: OLHA O PEIXE
   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam mauris
@@ -25,7 +25,7 @@ MonoBehaviour:
     tempor dapibus. Ut porta tempor turpis, vitae laoreet ligula porta sit amet.
     Phasellus ut pellentesque mauris. Morbi lobortis rhoncus erat sed varius.
 
-    
+
 
     Suspendisse
     consequat semper augue. Nunc sapien risus, pretium eget aliquet quis, sollicitudin
