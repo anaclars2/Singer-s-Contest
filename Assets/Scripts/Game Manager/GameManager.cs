@@ -24,11 +24,7 @@ public class GameManager : MonoBehaviour
         // decidir ainda AudioManager.instance.PlaySfx();
     }
 
-    public void StartGame()
-    {
-        Debug.Log("Carregando cena..");
-        SceneManager.LoadScene(levelToLoad);
-    }
+    public void LoadScene() { SceneManager.LoadScene(levelToLoad); }
 
     /*  public void ChangeScene()
       {

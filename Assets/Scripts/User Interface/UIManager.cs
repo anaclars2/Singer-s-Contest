@@ -1,3 +1,4 @@
+using RhythmSystem;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
@@ -16,11 +17,6 @@ namespace UISystem
         [Header("Animations Settings")]
         [SerializeField] GameObject animationContainer;
         UIAnimation[] animations;
-
-        [Header("Menu")]
-        [SerializeField] private string levelName;
-        [SerializeField] private GameObject mainMenuPanel;
-        [SerializeField] private GameObject optionsPanel;
 
         public static UIManager instance;
 
@@ -86,38 +82,5 @@ namespace UISystem
             yield return animation.AnimateAnimationOut();
         }
         #endregion
-
-        public void Play()
-        {
-            StartCoroutine(PlayWithAnimation());
-            //SceneManager.LoadScene(levelName); //Adicionar a cena em que está o jogo
-
-        }
-
-        private IEnumerator PlayWithAnimation()
-        {
-            Transition(TRANSITION.CloseAndOpen, (SCENES)GameManager.instance.levelToLoad);
-
-            yield return new WaitForSeconds(1f);
-
-            GameManager.instance.StartGame();
-        }
-
-        public void OpenOptions()
-        {
-            mainMenuPanel.SetActive(false);
-            optionsPanel.SetActive(true);
-        }
-
-        public void CloseOptions()
-        {
-            mainMenuPanel.SetActive(true);
-            optionsPanel.SetActive(false);
-        }
-        public void QuitGame()
-        {
-            Debug.Log("Leave Game");
-            Application.Quit();
-        }
     }
 }
