@@ -36,6 +36,7 @@ namespace UISystem
 
         private void Start()
         {
+            Debug.Log("GM: " + GameManager.instance);
             if (transitionContainer != null) { transitions = transitionContainer.GetComponentsInChildren<SceneTransition>(); }
             if (animationContainer != null) { animations = animationContainer.GetComponentsInChildren<UIAnimation>(); }
         }
@@ -90,9 +91,18 @@ namespace UISystem
 
         public void Play()
         {
-            Debug.Log("Funcionando?");
-            SceneManager.LoadScene(levelName); //Adicionar a cena em que está o jogo
+            StartCoroutine(PlayWithAnimation());
+            //SceneManager.LoadScene(levelName); //Adicionar a cena em que está o jogo
             
+        }
+
+        private IEnumerator PlayWithAnimation()
+        { 
+                Transition(TRANSITION.CloseAndOpen, SCENES.Exploration);
+
+            yield return new WaitForSeconds(1f);
+
+            GameManager.instance.StartGame();
         }
 
         public void OpenOptions()

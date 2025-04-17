@@ -5,6 +5,7 @@ namespace UISystem
         None,
         LogoMenu,
         ButtonMenu,
-        SlideInAndOut
+        SlideInAndOut,
+
     }
 }

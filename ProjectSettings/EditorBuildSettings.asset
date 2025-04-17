@@ -9,11 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 908f13556f95beb46b680dc81565c791
   - enabled: 1
+    path: Assets/Scenes/_TEMP/_TEMP-INVENTORY.unity
+    guid: 46eb5afef6385e14ea0e7ea8a5c3e7b9
+  - enabled: 1
     path: Assets/Scenes/_TEMP/_TEMP-RHYTHM.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 0
-    path: Assets/Scenes/New Scene.unity
-    guid: a354fc79b3439244e8a5f75ccb66050d
   - enabled: 0
     path: Assets/Scenes/New Scene 1.unity
     guid: 6c9834fb650c4c74295f85d084dd8051
