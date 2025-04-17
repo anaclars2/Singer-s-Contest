@@ -5,7 +5,5 @@ public enum SCENES
     Rythm = 2,
     Statistics = 3,
     VisualNovel = 4,
-    Settings = 5,
-    Credits = 6,
     None = 100
 }

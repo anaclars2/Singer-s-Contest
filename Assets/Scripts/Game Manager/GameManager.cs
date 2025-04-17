@@ -1,18 +1,30 @@
 using UnityEngine;
 using UISystem;
 using AudioSystem;
+using UnityEditor.Build.Profile;
+using UnityEngine.SceneManagement;
+using UnityEditor.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private void Start()
+    static int indexScene = 1;
+    int totalScenesInBuild;
+
+    public static GameManager instance;
+    private void Awake() // singleton
     {
-        UIManager.instance.Animation(ANIMATION.SlideInAndOut, true);
-        // decidir ainda AudioManager.instance.PlaySfx();
+        if (instance == null) { instance = this; }
+        else { Destroy(gameObject); }
+
+        DontDestroyOnLoad(gameObject);
     }
 
-    private void Update()
+    private void Start()
     {
-        Test();
+        totalScenesInBuild = SceneManager.sceneCountInBuildSettings;
+
+        // UIManager.instance.Animation(ANIMATION.SlideInAndOut, true);
+        // decidir ainda AudioManager.instance.PlaySfx();
     }
 
     private void Test()
@@ -24,6 +36,20 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
         {
             UIManager.instance.Animation(ANIMATION.SlideInAndOut, false);
+        }
+    }
+
+    public void ChangeScene()
+    {
+        if (indexScene < totalScenesInBuild)
+        {
+            UIManager.instance.Transition(TRANSITION.CloseAndOpen, (SCENES)indexScene);
+            indexScene++;
+        }
+        else
+        {
+            indexScene = 0;
+            UIManager.instance.Transition(TRANSITION.CloseAndOpen, (SCENES)indexScene);
         }
     }
 }
