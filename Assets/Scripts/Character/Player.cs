@@ -45,13 +45,13 @@ namespace CharacterSystem
             moveDirection = new Vector3(x, 0f, z).normalized;
             transform.position += moveDirection * moveSpeed * Time.deltaTime;
 
-            // flip em x, para andar direita e esquerda
-            if (sprite.flipX == false && moveDirection.x < 0) { sprite.flipX = true; animatorFlip.SetTrigger("Flip"); }
-            else if (sprite.flipX == true && moveDirection.x > 0) { sprite.flipX = false; animatorFlip.SetTrigger("Flip"); }
-
             // movendo-se
             isMoving = moveDirection.magnitude > 0;
             animatorAnimations.SetBool("isMoving", isMoving);
+
+            // flip em x, para andar direita e esquerda
+            if (sprite.flipX == false && moveDirection.x < 0) { sprite.flipX = true; animatorFlip.SetTrigger("Flip"); }
+            else if (sprite.flipX == true && moveDirection.x > 0) { sprite.flipX = false; animatorFlip.SetTrigger("Flip"); }
 
             // movendo-se de costas
             /* if (isMovingBackwards == false && moveDirection.y > 0) { isMovingBackwards = true; animatorFlip.SetTrigger("Flip"); }
