@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
     static int indexScene = 1;
     int totalScenesInBuild;
+    [SerializeField] private string levelToLoad;
 
     public static GameManager instance;
     private void Awake() // singleton
@@ -27,16 +28,18 @@ public class GameManager : MonoBehaviour
         // decidir ainda AudioManager.instance.PlaySfx();
     }
 
-    private void Test()
+    private void Awake()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            UIManager.instance.Animation(ANIMATION.SlideInAndOut, true);
-        }
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            UIManager.instance.Animation(ANIMATION.SlideInAndOut, false);
-        }
+        if (instance == null) { instance = this; } 
+        else Destroy(gameObject);
+
+        DontDestroyOnLoad(gameObject);
+    }
+
+    public void StartGame()
+    {
+        Debug.Log("Carregando cena..");
+        SceneManager.LoadScene(levelToLoad);
     }
 
     public void ChangeScene()
