@@ -1,0 +1,152 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6601644916248454648
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: af8ab774ee5a4064ba4ad15d5d08109b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: af8ab774ee5a4064ba4ad15d5d08109b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: af8ab774ee5a4064ba4ad15d5d08109b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: af8ab774ee5a4064ba4ad15d5d08109b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.65
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: af8ab774ee5a4064ba4ad15d5d08109b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: af8ab774ee5a4064ba4ad15d5d08109b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: af8ab774ee5a4064ba4ad15d5d08109b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: af8ab774ee5a4064ba4ad15d5d08109b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: af8ab774ee5a4064ba4ad15d5d08109b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: af8ab774ee5a4064ba4ad15d5d08109b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: af8ab774ee5a4064ba4ad15d5d08109b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: af8ab774ee5a4064ba4ad15d5d08109b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: af8ab774ee5a4064ba4ad15d5d08109b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: af8ab774ee5a4064ba4ad15d5d08109b, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: af8ab774ee5a4064ba4ad15d5d08109b, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9d0da3bb07875d643b66c7ad21dd8934, type: 2}
+    - target: {fileID: 919132149155446097, guid: af8ab774ee5a4064ba4ad15d5d08109b, type: 3}
+      propertyPath: m_Name
+      value: paperPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: af8ab774ee5a4064ba4ad15d5d08109b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: af8ab774ee5a4064ba4ad15d5d08109b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5963905591325384244}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: af8ab774ee5a4064ba4ad15d5d08109b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8241961158605231991}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: af8ab774ee5a4064ba4ad15d5d08109b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8460472997564926010}
+  m_SourcePrefab: {fileID: 100100000, guid: af8ab774ee5a4064ba4ad15d5d08109b, type: 3}
+--- !u!1 &6295091934130968745 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: af8ab774ee5a4064ba4ad15d5d08109b, type: 3}
+  m_PrefabInstance: {fileID: 6601644916248454648}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &5963905591325384244
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6295091934130968745}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.2187545, y: 0.005183333, z: 0.2340241}
+  m_Center: {x: -0.0008107163, y: 0.0025916665, z: -0.0007397907}
+--- !u!114 &8241961158605231991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6295091934130968745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1251b81d472c87d4d9a78bc2f897c239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 11400000, guid: f04ff1c6782904446b07101f6d1f4324, type: 2}
+  _name: 
+  description: 
+  spriteIcon: {fileID: 0}
+--- !u!114 &8460472997564926010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6295091934130968745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
