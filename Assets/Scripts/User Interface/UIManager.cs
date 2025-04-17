@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Linq;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using static System.TimeZoneInfo;
 
 namespace UISystem
 {
@@ -93,12 +91,12 @@ namespace UISystem
         {
             StartCoroutine(PlayWithAnimation());
             //SceneManager.LoadScene(levelName); //Adicionar a cena em que está o jogo
-            
+
         }
 
         private IEnumerator PlayWithAnimation()
-        { 
-                Transition(TRANSITION.CloseAndOpen, SCENES.Exploration);
+        {
+            Transition(TRANSITION.CloseAndOpen, (SCENES)GameManager.instance.levelToLoad);
 
             yield return new WaitForSeconds(1f);
 

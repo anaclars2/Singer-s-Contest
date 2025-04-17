@@ -129,7 +129,8 @@ namespace RhythmSystem
             if (notesError > allowedErrorRate && statisticsActived == false)
             {
                 statisticsActived = true;
-                UIManager.instance.Transition(TRANSITION.CloseAndOpen, SCENES.Statistics);
+                UIManager.instance.Transition(TRANSITION.CloseAndOpen, (SCENES)0);
+                AudioManager.instance.StopPlayer();
                 // Time.timeScale = 0f;
             }
         }

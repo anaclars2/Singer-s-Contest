@@ -1,11 +1,6 @@
-using NUnit.Framework.Interfaces;
 using TMPro;
-using UISystem;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Windows;
-using static UnityEditor.Progress;
 
 namespace InventorySystem
 {

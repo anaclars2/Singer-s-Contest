@@ -1,15 +1,11 @@
 using UnityEngine;
-using UISystem;
-using AudioSystem;
-using UnityEditor.Build.Profile;
 using UnityEngine.SceneManagement;
-using UnityEditor.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     static int indexScene = 1;
     int totalScenesInBuild;
-    [SerializeField] private string levelToLoad;
+    public int levelToLoad;
 
     public static GameManager instance;
     private void Awake() // singleton
@@ -17,7 +13,7 @@ public class GameManager : MonoBehaviour
         if (instance == null) { instance = this; }
         else { Destroy(gameObject); }
 
-        DontDestroyOnLoad(gameObject);
+        // DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
@@ -34,17 +30,17 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(levelToLoad);
     }
 
-    public void ChangeScene()
-    {
-        if (indexScene < totalScenesInBuild)
-        {
-            UIManager.instance.Transition(TRANSITION.CloseAndOpen, (SCENES)indexScene);
-            indexScene++;
-        }
-        else
-        {
-            indexScene = 0;
-            UIManager.instance.Transition(TRANSITION.CloseAndOpen, (SCENES)indexScene);
-        }
-    }
+    /*  public void ChangeScene()
+      {
+          if (indexScene < totalScenesInBuild)
+          {
+              UIManager.instance.Transition(TRANSITION.CloseAndOpen, (SCENES)indexScene);
+              indexScene++;
+          }
+          else
+          {
+              indexScene = 0;
+              UIManager.instance.Transition(TRANSITION.CloseAndOpen, (SCENES)indexScene);
+          }
+      }*/
 }
