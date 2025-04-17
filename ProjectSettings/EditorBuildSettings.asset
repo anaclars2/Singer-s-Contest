@@ -5,13 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/_TEMP/_TEMP-RHYTHM.unity
-    guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
     path: Assets/Scenes/Menu.unity
-    guid: bb3db071bf673fc4ca42e39c87b5b0d5
+    guid: 908f13556f95beb46b680dc81565c791
   - enabled: 1
+    path: Assets/Scenes/_TEMP/_TEMP-RHYTHM.unity
+    guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 0
     path: Assets/Scenes/New Scene.unity
     guid: a354fc79b3439244e8a5f75ccb66050d
   - enabled: 0
