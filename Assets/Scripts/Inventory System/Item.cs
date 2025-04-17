@@ -11,7 +11,7 @@ namespace InventorySystem
 
         private void Start()
         {
-            _name = itemData.name;
+            _name = itemData._name;
             description = itemData.description;
             spriteIcon = itemData.spriteIcon;
         }

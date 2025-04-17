@@ -44,12 +44,12 @@ namespace InventorySystem
         public void OnLeftClick()
         {
             InventoryManager.instance.DeselectAllSlots();
+            
+            itemSelected.SetActive(true);
+            isSelected = true;
 
             if (isFull == true)
             {
-                itemSelected.SetActive(true);
-                isSelected = true;
-
                 imagemDescription.sprite = itemSprite;
                 imagemDescription.gameObject.SetActive(true);
                 textName.text = itemName;

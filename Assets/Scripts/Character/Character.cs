@@ -4,8 +4,8 @@ namespace CharacterSystem
 {
     public abstract class Character : MonoBehaviour
     {
-        [Header("Character Settings")]
-        public Sprite sprite;
+        // [Header("Character Settings")]
+        // public Sprite sprite;
 
         [Header("Move Settings")]
         [SerializeField] protected float moveSpeed = 5f;

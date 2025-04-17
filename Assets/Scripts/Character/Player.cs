@@ -22,14 +22,14 @@ namespace CharacterSystem
 
             if (Input.GetKeyDown(input) && currentTarget != null)
             {
-                Debug.Log("Interacting with: " + currentTarget.name);
+                // Debug.Log("Interacting with: " + currentTarget.name);
                 if (currentTarget.GetComponent<Item>() == true)
                 {
                     Item item = currentTarget.GetComponent<Item>();
                     InventoryManager.instance.AddItem(item);
                     Destroy(currentTarget);
                 }
-                else
+                else if (currentTarget.GetComponent<NPC>() == true)
                 {
                     // npc talk
                 }
@@ -69,7 +69,7 @@ namespace CharacterSystem
                     if (((1 << hit.collider.gameObject.layer) & playerLayer) != 0) { Debug.Log("Player is blocking the view to " + collider.name); continue; ; }
                     if (hit.collider.gameObject == collider.gameObject)
                     {
-                        Debug.Log("Interactive object detected: " + collider.name);
+                        // Debug.Log("Interactive object detected: " + collider.name);
                         if (distance < closestDistance)
                         {
                             closest = collider.gameObject;
