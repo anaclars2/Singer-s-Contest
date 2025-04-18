@@ -30,7 +30,6 @@ namespace UISystem
 
         private void Start()
         {
-            Debug.Log("GM: " + GameManager.instance);
             if (transitionContainer != null) { transitions = transitionContainer.GetComponentsInChildren<SceneTransition>(); }
             if (animationContainer != null) { animations = animationContainer.GetComponentsInChildren<UIAnimation>(); }
         }

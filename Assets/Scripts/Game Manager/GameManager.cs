@@ -1,42 +1,50 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UISystem;
 
 public class GameManager : MonoBehaviour
 {
-    static int indexScene = 1;
-    int totalScenesInBuild;
-    public int levelToLoad;
+    // static int indexScene = 1;
+    // int totalScenesInBuild;
+    public SCENES sceneToLoad;
 
     public static GameManager instance;
+
     private void Awake() // singleton
     {
         if (instance == null) { instance = this; }
         else { Destroy(gameObject); }
 
-        // DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
     {
-        totalScenesInBuild = SceneManager.sceneCountInBuildSettings;
-
-        // UIManager.instance.Animation(ANIMATION.SlideInAndOut, true);
-        // decidir ainda AudioManager.instance.PlaySfx();
+        UIManager.instance.Animation(ANIMATION.SlideInAndOut, true);
+        // AudioManager.instance.PlaySfx();
     }
 
-    public void LoadScene() { SceneManager.LoadScene(levelToLoad); }
+    public void LoadScene() { SceneManager.LoadScene((int)sceneToLoad); }
 
-    /*  public void ChangeScene()
-      {
-          if (indexScene < totalScenesInBuild)
-          {
-              UIManager.instance.Transition(TRANSITION.CloseAndOpen, (SCENES)indexScene);
-              indexScene++;
-          }
-          else
-          {
-              indexScene = 0;
-              UIManager.instance.Transition(TRANSITION.CloseAndOpen, (SCENES)indexScene);
-          }
-      }*/
+    public void LoadSceneWithTransition(TRANSITION transition = TRANSITION.CloseAndOpen) { UIManager.instance.Transition(transition, sceneToLoad); }
+
+    #region AutoChangeScene
+    // START
+    // totalScenesInBuild = SceneManager.sceneCountInBuildSettings;
+
+    // private void Update() { indexScene = SceneManager.GetActiveScene().buildIndex + 1; }
+
+    /* public void ChangeScene(TRANSITION transition = TRANSITION.CloseAndOpen)
+     {
+         if (indexScene < totalScenesInBuild)
+         {
+             UIManager.instance.Transition(transition, (SCENES)indexScene);
+         }
+         else
+         {
+             indexScene = 0;
+             UIManager.instance.Transition(transition, (SCENES)indexScene);
+         }
+     }*/
+    #endregion
 }
