@@ -1,11 +1,15 @@
+using SaveSystem;
+using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace InventorySystem
 {
-    public class InventoryManager : MonoBehaviour
+    public class InventoryManager : MonoBehaviour, IDataPersistence
     {
+        int test;
         [SerializeField] KeyCode input;
 
         [Header("UI Settings")]
@@ -77,7 +81,31 @@ namespace InventorySystem
             {
                 slots[i].isSelected = false;
                 slots[i].itemSelected.SetActive(false);
-            }            
+            }
         }
+
+        #region SaveData
+        public void LoadData(GameData data)
+        {
+            /* for (int i = 0; i < slots.Length; i++)
+             {
+                 slots[i] = data.slots[i];
+                 // if (data.slots[i].isFull == true) { slots[i].AddItem(data.slots[i].item); }
+             }*/
+
+            test = data.test;
+        }
+
+        public void SaveData(GameData data)
+        {
+            /* for (int i = 0; i < slots.Length; i++)
+             {
+                 data.slots[i] = slots[i];
+             }*/
+
+            test = test + 13;
+            data.test = test;
+        }
+        #endregion
     }
 }

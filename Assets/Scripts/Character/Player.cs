@@ -1,9 +1,11 @@
 using UnityEngine;
 using InventorySystem;
+using SaveSystem;
+using NUnit.Framework.Internal;
 
 namespace CharacterSystem
 {
-    public class Player : Character
+    public class Player : Character, IDataPersistence
     {
         public Animator animatorAnimations;
         [SerializeField] Animator animatorFlip;
@@ -50,8 +52,8 @@ namespace CharacterSystem
             animatorAnimations.SetBool("isMoving", isMoving);
 
             // flip em x, para andar direita e esquerda
-            if (sprite.flipX == false && moveDirection.x < 0) { sprite.flipX = true; animatorFlip.SetTrigger("Flip"); }
-            else if (sprite.flipX == true && moveDirection.x > 0) { sprite.flipX = false; animatorFlip.SetTrigger("Flip"); }
+            if (sprite.flipX == false && moveDirection.x < 0) { animatorFlip.SetTrigger("Flip"); sprite.flipX = true; }
+            else if (sprite.flipX == true && moveDirection.x > 0) { animatorFlip.SetTrigger("Flip"); sprite.flipX = false; }
 
             // movendo-se de costas
             /* if (isMovingBackwards == false && moveDirection.y > 0) { isMovingBackwards = true; animatorFlip.SetTrigger("Flip"); }
@@ -106,6 +108,7 @@ namespace CharacterSystem
                 {
                     Item item = currentTarget.GetComponent<Item>();
                     InventoryManager.instance.AddItem(item);
+                    item.collected = true;
                     Destroy(currentTarget);
                 }
                 else if (currentTarget.GetComponent<NPC>() == true)
@@ -137,6 +140,12 @@ namespace CharacterSystem
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(transform.position, detectionRadius);
         }
+        #endregion
+
+        #region SaveData
+        public void LoadData(GameData data) { transform.position = data.playerPosition; }
+
+        public void SaveData(GameData data) { data.playerPosition = transform.position; }
         #endregion
     }
 }

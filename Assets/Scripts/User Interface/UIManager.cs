@@ -26,10 +26,7 @@ namespace UISystem
             else { Destroy(gameObject); }
 
             DontDestroyOnLoad(gameObject);
-        }
 
-        private void Start()
-        {
             if (transitionContainer != null) { transitions = transitionContainer.GetComponentsInChildren<SceneTransition>(); }
             if (animationContainer != null) { animations = animationContainer.GetComponentsInChildren<UIAnimation>(); }
         }

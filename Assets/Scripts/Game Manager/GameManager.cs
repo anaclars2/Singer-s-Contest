@@ -20,8 +20,11 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        UIManager.instance.Animation(ANIMATION.SlideInAndOut, true);
-        // AudioManager.instance.PlaySfx();
+        if (SceneManager.GetActiveScene().buildIndex == (int)SCENES.Menu)
+        {
+            UIManager.instance.Animation(ANIMATION.SlideInAndOut, true);
+            // AudioManager.instance.PlaySfx();
+        }
     }
 
     public void LoadScene() { SceneManager.LoadScene((int)sceneToLoad); }

@@ -8,6 +8,7 @@ namespace InventorySystem
 {
     public class ItemSlot : MonoBehaviour, IPointerClickHandler
     {
+        [HideInInspector] public Item item;
         string itemName;
         string itemDescription;
         Sprite itemSprite;
@@ -23,8 +24,9 @@ namespace InventorySystem
         [HideInInspector] public bool isFull;
         [HideInInspector] public bool isSelected;
 
-        public void AddItem(Item item)
+        public void AddItem(Item _item)
         {
+            item = _item;
             itemName = item._name;
             itemDescription = item.description;
             itemSprite = item.spriteIcon;
@@ -43,7 +45,7 @@ namespace InventorySystem
         private void OnLeftClick()
         {
             InventoryManager.instance.DeselectAllSlots();
-            
+
             itemSelected.SetActive(true);
             isSelected = true;
 

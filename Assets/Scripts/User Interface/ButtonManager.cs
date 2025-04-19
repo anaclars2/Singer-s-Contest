@@ -1,6 +1,7 @@
 using AudioSystem;
 using UISystem;
 using UnityEngine;
+using SaveSystem;
 
 public class ButtonManager : MonoBehaviour
 {
@@ -13,7 +14,8 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] TRANSITION transition;
 
     [Header("Sound Settings")]
-    [SerializeField] SOUND sound;
+    [SerializeField] SOUND soundSelected;
+    [SerializeField] SOUND soundHover;
 
     public void OpenPanel() { panel.SetActive(true); }
 
@@ -21,7 +23,9 @@ public class ButtonManager : MonoBehaviour
 
     public void QuitGame() { Application.Quit(); Debug.Log("Leave Game"); }
 
-    public void SoundClick() { AudioManager.instance.PlaySfx(sound); }
+    public void SoundSelected() { AudioManager.instance.PlaySfx(soundSelected); }
+
+    public void SoundHover() { AudioManager.instance.PlaySfx(soundHover); }
 
     public void ChangeScene()
     {
@@ -30,5 +34,11 @@ public class ButtonManager : MonoBehaviour
         if (withTransition == false) { GameManager.instance.LoadScene(); }
         else { GameManager.instance.LoadSceneWithTransition(transition); }
     }
+
+    public void StartNewGame() { DataPersistenceManager.instance.NewGame(); }
+
+    public void LoadGameProgress() { DataPersistenceManager.instance.LoadGame(); }
+
+    public void SaveGameProgress() { DataPersistenceManager.instance.SaveGame(); }
 
 }
