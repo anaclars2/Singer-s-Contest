@@ -1,15 +1,16 @@
+using InventorySystem;
 using SaveSystem;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 namespace InventorySystem
 {
-    public class InventoryManager : MonoBehaviour, IDataPersistence
+    public class InventoryManager : MonoBehaviour
     {
-        int test;
         [SerializeField] KeyCode input;
 
         [Header("UI Settings")]
@@ -65,11 +66,14 @@ namespace InventorySystem
 
         public void AddItem(Item item)
         {
+            Debug.Log($"Entrou em AddItem no InventoryManager\nslots.Length: {slots.Length}");
+
             for (int i = 0; i < slots.Length; i++)
             {
                 if (slots[i].isFull == false)
                 {
                     slots[i].AddItem(item);
+                    Debug.Log("AddItem do InventoryManager chamou AddItem do ItemSlot");
                     return;
                 }
             }
@@ -83,29 +87,5 @@ namespace InventorySystem
                 slots[i].itemSelected.SetActive(false);
             }
         }
-
-        #region SaveData
-        public void LoadData(GameData data)
-        {
-            /* for (int i = 0; i < slots.Length; i++)
-             {
-                 slots[i] = data.slots[i];
-                 // if (data.slots[i].isFull == true) { slots[i].AddItem(data.slots[i].item); }
-             }*/
-
-            test = data.test;
-        }
-
-        public void SaveData(GameData data)
-        {
-            /* for (int i = 0; i < slots.Length; i++)
-             {
-                 data.slots[i] = slots[i];
-             }*/
-
-            test = test + 13;
-            data.test = test;
-        }
-        #endregion
     }
 }

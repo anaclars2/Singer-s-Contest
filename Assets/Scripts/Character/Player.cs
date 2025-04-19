@@ -109,7 +109,8 @@ namespace CharacterSystem
                     Item item = currentTarget.GetComponent<Item>();
                     InventoryManager.instance.AddItem(item);
                     item.collected = true;
-                    Destroy(currentTarget);
+
+                    item.RemoveFromScene();
                 }
                 else if (currentTarget.GetComponent<NPC>() == true)
                 {

@@ -21,8 +21,6 @@ namespace SaveSystem
                 keys.Add(pair.Key);
                 values.Add(pair.Value);
             }
-
-            Debug.Log("All is okay here");
         }
 
         // carregando o dicionario da lista
@@ -37,8 +35,6 @@ namespace SaveSystem
 
             // adicionando os valores no dicionario
             for (int i = 0; i < keys.Count; i++) { this.Add(keys[i], values[i]); }
-
-            Debug.Log("All is okay here too");
         }
     }
 }

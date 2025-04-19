@@ -37,8 +37,9 @@ namespace SaveSystem
         {
             // encontrando todos os gameObjects que herdam de MonoBehaviour e IDataPersistence 
             // e em seguida retornando eles como uma lista
-            IEnumerable<IDataPersistence> _dataPersistenceObjects = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).
-                OfType<IDataPersistence>();
+            IEnumerable<IDataPersistence> _dataPersistenceObjects = Resources.FindObjectsOfTypeAll<MonoBehaviour>()
+       .Where(mb => mb.hideFlags == HideFlags.None && mb.gameObject.scene.IsValid()) // ignora Prefabs e Assets
+       .OfType<IDataPersistence>();
 
             return new List<IDataPersistence>(_dataPersistenceObjects);
         }
@@ -61,20 +62,14 @@ namespace SaveSystem
             }
 
             // depois enviar todos os dados carregados para os gameobjects
-            Debug.Log("In LoadGame");
             foreach (IDataPersistence dataPersistence in dataPersistenceObjects) { dataPersistence.LoadData(gameData); }
-            Debug.Log("Loaded test number: " + gameData.test);
-            Debug.Log("All is okay in LoadGame");
         }
 
         public void SaveGame()
         {
             // passar os dados para outros scripts, para atualizar os dados
             // salvar esses dados em uma arquivo de texto usando um manipulador de dados
-            Debug.Log("In SaveGame");
             foreach (IDataPersistence dataPersistence in dataPersistenceObjects) { dataPersistence.SaveData(gameData); }
-            Debug.Log("Saved test number: " + gameData.test);
-            Debug.Log("All is okay in SaveGame");
 
             dataHandler.Save(gameData);
         }

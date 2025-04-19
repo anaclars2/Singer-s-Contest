@@ -7,23 +7,16 @@ namespace SaveSystem
     [System.Serializable]
     public class GameData
     {
-        /*public int[] scores;
-        public bool[] questComplete;
-        public int actualQuest;*/
-
         public Vector3 playerPosition;
         public SerializableDictionary<string, bool> collectedItems; // respectivamente, id e status (coletado ou nao-coletado)
-
-        public int test;
-
-        // public ItemSlot[] slots;
+        public SerializableDictionary<string, string> itemSlot; 
 
         // valores iniciais das variaveis quando não tiver nenhuma arquivo de save
         public GameData()
         {
-            test = 0;
             playerPosition = Vector3.zero;
             collectedItems = new SerializableDictionary<string, bool>();
+            itemSlot = new SerializableDictionary<string, string>();
         }
     }
 }

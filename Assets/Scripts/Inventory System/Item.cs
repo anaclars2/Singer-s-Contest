@@ -9,8 +9,13 @@ namespace InventorySystem
         [HideInInspector] public string _name;
         [HideInInspector] public string description;
         [HideInInspector] public Sprite spriteIcon;
+        
+        [HideInInspector] public ItemSlot slot;
+        [SerializeField] GameObject visual;
+        [SerializeField] Collider _collider;
+
         [HideInInspector] public bool collected = false;
-        [SerializeField] private string id;
+        public string id;
 
         [ContextMenu("Generate ID")] private void GenerateGuid() { id = System.Guid.NewGuid().ToString(); }
 
@@ -26,8 +31,7 @@ namespace InventorySystem
             data.collectedItems.TryGetValue(id, out collected);
             if (collected == true)
             {
-                InventoryManager.instance.AddItem(this);
-                Destroy(this.gameObject);
+                RemoveFromScene();
             }
         }
 
@@ -37,6 +41,14 @@ namespace InventorySystem
             // e adicionamos denovo para nao dar erro
             if (data.collectedItems.ContainsKey(id)) { data.collectedItems.Remove(id); }
             data.collectedItems.Add(id, collected);
+            Debug.Log("WELCOME SAVE TS15");
+
+        }
+
+        public void RemoveFromScene()
+        {
+            visual.gameObject.SetActive(false);
+            _collider.enabled = false;
         }
     }
 }
