@@ -41,6 +41,7 @@ namespace InventorySystem
                 }
                 catch (Exception e)
                 {
+
                 }
             }
             return loadedData;

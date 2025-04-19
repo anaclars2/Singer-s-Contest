@@ -27,7 +27,7 @@ namespace InventorySystem
             if (collected == true)
             {
                 InventoryManager.instance.AddItem(this);
-                Destroy(this);
+                Destroy(this.gameObject);
             }
         }
 

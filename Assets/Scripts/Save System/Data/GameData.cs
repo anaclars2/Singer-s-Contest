@@ -12,7 +12,7 @@ namespace SaveSystem
         public int actualQuest;*/
 
         public Vector3 playerPosition;
-        public Dictionary<string, bool> collectedItems; // respectivamente, id e status (coletado ou nao-coletado)
+        public SerializableDictionary<string, bool> collectedItems; // respectivamente, id e status (coletado ou nao-coletado)
 
         public int test;
 
@@ -23,7 +23,7 @@ namespace SaveSystem
         {
             test = 0;
             playerPosition = Vector3.zero;
-            collectedItems = new Dictionary<string, bool>();
+            collectedItems = new SerializableDictionary<string, bool>();
         }
     }
 }
