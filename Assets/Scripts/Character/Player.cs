@@ -33,7 +33,9 @@ namespace CharacterSystem
             CharacterMove();
             DetectObjects();
 
-            if (UnityEngine.Input.GetKeyDown(input) == true) { animatorAnimations.SetTrigger("isInteracting"); }
+            if (UnityEngine.Input.GetKeyDown(input)) { animatorAnimations.SetTrigger("isInteracting");
+                Interact();
+            }
         }
 
         #region Move
@@ -114,7 +116,8 @@ namespace CharacterSystem
                 }
                 else if (currentTarget.GetComponent<NPC>() == true)
                 {
-                    // npc talk
+                    NPC npc = currentTarget.GetComponent <NPC>();
+                    npc.Interact();
                 }
             }
         }

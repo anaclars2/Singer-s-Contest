@@ -664,57 +664,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 429314494}
   m_CullTransparentMesh: 1
---- !u!1 &610253300
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 610253302}
-  - component: {fileID: 610253301}
-  m_Layer: 0
-  m_Name: DialogueManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &610253301
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 610253300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc205739d89c573468fb54bbd8d1ad86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueUI: {fileID: 1400313484}
-  characterIcon: {fileID: 2093167501}
-  characterName: {fileID: 873191124}
-  dialogueArea: {fileID: 429314496}
-  isDialogueActive: 1
-  typingSpeed: 0.2
-  animator: {fileID: 0}
---- !u!4 &610253302
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 610253300}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.3541262, y: 0.7270897, z: -0.04380072}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &666797081
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,7 +813,7 @@ GameObject:
   - component: {fileID: 873191125}
   - component: {fileID: 873191124}
   m_Layer: 5
-  m_Name: charName
+  m_Name: speakerNameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1127,7 +1076,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1400313485
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1200,11 +1149,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2c10fa394dd64e4c85f2984c02d00c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speakerNameText: {fileID: 873191124}
+  speakerIconImage: {fileID: 2093167501}
   textComponent: {fileID: 429314496}
   lines:
-  - hello
-  - 'how '
-  - are
+  - speakerName: Player
+    speakerIcon: {fileID: 1940994905, guid: 06462209af7c8e14cba5446b224b5aa3, type: 3}
+    text: "Ol\xE1, deu certo?"
+  - speakerName: NPC
+    speakerIcon: {fileID: 1480803604, guid: 52cebf52013ab2341a9885ce48499c8a, type: 3}
+    text: Deu sim, adorei
+  - speakerName: Player
+    speakerIcon: {fileID: 1940994905, guid: 06462209af7c8e14cba5446b224b5aa3, type: 3}
+    text: Ebaaaa
   textSpeed: 0.1
 --- !u!1 &1589270836
 GameObject:
@@ -1319,8 +1276,8 @@ GameObject:
   - component: {fileID: 1823608454}
   - component: {fileID: 1823608453}
   - component: {fileID: 1823608452}
-  - component: {fileID: 1823608455}
   - component: {fileID: 1823608456}
+  - component: {fileID: 1823608457}
   m_Layer: 6
   m_Name: NPC
   m_TagString: Untagged
@@ -1396,36 +1353,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1823608455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1823608450}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abf4bc5724a8caf488783d3e621ac779, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    dialogueLines:
-    - character:
-        name: Player
-        icon: {fileID: 1940994905, guid: 06462209af7c8e14cba5446b224b5aa3, type: 3}
-      line: Eu sou o Player
-    - character:
-        name: NPC
-        icon: {fileID: 1480803604, guid: 52cebf52013ab2341a9885ce48499c8a, type: 3}
-      line: E eu sou o NPC
-    - character:
-        name: Player
-        icon: {fileID: 1940994905, guid: 06462209af7c8e14cba5446b224b5aa3, type: 3}
-      line: E agora?
-    - character:
-        name: NPC
-        icon: {fileID: 1480803604, guid: 52cebf52013ab2341a9885ce48499c8a, type: 3}
-      line: "N\xE3o Sei"
 --- !u!65 &1823608456
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1447,6 +1374,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.9939296, y: 2.3497372, z: 1}
   m_Center: {x: -0.9969648, y: 0.6748686, z: 0}
+--- !u!114 &1823608457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823608450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 988ccaf4680d1ad4d835e97b47ca0154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 0
+  sprite: {fileID: 0}
+  dialogueBox: {fileID: 1400313484}
 --- !u!1 &1883027265
 GameObject:
   m_ObjectHideFlags: 0
@@ -1535,7 +1477,7 @@ GameObject:
   - component: {fileID: 2093167502}
   - component: {fileID: 2093167501}
   m_Layer: 5
-  m_Name: charIcon
+  m_Name: speakerIconImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1688,4 +1630,3 @@ SceneRoots:
   - {fileID: 1589270840}
   - {fileID: 2102867097}
   - {fileID: 1823608454}
-  - {fileID: 610253302}
