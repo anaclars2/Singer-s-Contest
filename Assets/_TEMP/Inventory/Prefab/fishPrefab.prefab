@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2882004d17da72d48b7c96dc62240c21, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2882004d17da72d48b7c96dc62240c21, type: 3}
       propertyPath: m_LocalPosition.y
@@ -172,6 +172,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3108170090963437896}
   m_SourcePrefab: {fileID: 100100000, guid: 2882004d17da72d48b7c96dc62240c21, type: 3}
+--- !u!1 &4178256827189351629 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6932559243465325178, guid: 2882004d17da72d48b7c96dc62240c21, type: 3}
+  m_PrefabInstance: {fileID: 6469776645847854775}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6127193770420868070 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2882004d17da72d48b7c96dc62240c21, type: 3}
@@ -214,6 +219,10 @@ MonoBehaviour:
   _name: 
   description: 
   spriteIcon: {fileID: 0}
+  visual: {fileID: 4178256827189351629}
+  _collider: {fileID: 4415002086848947952}
+  collected: 0
+  id: 1068623e-d6a5-4eee-a30b-991ba92cd33f
 --- !u!114 &3108170090963437896
 MonoBehaviour:
   m_ObjectHideFlags: 0

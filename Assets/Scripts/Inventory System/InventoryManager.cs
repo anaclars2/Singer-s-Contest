@@ -1,6 +1,11 @@
+using InventorySystem;
+using SaveSystem;
+using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 namespace InventorySystem
 {
@@ -61,11 +66,14 @@ namespace InventorySystem
 
         public void AddItem(Item item)
         {
+            Debug.Log($"Entrou em AddItem no InventoryManager\nslots.Length: {slots.Length}");
+
             for (int i = 0; i < slots.Length; i++)
             {
                 if (slots[i].isFull == false)
                 {
                     slots[i].AddItem(item);
+                    Debug.Log("AddItem do InventoryManager chamou AddItem do ItemSlot");
                     return;
                 }
             }
@@ -77,7 +85,7 @@ namespace InventorySystem
             {
                 slots[i].isSelected = false;
                 slots[i].itemSelected.SetActive(false);
-            }            
+            }
         }
     }
 }

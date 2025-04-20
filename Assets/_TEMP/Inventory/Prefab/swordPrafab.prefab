@@ -138,6 +138,10 @@ MonoBehaviour:
   _name: 
   description: 
   spriteIcon: {fileID: 0}
+  visual: {fileID: 7236235353457003575}
+  _collider: {fileID: 1936211450948708482}
+  collected: 0
+  id: 13074448-e1a8-4ad5-ad05-10f0104505de
 --- !u!114 &3730297701421760636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,3 +160,8 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!1 &7236235353457003575 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4706452340541456491, guid: bd31947c3df9b9f4caea076a1f1f3f60, type: 3}
+  m_PrefabInstance: {fileID: 6540096642154361762}
+  m_PrefabAsset: {fileID: 0}
