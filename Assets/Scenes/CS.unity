@@ -664,6 +664,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 429314494}
   m_CullTransparentMesh: 1
+--- !u!1 &653027134
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 653027137}
+  - component: {fileID: 653027136}
+  - component: {fileID: 653027135}
+  m_Layer: 5
+  m_Name: PortraitRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &653027135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653027134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &653027136
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653027134}
+  m_CullTransparentMesh: 1
+--- !u!224 &653027137
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653027134}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1400313485}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 525, y: 235.48889}
+  m_SizeDelta: {x: 175.1593, y: 180.7926}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &666797081
 GameObject:
   m_ObjectHideFlags: 0
@@ -1091,6 +1166,7 @@ RectTransform:
   m_Children:
   - {fileID: 1883027266}
   - {fileID: 2093167500}
+  - {fileID: 653027137}
   - {fileID: 429314495}
   m_Father: {fileID: 1589270840}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1150,18 +1226,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speakerNameText: {fileID: 873191124}
-  speakerIconImage: {fileID: 2093167501}
+  portraitLeft: {fileID: 2093167501}
+  portraitRight: {fileID: 653027135}
   textComponent: {fileID: 429314496}
   lines:
-  - speakerName: Player
+  - side: 0
+    speakerName: Player
     speakerIcon: {fileID: 1940994905, guid: 06462209af7c8e14cba5446b224b5aa3, type: 3}
     text: "Ol\xE1, deu certo?"
-  - speakerName: NPC
+  - side: 1
+    speakerName: NPC
     speakerIcon: {fileID: 1480803604, guid: 52cebf52013ab2341a9885ce48499c8a, type: 3}
     text: Deu sim, adorei
-  - speakerName: Player
+  - side: 0
+    speakerName: Player
     speakerIcon: {fileID: 1940994905, guid: 06462209af7c8e14cba5446b224b5aa3, type: 3}
     text: Ebaaaa
+  - side: 1
+    speakerName: NPC
+    speakerIcon: {fileID: 1480803604, guid: 52cebf52013ab2341a9885ce48499c8a, type: 3}
+    text: De nada
   textSpeed: 0.1
 --- !u!1 &1589270836
 GameObject:
@@ -1477,12 +1561,12 @@ GameObject:
   - component: {fileID: 2093167502}
   - component: {fileID: 2093167501}
   m_Layer: 5
-  m_Name: speakerIconImage
+  m_Name: PortraitLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2093167500
 RectTransform:
   m_ObjectHideFlags: 0
