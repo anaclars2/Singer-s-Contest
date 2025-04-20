@@ -39,6 +39,7 @@ namespace RhythmSystem
         [SerializeField] TMP_Text allowedText;
         [SerializeField] TMP_Text errorText;
         bool statisticsActived = false;
+        
         public static RhythmManager instance;
 
         private void Awake() // singleton

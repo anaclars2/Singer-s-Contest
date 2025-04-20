@@ -2,6 +2,8 @@ using AudioSystem;
 using UISystem;
 using UnityEngine;
 using SaveSystem;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ButtonManager : MonoBehaviour
 {
@@ -21,7 +23,7 @@ public class ButtonManager : MonoBehaviour
 
     public void ClosePanel() { panel.SetActive(false); }
 
-    public void QuitGame() { Application.Quit(); Debug.Log("Leave Game"); }
+    public void QuitGame() { Debug.Log("Leave Game"); Application.Quit(); }
 
     public void SoundSelected() { AudioManager.instance.PlaySfx(soundSelected); }
 
@@ -35,10 +37,9 @@ public class ButtonManager : MonoBehaviour
         else { GameManager.instance.LoadSceneWithTransition(transition); }
     }
 
-    public void StartNewGame() { DataPersistenceManager.instance.NewGame(); }
+    // public void StartNewGame() { DataPersistenceManager.instance.NewGame(); }
 
     public void LoadGameProgress() { DataPersistenceManager.instance.LoadGame(); }
 
     public void SaveGameProgress() { DataPersistenceManager.instance.SaveGame(); }
-
 }

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UISystem;
+using SaveSystem;
 
 public class GameManager : MonoBehaviour
 {
@@ -27,9 +28,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void LoadScene() { SceneManager.LoadScene((int)sceneToLoad); }
+    public void LoadScene()
+    {
+        DataPersistenceManager.instance.SaveGame();
+        SceneManager.LoadScene((int)sceneToLoad);
+        DataPersistenceManager.instance.LoadGame();
+    }
 
-    public void LoadSceneWithTransition(TRANSITION transition = TRANSITION.CloseAndOpen) { UIManager.instance.Transition(transition, sceneToLoad); }
+    public void LoadSceneWithTransition(TRANSITION transition = TRANSITION.CloseAndOpen)
+    {
+        DataPersistenceManager.instance.SaveGame();
+        UIManager.instance.Transition(transition, sceneToLoad);
+        DataPersistenceManager.instance.LoadGame();
+    }
 
     #region AutoChangeScene
     // START
