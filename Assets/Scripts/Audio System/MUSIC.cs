@@ -6,6 +6,7 @@ namespace AudioSystem
         Test,
         Background,
         Battle,
-        Menu
+        Menu,
+        Jazz
     }
 }
