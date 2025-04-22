@@ -18,7 +18,7 @@ namespace RhythmSystem
         bool songIsOver = false;
 
         [Header("Song Settings")]
-        [SerializeField] MUSIC musicID;
+        public MUSIC musicID;
         public float songDelay; // em segundos
         [SerializeField] Lane[] lanes;
 

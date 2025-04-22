@@ -2,12 +2,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UISystem;
 using SaveSystem;
+using RhythmSystem;
+using AudioSystem;
 
 public class GameManager : MonoBehaviour
 {
     // static int indexScene = 1;
     // int totalScenesInBuild;
     public SCENES sceneToLoad;
+    MUSIC musicID = 0;
 
     public static GameManager instance;
 
@@ -28,16 +31,32 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().buildIndex != (int)SCENES.Menu)
+        {
+            UIManager.instance.PauseSettings();
+        }
+    }
+
     public void LoadScene()
     {
         DataPersistenceManager.instance.SaveGame();
         SceneManager.LoadScene((int)sceneToLoad);
         DataPersistenceManager.instance.LoadGame();
+
+        // passando qual musica e para tocar
+        if (SceneManager.GetActiveScene().buildIndex == (int)SCENES.Rythm)
+        {
+            musicID++;
+            RhythmManager.instance.musicID = musicID;
+        }
     }
 
     public void LoadSceneWithTransition(TRANSITION transition = TRANSITION.CloseAndOpen)
     {
         DataPersistenceManager.instance.SaveGame();
+        UIManager.instance.Animation(ANIMATION.SlideInAndOut, false);
         UIManager.instance.Transition(transition, sceneToLoad);
         DataPersistenceManager.instance.LoadGame();
     }

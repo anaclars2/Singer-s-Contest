@@ -584,8 +584,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4120624988651075051}
   - {fileID: 2393101052426797618}
+  - {fileID: 4120624988651075051}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -671,6 +671,7 @@ MonoBehaviour:
   transitionContainer: {fileID: 7265023116879636918}
   progressBar: {fileID: 0}
   animationContainer: {fileID: 2780625809731164047}
+  pausePanel: {fileID: 0}
 --- !u!225 &6778548286383807084
 CanvasGroup:
   m_ObjectHideFlags: 0

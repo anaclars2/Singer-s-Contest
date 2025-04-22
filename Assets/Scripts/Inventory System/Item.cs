@@ -9,7 +9,8 @@ namespace InventorySystem
         [HideInInspector] public string _name;
         [HideInInspector] public string description;
         [HideInInspector] public Sprite spriteIcon;
-        
+        [HideInInspector] public EVIDENCES evidenceType;
+
         [HideInInspector] public ItemSlot slot;
         [SerializeField] GameObject visual;
         [SerializeField] Collider _collider;
@@ -24,6 +25,7 @@ namespace InventorySystem
             _name = itemData._name;
             description = itemData.description;
             spriteIcon = itemData.spriteIcon;
+            evidenceType = itemData.evidenceType;
         }
 
         public void LoadData(GameData data)
