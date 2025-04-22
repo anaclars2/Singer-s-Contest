@@ -174,6 +174,7 @@ MonoBehaviour:
   musicList:
   - {fileID: 11400000, guid: 0074e4e8051ebf549a5f608f05e8a06c, type: 2}
   - {fileID: 11400000, guid: 3cc316d011a573949ad0974e4db7ef5b, type: 2}
+  - {fileID: 11400000, guid: 2f651b02b131c8b47a4e5f60ef17a8ab, type: 2}
 --- !u!1 &56444813
 GameObject:
   m_ObjectHideFlags: 0
@@ -3480,16 +3481,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   imageProgress: {fileID: 1299907183}
-  musicID: 1
+  musicID: 5
   songDelay: 0
   lanes:
   - {fileID: 1308832808}
   - {fileID: 201197008}
   - {fileID: 365698854}
   - {fileID: 1428799940}
-  midiLocation:
-  - 
-  - test-music.mid
   noteTime: 3
   noteSpawnY: 7
   noteTapY: -10
