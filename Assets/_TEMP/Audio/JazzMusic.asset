@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 173d2e9cea30e6c4191b70b0ae62228a, type: 3}
   m_Name: JazzMusic
   m_EditorClassIdentifier: 
+  midiLocation: 2-Jazz.mid
   isMusic: 1
-  musicID: 1
+  musicID: 5
   soundID: 0
   clip:
   - {fileID: 8300000, guid: b8d210b0414289f48ab46fcf3f890ff3, type: 3}
