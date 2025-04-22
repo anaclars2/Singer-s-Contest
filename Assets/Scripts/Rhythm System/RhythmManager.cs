@@ -23,7 +23,6 @@ namespace RhythmSystem
         [SerializeField] Lane[] lanes;
 
         [Header("MIDI Settings")]
-        [SerializeField] string[] midiLocation;
         string fileLocation; // .mid
         public static MidiFile midiFile; // .mid apos ser analisado
 
@@ -39,6 +38,7 @@ namespace RhythmSystem
         [SerializeField] TMP_Text allowedText;
         [SerializeField] TMP_Text errorText;
         bool statisticsActived = false;
+
         public static RhythmManager instance;
 
         private void Awake() // singleton
@@ -90,22 +90,31 @@ namespace RhythmSystem
 
         private string GetFileLocation()
         {
-            int i = (int)musicID;
+            Audio audio = AudioManager.instance.musicList.Find(a => a.musicID == musicID);
+            if (audio == null)
+            {
+                Debug.Log("Could not access midi file because no Audio was found.");
+                return null;
+            }
+            Debug.Log($"FileLocation: {audio.midiLocation}");
+            return audio.midiLocation;
+
+            /*int i = (int)musicID;
             Debug.Log("FileLocation i: " + i);
             switch (musicID)
-            {
-                case MUSIC.None:
-                    return midiLocation[i];
-                case MUSIC.Test:
-                    return midiLocation[i];
-                case MUSIC.Background:
-                    return midiLocation[i];
-                case MUSIC.Battle:
-                    return midiLocation[i];
-                case MUSIC.Menu:
-                    return midiLocation[i];
-            }
-            return null;
+             {
+                 case MUSIC.None:
+                     return midiLocation[i];
+                 case MUSIC.Test:
+                     return midiLocation[i];
+                 case MUSIC.Background:
+                     return midiLocation[i];
+                 case MUSIC.Battle:
+                     return midiLocation[i];
+                 case MUSIC.Menu:
+                     return midiLocation[i];
+             }
+             return null;*/
         }
 
         private void ProgressMusic()
@@ -130,7 +139,7 @@ namespace RhythmSystem
             {
                 statisticsActived = true;
                 AudioManager.instance.StopPlayer();
-                UIManager.instance.Transition(TRANSITION.CloseAndOpen, (SCENES)0);
+                UIManager.instance.Transition(TRANSITION.CloseAndOpen, SCENES.Menu);
                 // Time.timeScale = 0f;
             }
         }

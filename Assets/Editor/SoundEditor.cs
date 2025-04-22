@@ -6,8 +6,13 @@ using UnityEngine;
 public class SoundEditor : Editor
 {
     SerializedProperty clipList;
+    SerializedProperty midiLocation;
 
-    private void OnEnable() { clipList = serializedObject.FindProperty("clip"); }
+    private void OnEnable() 
+    {
+        clipList = serializedObject.FindProperty("clip");
+        midiLocation = serializedObject.FindProperty("midiLocation");
+    }
 
     public override void OnInspectorGUI()
     {
@@ -18,6 +23,7 @@ public class SoundEditor : Editor
         Audio _audio = (Audio)target;
         _audio.isMusic = EditorGUILayout.Toggle("Is Music", _audio.isMusic);
         EditorGUILayout.PropertyField(clipList, new GUIContent("Clips"), true);
+        EditorGUILayout.PropertyField(midiLocation, new GUIContent("MIDI File Location"));
 
         if (_audio.isMusic)
         {

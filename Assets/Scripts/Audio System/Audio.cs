@@ -6,6 +6,7 @@ namespace AudioSystem
     [CreateAssetMenu(fileName = "New Audio", menuName = "Scriptable Objects/Audio")]
     public class Audio : ScriptableObject
     {
+        public string midiLocation;
         public bool isMusic = false;
 
         public MUSIC musicID;
