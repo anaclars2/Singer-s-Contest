@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 173d2e9cea30e6c4191b70b0ae62228a, type: 3}
   m_Name: TestMusic
   m_EditorClassIdentifier: 
+  midiLocation: test-music.mid
   isMusic: 1
   musicID: 1
   soundID: 0

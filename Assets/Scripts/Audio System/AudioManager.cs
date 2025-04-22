@@ -10,8 +10,8 @@ namespace AudioSystem
         public AudioSource musicSource;
         [SerializeField] private AudioSource sfxSource;
 
-        [SerializeField] private List<Audio> sfxList;
-        [SerializeField] private List<Audio> musicList;
+        public List<Audio> sfxList;
+        public List<Audio> musicList;
 
         public static AudioManager instance;
 
