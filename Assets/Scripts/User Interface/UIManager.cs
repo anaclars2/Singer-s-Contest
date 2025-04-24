@@ -89,14 +89,16 @@ namespace UISystem
 
         public void PauseSettings()
         {
-            if (pausePanel.activeInHierarchy == false) { pausePanel.SetActive(true); }
+            if (pausePanel.activeInHierarchy == false) 
+            { 
+                pausePanel.SetActive(true);
+                Animation(ANIMATION.SlideInAndOut, true);
+            }
             else
             {
-                // Button[] buttons = pausePanel.gameObject.GetComponentsInChildren<Button>();
-                // EventSystem.current.SetSelectedGameObject(null);
-                // GameObject current = EventSystem.current.currentSelectedGameObject;
-                // Debug.Log("EventSystem.current.currentSelectedGameObject: " + current);
+                EventSystem.current.SetSelectedGameObject(EventSystem.current.firstSelectedGameObject);
                 pausePanel.SetActive(false);
+                Animation(ANIMATION.SlideInAndOut, false);
             }
         }
     }
