@@ -4,11 +4,11 @@ using UnityEngine;
 using SaveSystem;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Unity.VisualScripting.InputSystem;
 
-public class ButtonManager : MonoBehaviour
+public class ButtonManager : MonoBehaviour, ISelectHandler
 {
-    [Header("Enable/Disable Panel Settings")]
-    [SerializeField] GameObject panel;
+    [SerializeField] Button button;
 
     [Header("Change Scene Settings")]
     [SerializeField] bool withTransition;
@@ -17,17 +17,15 @@ public class ButtonManager : MonoBehaviour
 
     [Header("Sound Settings")]
     [SerializeField] SOUND soundSelected;
-    [SerializeField] SOUND soundHover;
+    [SerializeField] SOUND soundClick;
 
-    public void OpenPanel() { panel.SetActive(true); }
-
-    public void ClosePanel() { panel.SetActive(false); }
+    private void Start()
+    {
+        button = GetComponent<Button>();
+        button.onClick.AddListener(SoundClick);
+    }
 
     public void QuitGame() { Debug.Log("Leave Game"); Application.Quit(); }
-
-    public void SoundSelected() { AudioManager.instance.PlaySfx(soundSelected); }
-
-    public void SoundHover() { AudioManager.instance.PlaySfx(soundHover); }
 
     public void ChangeScene()
     {
@@ -42,4 +40,8 @@ public class ButtonManager : MonoBehaviour
     public void LoadGameProgress() { DataPersistenceManager.instance.LoadGame(); }
 
     public void SaveGameProgress() { DataPersistenceManager.instance.SaveGame(); }
+
+    public void OnSelect(BaseEventData eventData) { AudioManager.instance.PlaySfx(soundSelected); }
+
+    private void SoundClick() { AudioManager.instance.PlaySfx(soundClick); }
 }
