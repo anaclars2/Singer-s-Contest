@@ -89,19 +89,14 @@ namespace RhythmSystem
             Vector3 startPos = transform.position;
             Vector3 endPos = spriteEnd.transform.position;
 
-            // Distância total entre o início e o final
+            // distancia total entre o início e o final
             float distance = Vector3.Distance(startPos, endPos);
-
-            // Força rotação normal (em pé)
             spriteMiddle.transform.rotation = Quaternion.identity;
 
-            // Ajusta a escala Y para que o sprite não cresça o dobro
+            // ajustando a escala Y para que o sprite nao cresca o dobro
             float scaleY = distance * 0.4f;
 
-            // Define a escala (só cresce em Y)
             spriteMiddle.transform.localScale = new Vector3(0.1f, scaleY, 0.1f);
-
-            // Posiciona o spriteMiddle na base (start)
             spriteMiddle.transform.position = startPos;
         }
 
