@@ -7,6 +7,7 @@ namespace AudioSystem
         Background,
         Battle,
         Menu,
-        Jazz
+        Jazz,
+        Pop
     }
 }

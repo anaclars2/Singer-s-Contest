@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 173d2e9cea30e6c4191b70b0ae62228a, type: 3}
+  m_Name: PopMusic
+  m_EditorClassIdentifier: 
+  midiLocation: Pop.mid
+  isMusic: 1
+  musicID: 6
+  soundID: 0
+  clip:
+  - {fileID: 8300000, guid: 06bdf122cfbcc774fa24173787fe5b43, type: 3}
+  - {fileID: 8300000, guid: ccde654c5e7ba9a42953316f9558c4ad, type: 3}
+  isLoop: 0
+  hasPitchVariation: 0
+  minPitch: 1
+  maxPitch: 1

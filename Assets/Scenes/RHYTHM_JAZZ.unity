@@ -172,7 +172,7 @@ MonoBehaviour:
   sfxList:
   - {fileID: 11400000, guid: 13a25206de6b2c9469891ac332de73e6, type: 2}
   musicList:
-  - {fileID: 11400000, guid: 0074e4e8051ebf549a5f608f05e8a06c, type: 2}
+  - {fileID: 11400000, guid: 2f651b02b131c8b47a4e5f60ef17a8ab, type: 2}
   - {fileID: 11400000, guid: 3cc316d011a573949ad0974e4db7ef5b, type: 2}
 --- !u!1 &56444813
 GameObject:
@@ -633,7 +633,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -260}
+  m_AnchoredPosition: {x: 0, y: -304}
   m_SizeDelta: {x: 300.372, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &171066307
@@ -2858,6 +2858,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1324043027235220236, guid: f2621fa8c5c957e49b78dd252ba527b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3738103029864841024, guid: f2621fa8c5c957e49b78dd252ba527b8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3480,16 +3484,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   imageProgress: {fileID: 1299907183}
-  musicID: 1
+  musicID: 5
   songDelay: 0
   lanes:
   - {fileID: 1308832808}
   - {fileID: 201197008}
   - {fileID: 365698854}
   - {fileID: 1428799940}
-  midiLocation:
-  - 
-  - test-music.mid
   noteTime: 3
   noteSpawnY: 7
   noteTapY: -10
