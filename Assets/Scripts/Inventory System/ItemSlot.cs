@@ -16,6 +16,7 @@ namespace InventorySystem
         Sprite itemSprite;
         public string id;
         public string itemId;
+        public EVIDENCES itemType;
         [ContextMenu("Generate ID")] private void GenerateGuid() { id = System.Guid.NewGuid().ToString(); }
 
         [Header("UI Settings")]
@@ -41,6 +42,7 @@ namespace InventorySystem
             itemImage.sprite = itemSprite;
             itemImage.gameObject.SetActive(true);
             itemId = item.id;
+            itemType = item.evidenceType;
 
             Debug.Log("Atribuiu!");
             // Debug.Log($"ItemName: {itemName} | ItemDescription: {itemDescription} | ItemSprite: {itemSprite} | SlotFull: {isFull}");

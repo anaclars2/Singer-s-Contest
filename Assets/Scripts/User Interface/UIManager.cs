@@ -1,7 +1,9 @@
 using RhythmSystem;
 using System.Collections;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -18,6 +20,9 @@ namespace UISystem
         [SerializeField] GameObject animationContainer;
         UIAnimation[] animations;
 
+        [Header("Panels Settings")]
+        public GameObject pausePanel;
+
         public static UIManager instance;
 
         private void Awake() // singleton
@@ -27,8 +32,11 @@ namespace UISystem
 
             DontDestroyOnLoad(gameObject);
 
+
             if (transitionContainer != null) { transitions = transitionContainer.GetComponentsInChildren<SceneTransition>(); }
             if (animationContainer != null) { animations = animationContainer.GetComponentsInChildren<UIAnimation>(); }
+
+            if (pausePanel != null) { pausePanel.SetActive(false); }
         }
 
         #region SceneTransition
@@ -78,5 +86,20 @@ namespace UISystem
             yield return animation.AnimateAnimationOut();
         }
         #endregion
+
+        public void PauseSettings()
+        {
+            if (pausePanel.activeInHierarchy == false) 
+            { 
+                pausePanel.SetActive(true);
+                Animation(ANIMATION.SlideInAndOut, true);
+            }
+            else
+            {
+                EventSystem.current.SetSelectedGameObject(EventSystem.current.firstSelectedGameObject);
+                pausePanel.SetActive(false);
+                Animation(ANIMATION.SlideInAndOut, false);
+            }
+        }
     }
 }

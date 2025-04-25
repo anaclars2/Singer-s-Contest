@@ -8,5 +8,6 @@ namespace InventorySystem
         public string _name;
         [TextArea] public string description;
         public Sprite spriteIcon;
+        public EVIDENCES evidenceType;
     }
 }

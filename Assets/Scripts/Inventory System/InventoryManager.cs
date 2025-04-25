@@ -2,6 +2,7 @@ using InventorySystem;
 using SaveSystem;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,6 +25,7 @@ namespace InventorySystem
         [Header("Slots Settings")]
         [SerializeField] GameObject containerSlot;
         [SerializeField] ItemSlot[] slots;
+        public List<EVIDENCES> evidences;
 
         public static InventoryManager instance;
 
@@ -77,6 +79,24 @@ namespace InventorySystem
                     return;
                 }
             }
+        }
+
+        private void GetAllEvidences()
+        {
+            for (int i = 0; i < slots.Length; i++)
+            {
+                if (slots[i].isFull == true && evidences.Contains(slots[i].itemType) == false)
+                {
+                    evidences.Add(slots[i].itemType);
+                }
+            }
+        }
+
+        public bool CheckIfContains(EVIDENCES evidence)
+        {
+            GetAllEvidences();
+            if (evidences.Contains(evidence) == true) { Debug.Log($"Inventory contains item {evidence} necessary."); return true; }
+            else { Debug.Log($"Inventory doesn't contains item {evidence} necessary."); return false; }
         }
 
         public void DeselectAllSlots()

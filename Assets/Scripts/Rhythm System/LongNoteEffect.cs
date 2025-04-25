@@ -6,6 +6,12 @@ namespace RhythmSystem
     {
         public float noteSpeed = 0;
         public Note note;
+        GameObject spriteMiddle;
+
+        private void Start()
+        {
+            if (note != null) { spriteMiddle = note.spriteMiddle; }
+        }
 
         private void Update()
         {
@@ -17,7 +23,11 @@ namespace RhythmSystem
             transform.rotation = Quaternion.identity;
             transform.position = transform.position + new Vector3(0, -noteSpeed * Time.deltaTime, 0);
 
-            if (transform.position.y <= -3 || note == null) { Destroy(gameObject); }
+            if (transform.position.y <= -3 || note == null)
+            {
+                Destroy(gameObject);
+                if (spriteMiddle != null) { Destroy(spriteMiddle); }
+            }
         }
 
     }

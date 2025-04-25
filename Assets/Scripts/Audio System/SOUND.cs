@@ -6,6 +6,8 @@ namespace AudioSystem
         Hit,
         Miss,
         PowerUp,
-        Button
+        Transition,
+        ButtonSelected,
+        ButtonClick
     }
 }

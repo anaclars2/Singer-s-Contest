@@ -18,7 +18,7 @@ namespace RhythmSystem
         bool songIsOver = false;
 
         [Header("Song Settings")]
-        [SerializeField] MUSIC musicID;
+        public MUSIC musicID;
         public float songDelay; // em segundos
         [SerializeField] Lane[] lanes;
 
@@ -96,25 +96,8 @@ namespace RhythmSystem
                 Debug.Log("Could not access midi file because no Audio was found.");
                 return null;
             }
-            Debug.Log($"FileLocation: {audio.midiLocation}");
+            // Debug.Log($"FileLocation: {audio.midiLocation}");
             return audio.midiLocation;
-
-            /*int i = (int)musicID;
-            Debug.Log("FileLocation i: " + i);
-            switch (musicID)
-             {
-                 case MUSIC.None:
-                     return midiLocation[i];
-                 case MUSIC.Test:
-                     return midiLocation[i];
-                 case MUSIC.Background:
-                     return midiLocation[i];
-                 case MUSIC.Battle:
-                     return midiLocation[i];
-                 case MUSIC.Menu:
-                     return midiLocation[i];
-             }
-             return null;*/
         }
 
         private void ProgressMusic()
