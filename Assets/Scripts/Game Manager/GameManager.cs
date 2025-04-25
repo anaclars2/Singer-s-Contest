@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     // static int indexScene = 1;
     // int totalScenesInBuild;
     public SCENES sceneToLoad;
+    public Transition2 transitionEffect;
 
     public static GameManager instance;
 
