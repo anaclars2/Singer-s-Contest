@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     // int totalScenesInBuild;
     public SCENES sceneToLoad;
     MUSIC musicID = 0;
-
+    public Transition2 transitionEffect;
     public static GameManager instance;
 
     private void Awake() // singleton
@@ -39,26 +39,38 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void LoadScene()
+    public void LoadScene(SCENES scene)
     {
+        sceneToLoad = scene;
         DataPersistenceManager.instance.SaveGame();
-        SceneManager.LoadScene((int)sceneToLoad);
+        transitionEffect.StartTransition(scene);
+
+        //// passando qual musica e para tocar
+        //if (SceneManager.GetActiveScene().buildIndex == (int)SCENES.Rythm)
+        //{
+        //    musicID++;
+        //    RhythmManager.instance.musicID = musicID;
+        //}
+    }
+
+    //public void LoadSceneWithTransition(TRANSITION transition = TRANSITION.CloseAndOpen)
+    //{
+    //    DataPersistenceManager.instance.SaveGame();
+    //    //UIManager.instance.Animation(ANIMATION.SlideInAndOut, false);
+    //    //UIManager.instance.Transition(transition, sceneToLoad);
+    //    transitionEffect.StartTransition(sceneToLoad);
+    //    DataPersistenceManager.instance.LoadGame();
+    //}
+
+    public void FinishSceneLoad(SCENES scene)
+    {
+        SceneManager.LoadScene((int)scene);
         DataPersistenceManager.instance.LoadGame();
 
-        // passando qual musica e para tocar
-        if (SceneManager.GetActiveScene().buildIndex == (int)SCENES.Rythm)
-        {
+        if (scene == SCENES.Rythm) {
             musicID++;
             RhythmManager.instance.musicID = musicID;
         }
-    }
-
-    public void LoadSceneWithTransition(TRANSITION transition = TRANSITION.CloseAndOpen)
-    {
-        DataPersistenceManager.instance.SaveGame();
-        UIManager.instance.Animation(ANIMATION.SlideInAndOut, false);
-        UIManager.instance.Transition(transition, sceneToLoad);
-        DataPersistenceManager.instance.LoadGame();
     }
 
     #region AutoChangeScene

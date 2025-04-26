@@ -475,7 +475,7 @@ MonoBehaviour:
   button: {fileID: 0}
   withTransition: 1
   sceneToLoad: 1
-  transition: 1
+  transition: 0
   soundSelected: 5
   soundClick: 6
 --- !u!95 &125223631
@@ -724,6 +724,71 @@ MonoBehaviour:
   transition: 0
   soundSelected: 5
   soundClick: 6
+--- !u!1001 &196255747
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 488131425284761031, guid: 58f89aa10aa73c640b5383ab682cc774, type: 3}
+      propertyPath: sceneToLoad
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7060750674457804611, guid: 58f89aa10aa73c640b5383ab682cc774, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8871708902611856219, guid: 58f89aa10aa73c640b5383ab682cc774, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.099763066
+      objectReference: {fileID: 0}
+    - target: {fileID: 8871708902611856219, guid: 58f89aa10aa73c640b5383ab682cc774, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.950513
+      objectReference: {fileID: 0}
+    - target: {fileID: 8871708902611856219, guid: 58f89aa10aa73c640b5383ab682cc774, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8871708902611856219, guid: 58f89aa10aa73c640b5383ab682cc774, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8871708902611856219, guid: 58f89aa10aa73c640b5383ab682cc774, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8871708902611856219, guid: 58f89aa10aa73c640b5383ab682cc774, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8871708902611856219, guid: 58f89aa10aa73c640b5383ab682cc774, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8871708902611856219, guid: 58f89aa10aa73c640b5383ab682cc774, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8871708902611856219, guid: 58f89aa10aa73c640b5383ab682cc774, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8871708902611856219, guid: 58f89aa10aa73c640b5383ab682cc774, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9141264815205560073, guid: 58f89aa10aa73c640b5383ab682cc774, type: 3}
+      propertyPath: m_Name
+      value: TransitionManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 58f89aa10aa73c640b5383ab682cc774, type: 3}
 --- !u!1001 &373038906
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2237,8 +2302,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1244539139138641071, guid: f2621fa8c5c957e49b78dd252ba527b8, type: 3}
       propertyPath: sceneToLoad
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1244539139138641071, guid: f2621fa8c5c957e49b78dd252ba527b8, type: 3}
+      propertyPath: transitionEffect
+      value: 
+      objectReference: {fileID: 488131425284761031, guid: 58f89aa10aa73c640b5383ab682cc774, type: 3}
     - target: {fileID: 1324043027235220236, guid: f2621fa8c5c957e49b78dd252ba527b8, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -2362,3 +2431,4 @@ SceneRoots:
   - {fileID: 4133395063036085642}
   - {fileID: 1257669733}
   - {fileID: 373038906}
+  - {fileID: 196255747}

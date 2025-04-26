@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Transition2 : MonoBehaviour
@@ -11,12 +12,20 @@ public class Transition2 : MonoBehaviour
     private bool transitioningIn = false;
     private bool transitioningOut = false;
 
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     private void Start()
     {
+     
         // Começa a cena revelando (inverso da transição)
         maskAmount = 1f;
         transitionMaterial.SetFloat("_MaskAmount", maskAmount);
         transitioningIn = true;
+
     }
 
     private void Update()
@@ -41,19 +50,30 @@ public class Transition2 : MonoBehaviour
 
             if (maskAmount >= 1f)
             {
+                transitioningOut = false;
+                maskAmount = 1f;
+                transitionMaterial.SetFloat("_MaskAmount", maskAmount);
                 // Cena está totalmente coberta → troca a cena
-                GameManager.instance.LoadScene();
+
+                StartCoroutine(DelayedSceneLoad());
             }
+
+
         }
     }
 
-    public void StartTransition(SCENES scene)
+    private IEnumerator DelayedSceneLoad()
     {
+        yield return new WaitForSeconds(0.2f); // Um pequeno delay para garantir o preenchimento
+        GameManager.instance.FinishSceneLoad(sceneToLoad);
+    }
+
+    public void StartTransition(SCENES targetScene)
+    {
+        Debug.Log("startTransition");
         transitioningOut = true;
         maskAmount = 0f;
-        sceneToLoad = scene;
-
-        GameManager.instance.sceneToLoad = sceneToLoad;
+        sceneToLoad = targetScene;
     }
 }
 

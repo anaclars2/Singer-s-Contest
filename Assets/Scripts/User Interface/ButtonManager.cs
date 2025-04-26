@@ -5,6 +5,7 @@ using SaveSystem;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Unity.VisualScripting.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour, ISelectHandler
 {
@@ -29,10 +30,9 @@ public class ButtonManager : MonoBehaviour, ISelectHandler
 
     public void ChangeScene()
     {
-        GameManager.instance.sceneToLoad = sceneToLoad;
-
-        if (withTransition == false) { GameManager.instance.LoadScene(); }
-        else { GameManager.instance.LoadSceneWithTransition(transition); }
+        Debug.Log("teste funcionou");
+        if (withTransition) { GameManager.instance.LoadScene(sceneToLoad); }
+        else { SceneManager.LoadScene((int)sceneToLoad); }
     }
 
     // public void StartNewGame() { DataPersistenceManager.instance.NewGame(); }
