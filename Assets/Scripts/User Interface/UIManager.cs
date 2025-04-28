@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static UnityEngine.Timeline.DirectorControlPlayable;
 
 namespace UISystem
 {
@@ -22,6 +23,7 @@ namespace UISystem
 
         [Header("Panels Settings")]
         public GameObject pausePanel;
+        [HideInInspector] public bool pauseActive = false;
 
         public static UIManager instance;
 
@@ -89,15 +91,17 @@ namespace UISystem
 
         public void PauseSettings()
         {
-            if (pausePanel.activeInHierarchy == false) 
-            { 
+            if (pausePanel.activeInHierarchy == false)
+            {
                 pausePanel.SetActive(true);
+                pauseActive = true;
                 Animation(ANIMATION.SlideInAndOut, true);
             }
             else
             {
                 EventSystem.current.SetSelectedGameObject(EventSystem.current.firstSelectedGameObject);
                 pausePanel.SetActive(false);
+                pauseActive = false;
                 Animation(ANIMATION.SlideInAndOut, false);
             }
         }

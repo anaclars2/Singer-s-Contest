@@ -121,8 +121,18 @@ namespace RhythmSystem
             {
                 statisticsActived = true;
                 AudioManager.instance.StopPlayer();
-                UIManager.instance.Transition(TRANSITION.CloseAndOpen, SCENES.Menu);
-                // Time.timeScale = 0f;
+                AudioManager.instance.StopMusic();
+                
+                UIManager.instance.Transition(TRANSITION.CloseAndOpen, SCENES.Exploration);
+            }
+        }
+
+        private void CheckVictory()
+        {
+            if (songIsOver == true)
+            {
+                GameManager.instance.RhythmCombatVictory();
+                UIManager.instance.Transition(TRANSITION.CloseAndOpen, SCENES.Exploration);
             }
         }
     }

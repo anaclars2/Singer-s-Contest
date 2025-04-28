@@ -31,6 +31,7 @@ namespace CharacterSystem
         private void Update()
         {
             CharacterMove();
+            // if (UIManager.instance.pauseActive == false) { CharacterMove(); }
             DetectObjects();
 
             if (UnityEngine.Input.GetKeyDown(input)) { animatorAnimations.SetTrigger("isInteracting");
@@ -125,18 +126,10 @@ namespace CharacterSystem
         private void HighlightTarget(GameObject newTarget)
         {
             // removendo destaque anterior
-            if (currentTarget != null)
-            {
-                Outline oldOutline = currentTarget.GetComponent<Outline>();
-                if (oldOutline != null) oldOutline.OutlineWidth = 0;
-            }
 
             currentTarget = newTarget;
-            if (currentTarget != null)
-            {
-                Outline newOutline = currentTarget.GetComponent<Outline>();
-                if (newOutline != null) newOutline.OutlineWidth = 7;
-            }
+           
+            // add
         }
 
         private void OnDrawGizmosSelected()

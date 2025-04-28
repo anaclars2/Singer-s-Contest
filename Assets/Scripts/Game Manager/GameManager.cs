@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().buildIndex != (int)SCENES.Menu)
+        if (Input.GetKeyDown(KeyCode.Escape) && (SceneManager.GetActiveScene().buildIndex != (int)SCENES.Menu || SceneManager.GetActiveScene().buildIndex != (int)SCENES.Rythm))
         {
             UIManager.instance.PauseSettings();
         }

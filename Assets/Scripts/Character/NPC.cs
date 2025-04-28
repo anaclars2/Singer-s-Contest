@@ -18,7 +18,7 @@ namespace CharacterSystem
         {
             if (dialogueBox != null)
             {
-                dialogueBox.SetActive(true); // ativa a caixa
+                dialogueBox.SetActive(true); // ativa a caixa }
             }
         }
     }
