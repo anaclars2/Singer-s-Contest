@@ -9,7 +9,9 @@ namespace SaveSystem
     {
         public Vector3 playerPosition;
         public SerializableDictionary<string, bool> collectedItems; // respectivamente, id e status (coletado ou nao-coletado)
-        public SerializableDictionary<string, string> itemSlot; 
+        public SerializableDictionary<string, string> itemSlot;
+
+        public List<bool> rhythmVictory;
 
         // valores iniciais das variaveis quando não tiver nenhuma arquivo de save
         public GameData()
@@ -17,6 +19,8 @@ namespace SaveSystem
             playerPosition = Vector3.zero;
             collectedItems = new SerializableDictionary<string, bool>();
             itemSlot = new SerializableDictionary<string, string>();
+
+            rhythmVictory = new List<bool>();
         }
     }
 }

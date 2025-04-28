@@ -4,13 +4,14 @@ using UISystem;
 using SaveSystem;
 using RhythmSystem;
 using AudioSystem;
+using System.Collections.Generic;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour, IDataPersistence
 {
     // static int indexScene = 1;
     // int totalScenesInBuild;
     public SCENES sceneToLoad;
-    MUSIC musicID = 0;
+    public List<bool> rhythmVictory; // marca quais fases de combate o jogador ja passou
 
     public static GameManager instance;
 
@@ -44,13 +45,6 @@ public class GameManager : MonoBehaviour
         DataPersistenceManager.instance.SaveGame();
         SceneManager.LoadScene((int)sceneToLoad);
         DataPersistenceManager.instance.LoadGame();
-
-        // passando qual musica e para tocar
-        if (SceneManager.GetActiveScene().buildIndex == (int)SCENES.Rythm)
-        {
-            musicID++;
-            RhythmManager.instance.musicID = musicID;
-        }
     }
 
     public void LoadSceneWithTransition(TRANSITION transition = TRANSITION.CloseAndOpen)
@@ -60,6 +54,12 @@ public class GameManager : MonoBehaviour
         UIManager.instance.Transition(transition, sceneToLoad);
         DataPersistenceManager.instance.LoadGame();
     }
+
+    public void RhythmCombatVictory() { rhythmVictory.Add(true); }
+
+    public void LoadData(GameData data) { rhythmVictory = data.rhythmVictory; }
+
+    public void SaveData(GameData data) { data.rhythmVictory = rhythmVictory; }
 
     #region AutoChangeScene
     // START
