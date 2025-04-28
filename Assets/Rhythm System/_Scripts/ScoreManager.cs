@@ -46,7 +46,7 @@ namespace RhythmSystem
             AddMultipler();
 
             comboScore += scoreAdd * scoreMultiplier;
-            scoreText.text = "Score: " + comboScore.ToString();
+            scoreText.text = "Pontuação: " + comboScore.ToString();
             AudioManager.instance.PlaySfx(SOUND.Hit);
         }
 
@@ -68,7 +68,7 @@ namespace RhythmSystem
                 {
                     multiplierTracker = 0;
                     scoreMultiplier++;
-                    multiplierText.text = "Multiplier: x" + scoreMultiplier.ToString();
+                    multiplierText.text = "Multiplicador: x" + scoreMultiplier.ToString();
                 }
             }
         }

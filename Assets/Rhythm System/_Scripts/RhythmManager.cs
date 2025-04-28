@@ -35,7 +35,7 @@ namespace RhythmSystem
         [SerializeField, Range(0, 100)] int percentageError;
         int allowedErrorRate;
         public int notesError;
-        [SerializeField] TMP_Text allowedText;
+        // [SerializeField] TMP_Text allowedText;
         [SerializeField] TMP_Text errorText;
         bool statisticsActived = false;
 
@@ -62,8 +62,7 @@ namespace RhythmSystem
             ProgressMusic();
             CheckErrorNotes();
 
-            errorText.text = "Error: " + notesError;
-            allowedText.text = "Allowed Error: " + allowedErrorRate;
+            errorText.text = "Erros: " + notesError + "/" + allowedErrorRate;
         }
 
         private void GetDataFromMidi()
