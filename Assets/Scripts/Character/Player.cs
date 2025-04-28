@@ -113,12 +113,15 @@ namespace CharacterSystem
                     item.collected = true;
 
                     item.RemoveFromScene();
+
+                    ItemPopup.instance.ShowItem(item._name, item.description);
                 }
                 else if (currentTarget.GetComponent<NPC>() == true)
                 {
                     NPC npc = currentTarget.GetComponent <NPC>();
                     npc.Interact();
                 }
+               
             }
         }
 
