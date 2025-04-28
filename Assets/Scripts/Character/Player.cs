@@ -5,12 +5,17 @@ using NUnit.Framework.Internal;
 
 namespace CharacterSystem
 {
-    public class Player : Character, IDataPersistence
+    public class Player : MonoBehaviour, IDataPersistence
     {
         public Animator animatorAnimations;
         [SerializeField] Animator animatorFlip;
         bool isMoving;
         bool isMovingBackwards;
+
+        [Header("Move Settings")]
+        [SerializeField] protected float moveSpeed = 5f;
+        protected Vector3 moveDirection;
+        [SerializeField] protected SpriteRenderer sprite;
 
         [Header("Interact Settings")]
         [SerializeField] float detectionRadius = 3f;
@@ -34,13 +39,15 @@ namespace CharacterSystem
             // if (UIManager.instance.pauseActive == false) { CharacterMove(); }
             DetectObjects();
 
-            if (UnityEngine.Input.GetKeyDown(input)) { animatorAnimations.SetTrigger("isInteracting");
+            if (UnityEngine.Input.GetKeyDown(input))
+            {
+                animatorAnimations.SetTrigger("isInteracting");
                 Interact();
             }
         }
 
         #region Move
-        public override void CharacterMove()
+        public void CharacterMove()
         {
             // capturando o input continuo (valores entre -1 e 1)
             float x = Input.GetAxisRaw("Horizontal");
@@ -115,11 +122,6 @@ namespace CharacterSystem
 
                     item.RemoveFromScene();
                 }
-                else if (currentTarget.GetComponent<NPC>() == true)
-                {
-                    NPC npc = currentTarget.GetComponent <NPC>();
-                    npc.Interact();
-                }
             }
         }
 
@@ -128,7 +130,7 @@ namespace CharacterSystem
             // removendo destaque anterior
 
             currentTarget = newTarget;
-           
+
             // add
         }
 

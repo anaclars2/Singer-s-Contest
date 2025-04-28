@@ -44,6 +44,7 @@ namespace RhythmSystem
             effectRotation = normalHit.gameObject.transform.rotation; // tanto faz pq todos tem a mesma rotacao
 
             volume = AudioManager.instance.playerSource.volume;
+            if (volume == 0) { volume = 0.2f; }
         }
 
         // decididndo as notas que precisamos e nao precisamos

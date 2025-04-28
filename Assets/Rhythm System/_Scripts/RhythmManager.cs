@@ -5,6 +5,7 @@ using System;
 using TMPro;
 using UISystem;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace RhythmSystem
@@ -111,20 +112,23 @@ namespace RhythmSystem
                 {
                     imageProgress.fillAmount = 1;
                     songIsOver = true;
+                    CheckVictory();
                 }
             }
         }
 
         private void CheckErrorNotes()
         {
-            if (notesError > allowedErrorRate && statisticsActived == false)
+            /*if (notesError > allowedErrorRate && statisticsActived == false)
             {
                 statisticsActived = true;
                 AudioManager.instance.StopPlayer();
                 AudioManager.instance.StopMusic();
-                
-                UIManager.instance.Transition(TRANSITION.CloseAndOpen, SCENES.Exploration);
-            }
+
+                int indexCurrentScene = SceneManager.GetActiveScene().buildIndex;
+                UIManager.instance.Transition(TRANSITION.CrossFade, (SCENES)indexCurrentScene);
+                // UIManager.instance.Transition(TRANSITION.CloseAndOpen, SCENES.Exploration);
+            }*/
         }
 
         private void CheckVictory()
@@ -132,7 +136,15 @@ namespace RhythmSystem
             if (songIsOver == true)
             {
                 GameManager.instance.RhythmCombatVictory();
-                UIManager.instance.Transition(TRANSITION.CloseAndOpen, SCENES.Exploration);
+
+                int indexCurrentScene = SceneManager.GetActiveScene().buildIndex;
+                int nextScene = indexCurrentScene + 1;
+                Debug.Log($"indexCurrentScene: {indexCurrentScene} | nextScene: {nextScene} | (SCENES)nextScene: {(SCENES)nextScene}");
+                if (nextScene < SceneManager.sceneCountInBuildSettings)
+                {
+                    UIManager.instance.Transition(TRANSITION.CrossFade, (SCENES)nextScene);
+                }                
+                // UIManager.instance.Transition(TRANSITION.CloseAndOpen, SCENES.Exploration);
             }
         }
     }
