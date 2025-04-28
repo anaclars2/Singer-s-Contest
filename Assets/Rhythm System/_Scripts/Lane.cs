@@ -1,3 +1,4 @@
+using AudioSystem;
 using Melanchall.DryWetMidi.Interaction;
 using System.Collections.Generic;
 using UnityEngine;
@@ -31,6 +32,7 @@ namespace RhythmSystem
         [SerializeField] GameObject missHit;
         Vector3 effectPosition;
         Quaternion effectRotation;
+        float volume;
 
         private void Start()
         {
@@ -39,6 +41,8 @@ namespace RhythmSystem
 
             effectPosition = arrow.gameObject.transform.position;
             effectRotation = normalHit.gameObject.transform.rotation; // tanto faz pq todos tem a mesma rotacao
+
+            volume = AudioManager.instance.playerSource.volume;
         }
 
         // decididndo as notas que precisamos e nao precisamos
@@ -141,6 +145,8 @@ namespace RhythmSystem
                     if (notes[i].canBePressed == true)
                     {
                         Note note = notes[i];
+                        AudioManager.instance.playerSource.volume = volume;
+
                         if (note.isLong == true) // se for longa 
                         {
                             currentHeld = note;
@@ -176,6 +182,8 @@ namespace RhythmSystem
             if (Input.GetKey(input) == true && currentHeld != null)
             {
                 holdTimer += Time.deltaTime;
+                AudioManager.instance.playerSource.volume = volume;
+
                 // currentHeld.UpdateLine(holdTimer / currentHeld.duration);
                 Debug.Log("PRESSED LONG NOTE HAPPEN");
 
@@ -218,6 +226,7 @@ namespace RhythmSystem
         {
             if (withFeedback == true) { Instantiate(missHit, effectPosition, effectRotation); }
             ScoreManager.instance.Miss(withFeedback);
+            AudioManager.instance.playerSource.volume = 0f;
         }
 
     }

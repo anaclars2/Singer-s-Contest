@@ -36,18 +36,9 @@ namespace RhythmSystem
 
         public void Hit(string hitType)
         {
-            if (hitType == "normal")
-            {
-                NoteHit(scoreAddNormal);
-            }
-            else if (hitType == "good")
-            {
-                NoteHit(scoreAddGood);
-            }
-            else if (hitType == "perfect")
-            {
-                NoteHit(scoreAddPerfect);
-            }
+            if (hitType == "normal") { NoteHit(scoreAddNormal); }
+            else if (hitType == "good") { NoteHit(scoreAddGood); }
+            else if (hitType == "perfect") { NoteHit(scoreAddPerfect); }
         }
 
         private void NoteHit(int scoreAdd)
@@ -62,9 +53,6 @@ namespace RhythmSystem
         public void Miss(bool withSound = true)
         {
             RemoveMultipler();
-
-            // comboScore -= scoreRemove;
-            // scoreText.text = "Score: " + comboScore.ToString();
 
             if (withSound == true) { AudioManager.instance.PlaySfx(SOUND.Miss); }
             RhythmManager.instance.notesError++;

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2417474207209755633}
   - component: {fileID: 1558444558839599570}
   - component: {fileID: 4371450157440027682}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sprite-end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 9189056566505505868}
   - component: {fileID: 8445901566114092115}
   - component: {fileID: 7048171608681270581}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DownArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,8 +131,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.75, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2417474207209755633}
   - {fileID: 5186902464920764030}
@@ -261,7 +261,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5186902464920764030}
   - component: {fileID: 4779961779953061610}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sprite-middle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

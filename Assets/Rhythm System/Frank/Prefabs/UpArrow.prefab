@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6345054571494298635}
   - component: {fileID: 1661921496018226992}
   - component: {fileID: 5955405850626101467}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sprite-end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 6085507927909402885}
   - component: {fileID: 1946483047016780957}
   - component: {fileID: 3558153031991934992}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: UpArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,8 +131,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5823000293938575678}
   - {fileID: 6345054571494298635}
@@ -261,7 +261,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5823000293938575678}
   - component: {fileID: 5375891446090950226}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sprite-middle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

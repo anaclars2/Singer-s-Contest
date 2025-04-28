@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6573883303502628619}
   - component: {fileID: 2233977624117756165}
   - component: {fileID: 5166484663092054798}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,8 +29,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5830118664288671264}
   - {fileID: 9127531746603081270}
@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 9127531746603081270}
   - component: {fileID: 5631780921135543719}
   - component: {fileID: 7764043043544849104}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sprite-end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,7 +261,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5830118664288671264}
   - component: {fileID: 8605604971729255772}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sprite-middle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

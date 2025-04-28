@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5821205599028938254}
   - component: {fileID: 4836848008186508166}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sprite-middle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 3827378406303639741}
   - component: {fileID: 4887958966284962465}
   - component: {fileID: 8340608912604644418}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sprite-end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 5787157704518193000}
   - component: {fileID: 3687565058311049448}
   - component: {fileID: 300239350720524511}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RightArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,8 +218,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5821205599028938254}
   - {fileID: 3827378406303639741}
