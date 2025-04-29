@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83607aecf6a24134ba1f1e87692cf3b1, type: 3}
+  m_Name: Gloria
+  m_EditorClassIdentifier: 
+  musicType: 0
+  background: {fileID: 21300000, guid: ce520fe83d651c548b337e6d1d5b45cf, type: 3}
+  track: {fileID: 21300000, guid: 8490174b4e66bdc4798e30ff22a84cef, type: 3}
+  blur: {fileID: 21300000, guid: f34ec6458222d27408262b58e1248dff, type: 3}
+  characterLeft: {fileID: 0}
+  nameCharacterLeft: {fileID: 21300000, guid: d47d4665874c4214281142423b03c118, type: 3}
+  backgroundCharacterLeft: {fileID: 21300000, guid: 3343f39e740754849ab067741155fac7, type: 3}
+  characterRight: {fileID: 0}
+  nameCharacterRight: {fileID: 21300000, guid: 7ea6f1288c2521145b129d382ec109c5, type: 3}
+  backgroundCharacterRight: {fileID: 21300000, guid: f7130f75b962ad740b48ffe76219b567, type: 3}
+  iconProgressBar: {fileID: 21300000, guid: 2aad59ce61195a94bb8e245cd1cbc5b6, type: 3}
+  backgroundProgressBar: {fileID: 21300000, guid: 75b87e33415a38a4ba3527e128e148e8, type: 3}
+  fillProgressBar: {fileID: 21300000, guid: f171f9122a4579c4d8606db1b90dee4e, type: 3}
+  prefabUpArrow: {fileID: 5142113478975235971, guid: dc280637f7358b04092663b2b0b28126, type: 3}
+  prefabDownArrow: {fileID: 5695886312208963425, guid: 7b399f8d4fb600b4c8462e5a72e06fae, type: 3}
+  prefabLeftArrow: {fileID: 4398448696882462097, guid: ab35a6974c8bfcb4ab2052f00b4c1c6b, type: 3}
+  prefabRightArrow: {fileID: 9189500491436551379, guid: 1527962dfb7573f42b85c8101b04a689, type: 3}
+  buttonUpArrow: {fileID: 21300000, guid: 2c921ca854309674695ebba4fd8a528f, type: 3}
+  buttonDownArrow: {fileID: 21300000, guid: 98aacad5b4c53494f87452ffad42db9b, type: 3}
+  buttonLeftArrow: {fileID: 21300000, guid: 92dc22d6e43621748b16eec1eb252c29, type: 3}
+  buttonRightArrow: {fileID: 21300000, guid: b3dd7d4fb8262e34993890d47743a834, type: 3}

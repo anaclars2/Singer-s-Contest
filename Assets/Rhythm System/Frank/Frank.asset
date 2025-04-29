@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83607aecf6a24134ba1f1e87692cf3b1, type: 3}
+  m_Name: Frank
+  m_EditorClassIdentifier: 
+  musicType: 1
+  background: {fileID: 21300000, guid: 1bc6d3bb07602744eacfc0299cdee0a9, type: 3}
+  track: {fileID: 21300000, guid: d1ef981b298727b44ab41c1e03b68174, type: 3}
+  blur: {fileID: 21300000, guid: 48d5b6b2d6aee144981b5343c889edd2, type: 3}
+  characterLeft: {fileID: 0}
+  nameCharacterLeft: {fileID: 21300000, guid: 68197fbf79847474b84509673755b5d4, type: 3}
+  backgroundCharacterLeft: {fileID: 21300000, guid: 9be37d92f1f0928409faddaa68b7bdc3, type: 3}
+  characterRight: {fileID: 0}
+  nameCharacterRight: {fileID: 21300000, guid: 87bffb8d4858aca48b03f592c67dc974, type: 3}
+  backgroundCharacterRight: {fileID: 21300000, guid: b67990da6cf7c774cb7be89a36dabf4e, type: 3}
+  iconProgressBar: {fileID: 21300000, guid: 9183bcffbf97164469f73c5885f532ae, type: 3}
+  backgroundProgressBar: {fileID: 21300000, guid: 8354b860d8a294d41a46acb8b38fd7a7, type: 3}
+  fillProgressBar: {fileID: 21300000, guid: a9cee68bff97c24498d27000fe6915c5, type: 3}
+  prefabUpArrow: {fileID: 5142113478975235971, guid: 32c89cebf4dc2be46974c605b8210f4d, type: 3}
+  prefabDownArrow: {fileID: 5695886312208963425, guid: 94f8b9785e8932849b2e4c9a52b664bc, type: 3}
+  prefabLeftArrow: {fileID: 4398448696882462097, guid: dc6e239b74d186b409456b090b900503, type: 3}
+  prefabRightArrow: {fileID: 9189500491436551379, guid: afb9521c2cec7a94f800c0352338844a, type: 3}
+  buttonUpArrow: {fileID: 21300000, guid: aa4885b8061f1af42b09aa8131e32cea, type: 3}
+  buttonDownArrow: {fileID: 21300000, guid: 98cf4207a27472642bc43d33ab23243f, type: 3}
+  buttonLeftArrow: {fileID: 21300000, guid: 18742c3478822fc44b0b4697bb1399a2, type: 3}
+  buttonRightArrow: {fileID: 21300000, guid: 2808b4a6a48f9ea4680f081be04a8fa1, type: 3}

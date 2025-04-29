@@ -309,10 +309,12 @@ MonoBehaviour:
   musicSource: {fileID: 6369146085003466812}
   sfxSource: {fileID: 3210525254266563358}
   sfxList:
-  - {fileID: 11400000, guid: 13a25206de6b2c9469891ac332de73e6, type: 2}
+  - {fileID: 11400000, guid: 7f930f32df27d0f49b672ab6d22f35de, type: 2}
+  - {fileID: 11400000, guid: e73744886fc182d478266cb56960a443, type: 2}
   musicList:
-  - {fileID: 11400000, guid: 0074e4e8051ebf549a5f608f05e8a06c, type: 2}
-  - {fileID: 11400000, guid: 3cc316d011a573949ad0974e4db7ef5b, type: 2}
+  - {fileID: 11400000, guid: 786c883c928734b48b34b1620421613a, type: 2}
+  - {fileID: 11400000, guid: b224c5b550f85a64cb35badba6e984d0, type: 2}
+  - {fileID: 11400000, guid: d0f3c093e9464c74ba1d4fa4b8a67894, type: 2}
 --- !u!1 &7974491326006634421
 GameObject:
   m_ObjectHideFlags: 0

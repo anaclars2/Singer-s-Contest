@@ -801,18 +801,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
-    - target: {fileID: 5304973959182125060, guid: 89420fec90a8c5743a6c526f40b41702, type: 3}
-      propertyPath: sfxList.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5304973959182125060, guid: 89420fec90a8c5743a6c526f40b41702, type: 3}
-      propertyPath: 'sfxList.Array.data[1]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 7f930f32df27d0f49b672ab6d22f35de, type: 2}
-    - target: {fileID: 5304973959182125060, guid: 89420fec90a8c5743a6c526f40b41702, type: 3}
-      propertyPath: 'sfxList.Array.data[2]'
-      value: 
-      objectReference: {fileID: 11400000, guid: e73744886fc182d478266cb56960a443, type: 2}
     - target: {fileID: 7017713030716693675, guid: 89420fec90a8c5743a6c526f40b41702, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -366,6 +366,7 @@ GameObject:
   - component: {fileID: 62504085}
   - component: {fileID: 62504084}
   - component: {fileID: 62504083}
+  - component: {fileID: 62504086}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -437,9 +438,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1184249494}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: LoadScene
+      - m_Target: {fileID: 62504086}
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+        m_MethodName: ChangeScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -487,6 +488,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 62504081}
   m_CullTransparentMesh: 1
+--- !u!114 &62504086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62504081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d18dafafc847ed46891ca1e3164dd58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 0}
+  withTransition: 0
+  sceneToLoad: 2
+  transition: 0
+  soundSelected: 0
+  soundClick: 0
 --- !u!1001 &98438714
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1227,6 +1246,7 @@ MonoBehaviour:
   offSet: {x: 0, y: 2.5, z: -10}
   rotation: {x: 0, y: 0, z: 0, w: 1}
   isToFollow: 1
+  usingTransform: 0
   speedFollow: 5
 --- !u!1 &402011687
 GameObject:
@@ -2858,17 +2878,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2621fa8c5c957e49b78dd252ba527b8, type: 3}
---- !u!114 &1184249494 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1244539139138641071, guid: f2621fa8c5c957e49b78dd252ba527b8, type: 3}
-  m_PrefabInstance: {fileID: 1184249493}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87f4869928ad65c409364a7a1f211393, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1221217555
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3906792084778380125}
   - component: {fileID: 4444368191794778247}
   - component: {fileID: 1187728244711912394}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MissEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
