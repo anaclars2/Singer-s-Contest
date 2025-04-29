@@ -122,6 +122,7 @@ namespace UISystem
                     {
                         settingsPanel.SetActive(false);
                         menuPanel.SetActive(true);
+                        EventSystem.current.SetSelectedGameObject(EventSystem.current.firstSelectedGameObject);
                     }
                 }
 
@@ -131,6 +132,7 @@ namespace UISystem
                     {
                         creditsPanel.SetActive(false);
                         menuPanel.SetActive(true);
+                        EventSystem.current.SetSelectedGameObject(EventSystem.current.firstSelectedGameObject);
                     }
                 }
             }
