@@ -9,5 +9,6 @@ namespace InventorySystem
         [TextArea] public string description;
         public Sprite spriteIcon;
         public EVIDENCES evidenceType;
+        public string group; // A B C D E F G ...
     }
 }

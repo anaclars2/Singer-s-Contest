@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 50abcfebabb6cf8408983cb8ddf38f58, type: 3}
-  m_Name: New Item
+  m_Name: Notebook
   m_EditorClassIdentifier: 
-  _name: 
-  description: 
-  spriteIcon: {fileID: 0}
-  evidenceType: 0
+  _name: Notebook
+  description: asudhiasdjasdasda
+  spriteIcon: {fileID: 21300000, guid: 853d1bcb34d9f404faee99a645858d60, type: 3}
+  evidenceType: 10
+  group: B
