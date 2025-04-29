@@ -23,6 +23,9 @@ namespace UISystem
 
         [Header("Panels Settings")]
         public GameObject pausePanel;
+        public GameObject menuPanel;
+        public GameObject settingsPanel;
+        public GameObject creditsPanel;
         [HideInInspector] public bool pauseActive = false;
 
         public static UIManager instance;
@@ -103,6 +106,33 @@ namespace UISystem
                 pausePanel.SetActive(false);
                 pauseActive = false;
                 Animation(ANIMATION.SlideInAndOut, false);
+            }
+        }
+
+        private void Update()
+        {
+            if (settingsPanel == null) { settingsPanel = GameObject.Find("SettingsPanel"); }
+            if (creditsPanel == null) { creditsPanel = GameObject.Find("CreditsPanel"); }
+
+            if (SceneManager.GetActiveScene().buildIndex == (int)SCENES.Menu)
+            {
+                if (settingsPanel != null)
+                {
+                    if (settingsPanel.activeInHierarchy == true && Input.GetKeyDown(KeyCode.Escape))
+                    {
+                        settingsPanel.SetActive(false);
+                        menuPanel.SetActive(true);
+                    }
+                }
+
+                if (creditsPanel != null)
+                {
+                    if (creditsPanel.activeInHierarchy == true && Input.GetKeyDown(KeyCode.Escape))
+                    {
+                        creditsPanel.SetActive(false);
+                        menuPanel.SetActive(true);
+                    }
+                }
             }
         }
     }

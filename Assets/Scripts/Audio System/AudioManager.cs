@@ -1,5 +1,8 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 namespace AudioSystem
 {
@@ -8,10 +11,14 @@ namespace AudioSystem
         // referenciando os audios sources, em outras palavras, os caras que sao fonte de som
         public AudioSource playerSource;
         public AudioSource musicSource;
-        [SerializeField] private AudioSource sfxSource;
+        [SerializeField] AudioSource sfxSource;
 
         public List<Audio> sfxList;
         public List<Audio> musicList;
+
+        [SerializeField] Slider sliderMusic;
+        [SerializeField] Slider sliderSound;
+        [SerializeField] GameObject settingsPanel;
 
         public static AudioManager instance;
 
@@ -22,7 +29,10 @@ namespace AudioSystem
 
             DontDestroyOnLoad(gameObject);
         }
-        private void Start() { LoadVolumes(); }
+        private void Start()
+        {
+            LoadVolumes();
+        }
 
         // tocar os audios
         #region PlayAudio
@@ -146,5 +156,34 @@ namespace AudioSystem
 
         public void PauseSFX() { sfxSource.Pause(); }
         #endregion
+
+        private void Update()
+        {
+            if (settingsPanel == null) { UpdateSliders(); }
+        }
+
+        private void UpdateSliders()
+        {
+            settingsPanel = GameObject.Find("SettingsPanel");
+            if (settingsPanel != null)
+            {
+                Slider musicSlider = settingsPanel.GetComponentsInChildren<Slider>()
+                                                  .FirstOrDefault(s => s.gameObject.name == "SliderMusic");
+                if (musicSlider != null)
+                {
+                    musicSlider.value = PlayerPrefs.GetFloat("VolumeMusic", 0.2f);
+                    musicSlider.onValueChanged.AddListener(SetMusicVolume);
+                }
+
+                Slider soundSlider = settingsPanel.GetComponentsInChildren<Slider>()
+                                                  .FirstOrDefault(s => s.gameObject.name == "SliderSound");
+                if (soundSlider != null)
+                {
+                    soundSlider.value = PlayerPrefs.GetFloat("VolumeSFX", 0.5f);
+                    soundSlider.onValueChanged.AddListener(SetSFXVolume);
+                }
+            }
+        }
+
     }
 }
