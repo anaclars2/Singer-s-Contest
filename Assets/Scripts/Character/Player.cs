@@ -13,7 +13,12 @@ namespace CharacterSystem
         [Header("Move Settings")]
         [SerializeField] protected float moveSpeed = 5f;
         protected Vector3 moveDirection;
+        [SerializeField] CharacterController controller;
+
+        [Header("Camera Settings")]
         [SerializeField] Camera _camera;
+        [SerializeField] float mouseSensitivity = 100f;
+        private float xRotation = 0f;
 
         [Header("Interact Settings")]
         [SerializeField] float detectionRadius = 3f;
@@ -26,29 +31,52 @@ namespace CharacterSystem
 
         private void Update()
         {
-            if (UIManager.instance.pauseActive == false) { CharacterMove(); }
+            if (UIManager.instance.pauseActive == false)
+            {
+                CharacterMove();
+                CharacterLook(); // rotacao da camera
+            }
             DetectObjects();
 
-            if (UnityEngine.Input.GetKeyDown(input))
-            {
-                Interact();
-            }
+            if (UnityEngine.Input.GetKeyDown(input)) { Interact(); }
         }
-
         #region Move
         public void CharacterMove()
         {
-            // capturando o input continuo (valores entre -1 e 1)
             float x = Input.GetAxisRaw("Horizontal");
             float z = Input.GetAxisRaw("Vertical");
-            // Debug.Log("X: " + x + " | Z: " + z);
 
-            moveDirection = new Vector3(x, 0f, z).normalized;
-            transform.position += moveDirection * moveSpeed * Time.deltaTime;
+            Vector3 forward = _camera.transform.forward;
+            Vector3 right = _camera.transform.right;
 
-            // movendo-se
+            forward.y = 0f;
+            right.y = 0f;
+
+            forward.Normalize();
+            right.Normalize();
+
+            moveDirection = (forward * z + right * x).normalized * moveSpeed;
+            controller.Move(moveDirection * Time.deltaTime);
+
             isMoving = moveDirection.magnitude > 0;
         }
+
+
+
+        void CharacterLook()
+        {
+            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+
+            xRotation -= mouseY;
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f); 
+
+            _camera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+
+            transform.Rotate(Vector3.up * mouseX);
+        }
+
+
         #endregion
 
         #region Interact
