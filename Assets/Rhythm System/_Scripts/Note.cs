@@ -94,7 +94,7 @@ namespace RhythmSystem
             spriteMiddle.transform.rotation = Quaternion.identity;
 
             // ajustando a escala Y para que o sprite nao cresca o dobro
-            float scaleY = distance * 0.55f;
+            float scaleY = distance * 0.52f;
 
             spriteMiddle.transform.localScale = new Vector3(0.1f, scaleY, 0.1f);
             spriteMiddle.transform.position = startPos;

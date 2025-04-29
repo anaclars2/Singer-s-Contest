@@ -2,15 +2,18 @@ using UnityEngine;
 using InventorySystem;
 using SaveSystem;
 using NUnit.Framework.Internal;
+using UISystem;
 
 namespace CharacterSystem
 {
-    public class Player : Character, IDataPersistence
+    public class Player : MonoBehaviour, IDataPersistence
     {
-        public Animator animatorAnimations;
-        [SerializeField] Animator animatorFlip;
         bool isMoving;
-        bool isMovingBackwards;
+
+        [Header("Move Settings")]
+        [SerializeField] protected float moveSpeed = 5f;
+        protected Vector3 moveDirection;
+        [SerializeField] Camera _camera;
 
         [Header("Interact Settings")]
         [SerializeField] float detectionRadius = 3f;
@@ -21,25 +24,19 @@ namespace CharacterSystem
 
         GameObject currentTarget; // alvo visivel mais proximo
 
-        private void Start()
-        {
-            if (animatorFlip == null) { animatorFlip = GetComponent<Animator>(); }
-            if (animatorAnimations == null) { animatorAnimations = GetComponentInChildren<Animator>(); }
-            if (sprite == null) { sprite = GetComponentInChildren<SpriteRenderer>(); }
-        }
-
         private void Update()
         {
-            CharacterMove();
+            if (UIManager.instance.pauseActive == false) { CharacterMove(); }
             DetectObjects();
 
-            if (UnityEngine.Input.GetKeyDown(input)) { animatorAnimations.SetTrigger("isInteracting");
+            if (UnityEngine.Input.GetKeyDown(input))
+            {
                 Interact();
             }
         }
 
         #region Move
-        public override void CharacterMove()
+        public void CharacterMove()
         {
             // capturando o input continuo (valores entre -1 e 1)
             float x = Input.GetAxisRaw("Horizontal");
@@ -51,16 +48,6 @@ namespace CharacterSystem
 
             // movendo-se
             isMoving = moveDirection.magnitude > 0;
-            animatorAnimations.SetBool("isMoving", isMoving);
-
-            // flip em x, para andar direita e esquerda
-            if (sprite.flipX == false && moveDirection.x < 0) { animatorFlip.SetTrigger("Flip"); sprite.flipX = true; }
-            else if (sprite.flipX == true && moveDirection.x > 0) { animatorFlip.SetTrigger("Flip"); sprite.flipX = false; }
-
-            // movendo-se de costas
-            /* if (isMovingBackwards == false && moveDirection.y > 0) { isMovingBackwards = true; animatorFlip.SetTrigger("Flip"); }
-            else if(isMovingBackwards == true && moveDirection.y < 0) { isMovingBackwards = false; animatorFlip.SetTrigger("Flip"); }
-            animatorAnimations.SetBool("isMovingBackwards", isMovingBackwards);*/
         }
         #endregion
 
@@ -116,30 +103,25 @@ namespace CharacterSystem
 
                     ItemPopup.instance.ShowItem(item._name, item.thought);
                 }
+<<<<<<< HEAD
                 else if (currentTarget.GetComponent<NPC>() == true)
                 {
                     NPC npc = currentTarget.GetComponent <NPC>();
                     npc.Interact();
                 }
                
+=======
+>>>>>>> main
             }
         }
 
         private void HighlightTarget(GameObject newTarget)
         {
             // removendo destaque anterior
-            if (currentTarget != null)
-            {
-                Outline oldOutline = currentTarget.GetComponent<Outline>();
-                if (oldOutline != null) oldOutline.OutlineWidth = 0;
-            }
 
             currentTarget = newTarget;
-            if (currentTarget != null)
-            {
-                Outline newOutline = currentTarget.GetComponent<Outline>();
-                if (newOutline != null) newOutline.OutlineWidth = 7;
-            }
+
+            // add
         }
 
         private void OnDrawGizmosSelected()

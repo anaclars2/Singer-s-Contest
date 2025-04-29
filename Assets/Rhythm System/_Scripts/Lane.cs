@@ -1,6 +1,7 @@
 using AudioSystem;
 using Melanchall.DryWetMidi.Interaction;
 using System.Collections.Generic;
+using UISystem;
 using UnityEngine;
 
 namespace RhythmSystem
@@ -43,6 +44,7 @@ namespace RhythmSystem
             effectRotation = normalHit.gameObject.transform.rotation; // tanto faz pq todos tem a mesma rotacao
 
             volume = AudioManager.instance.playerSource.volume;
+            if (volume == 0) { volume = 0.2f; }
         }
 
         // decididndo as notas que precisamos e nao precisamos
@@ -172,7 +174,6 @@ namespace RhythmSystem
                 // quando o jogador errar :P
                 MissNote();
                 inputIndex++;
-
                 // Debug.Log($"Missed {inputIndex} note");
             }
         }
@@ -185,15 +186,11 @@ namespace RhythmSystem
                 AudioManager.instance.playerSource.volume = volume;
 
                 // currentHeld.UpdateLine(holdTimer / currentHeld.duration);
-                Debug.Log("PRESSED LONG NOTE HAPPEN");
-
                 if (holdTimer >= currentHeld.duration) // nota longa concluida com sucesso
                 {
                     float colliderPosition = currentHeld.colliderPosition;
                     float position = currentHeld.transform.position.y;
                     CheckMargin(colliderPosition, position);
-
-                    Debug.Log("PRESSED LONG NOTE SUCESS");
 
                     RemoveNote(currentHeld);
                     inputIndex++;
@@ -211,8 +208,6 @@ namespace RhythmSystem
                 RemoveNote(currentHeld);
                 inputIndex++;
                 currentHeld = null;
-
-                Debug.Log("DOWN LONG NOTE PROBLEM");
             }
         }
 

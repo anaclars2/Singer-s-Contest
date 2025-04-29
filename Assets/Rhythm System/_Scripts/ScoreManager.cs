@@ -78,7 +78,7 @@ namespace RhythmSystem
             scoreMultiplier = 1;
             multiplierTracker = 0;
 
-            multiplierText.text = "Multiplier: x" + scoreMultiplier.ToString();
+            multiplierText.text = "Multiplicador: x" + scoreMultiplier.ToString();
         }
     }
 }

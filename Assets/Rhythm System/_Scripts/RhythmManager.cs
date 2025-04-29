@@ -5,6 +5,7 @@ using System;
 using TMPro;
 using UISystem;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace RhythmSystem
@@ -111,6 +112,7 @@ namespace RhythmSystem
                 {
                     imageProgress.fillAmount = 1;
                     songIsOver = true;
+                    CheckVictory();
                 }
             }
         }
@@ -121,8 +123,34 @@ namespace RhythmSystem
             {
                 statisticsActived = true;
                 AudioManager.instance.StopPlayer();
-                UIManager.instance.Transition(TRANSITION.CloseAndOpen, SCENES.Menu);
-                // Time.timeScale = 0f;
+                AudioManager.instance.StopMusic();
+
+                int indexCurrentScene = SceneManager.GetActiveScene().buildIndex;
+                UIManager.instance.Transition(TRANSITION.CrossFade, (SCENES)indexCurrentScene);
+                // UIManager.instance.Transition(TRANSITION.CloseAndOpen, SCENES.Exploration);
+            }
+        }
+
+        private void CheckVictory()
+        {
+            if (songIsOver == true)
+            {
+                GameManager.instance.RhythmCombatVictory();
+
+                int indexCurrentScene = SceneManager.GetActiveScene().buildIndex;
+                int nextScene = indexCurrentScene + 1;
+                Debug.Log($"indexCurrentScene: {indexCurrentScene} | nextScene: {nextScene} | (SCENES)nextScene: {(SCENES)nextScene}");
+                if (nextScene < SceneManager.sceneCountInBuildSettings)
+                {
+                    UIManager.instance.Transition(TRANSITION.CrossFade, (SCENES)nextScene);
+                }
+                else
+                {
+                    nextScene = 0;
+                    UIManager.instance.Transition(TRANSITION.CrossFade, (SCENES)nextScene);
+                }
+
+                // UIManager.instance.Transition(TRANSITION.CloseAndOpen, SCENES.Exploration);
             }
         }
     }
