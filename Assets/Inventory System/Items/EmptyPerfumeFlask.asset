@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50abcfebabb6cf8408983cb8ddf38f58, type: 3}
+  m_Name: EmptyPerfumeFlask
+  m_EditorClassIdentifier: 
+  _name: EmptyPerfumeFlask
+  description: "Um frasco de vidro ornamentado, agora completamente seco. Seu aroma
+    ainda paira no ar \u2014 o mesmo perfume doce e inebriante encontrado na presilha
+    e no len\xE7o. A tampa est\xE1 fora do lugar, como se tivesse sido deixado de
+    lado \xE0s pressas. "
+  spriteIcon: {fileID: 21300000, guid: bfc3bff592fbd1248a3ab9fca5d32293, type: 3}
+  evidenceType: 7
+  group: E
+  isCollectible: 1

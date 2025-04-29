@@ -11,5 +11,6 @@ namespace InventorySystem
         public Sprite spriteIcon;
         public EVIDENCES evidenceType;
         public string group; // A B C D E F G ...
+        public bool isCollectible;
     }
 }

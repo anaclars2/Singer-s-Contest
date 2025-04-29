@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 50abcfebabb6cf8408983cb8ddf38f58, type: 3}
-  m_Name: Nap
+  m_Name: EmptyLipstick
   m_EditorClassIdentifier: 
-  _name: Nap
-  description: "Um len\xE7o de tecido branco, com as bordas decoradas por um delicado
-    fio rosa prateado. Ele carrega o mesmo perfume doce e persistente da presilha,
-    como se ambos viessem da mesma pessoa. "
-  spriteIcon: {fileID: 21300000, guid: 5b11ef6f157f4bb4b84bfc9dfd97e1e1, type: 3}
-  evidenceType: 4
-  group: C
+  _name: EmptyLipstick
+  description: "Um tubo met\xE1lico de batom, na cor rosa claro, igual \xE0 cor vista
+    em outros objetos.  Por dentro, est\xE1 raspado at\xE9 o fim. Fica evidente que
+    algu\xE9m o usou com frequ\xEAncia... ou com urg\xEAncia.\n"
+  spriteIcon: {fileID: 21300000, guid: 433000d547af3194eaa71d72df3ad5cb, type: 3}
+  evidenceType: 6
+  group: D
   isCollectible: 1

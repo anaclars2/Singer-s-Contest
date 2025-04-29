@@ -15,6 +15,8 @@ namespace InventorySystem
         Notebook,
         SuspiciousFlask,
         OldLetter,
-        RippedSheetMusic
+        TornSheet,
+        SingerPoster,
+        Clips
     }
 }

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50abcfebabb6cf8408983cb8ddf38f58, type: 3}
+  m_Name: TornSheet
+  m_EditorClassIdentifier: 
+  _name: TornSheet
+  description: "Um fragmento irregular de uma partitura musical, com bordas rasgadas
+    de forma descuidada.A tinta das anota\xE7\xF5es est\xE1 levemente borrada, como
+    se tivesse sido manuseada com as m\xE3os \xFAmidas. No canto inferior direito,
+    h\xE1 uma mancha distinta de batom rosa claro \u2014 uma assinatura n\xE3o intencional."
+  spriteIcon: {fileID: 21300000, guid: 849d1ef99dc8e1e4a8be43cbe0075b51, type: 3}
+  evidenceType: 13
+  group: B
+  isCollectible: 1
