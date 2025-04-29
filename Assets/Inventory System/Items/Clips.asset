@@ -10,13 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 50abcfebabb6cf8408983cb8ddf38f58, type: 3}
-  m_Name: Nap
+  m_Name: Clips
   m_EditorClassIdentifier: 
-  _name: Nap
-  description: "Um len\xE7o de tecido branco, com as bordas decoradas por um delicado
-    fio rosa prateado. Ele carrega o mesmo perfume doce e persistente da presilha,
-    como se ambos viessem da mesma pessoa. "
-  spriteIcon: {fileID: 21300000, guid: 5b11ef6f157f4bb4b84bfc9dfd97e1e1, type: 3}
-  evidenceType: 4
-  group: C
-  isCollectible: 1
+  _name: Clips
+  description: 
+  spriteIcon: {fileID: 0}
+  evidenceType: 15
+  group: D
+  isCollectible: 0

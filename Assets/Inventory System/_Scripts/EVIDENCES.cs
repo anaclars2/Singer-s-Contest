@@ -14,6 +14,9 @@ namespace InventorySystem
         CouplePictureLD,
         Notebook,
         SuspiciousFlask,
-        OldLetter
+        OldLetter,
+        TornSheet,
+        SingerPoster,
+        Clips
     }
 }

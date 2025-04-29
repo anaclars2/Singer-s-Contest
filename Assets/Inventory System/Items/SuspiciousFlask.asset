@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 50abcfebabb6cf8408983cb8ddf38f58, type: 3}
-  m_Name: Notebook
+  m_Name: SuspiciousFlask
   m_EditorClassIdentifier: 
-  _name: Notebook
-  description: "Um caderno de capa dura, com anota\xE7\xF5es meticulosas, rabiscos,
-    ideias soltas e listas. Entre elas, frases riscadas com for\xE7a, como se algu\xE9m
-    tivesse mudado de ideia no \xFAltimo instante. Um projeto inacabado ou abandonado. "
-  spriteIcon: {fileID: 21300000, guid: ec90f14cd8743ce419539d1b78374c34, type: 3}
-  evidenceType: 10
+  _name: SuspiciousFlask
+  description: "Um pequeno frasco de vidro fosco, com tampa de rosca. Dentro, um
+    p\xF3 fino e p\xE1lido, quase branco. N\xE3o h\xE1 r\xF3tulo, nem qualquer identifica\xE7\xE3o.
+    O cheiro \xE9 sutil, mas estranho."
+  spriteIcon: {fileID: 21300000, guid: 3318d834a3a05a74ebbe9719ccbddef9, type: 3}
+  evidenceType: 11
   group: F
   isCollectible: 1
