@@ -169,11 +169,10 @@ namespace RhythmSystem
                         // Debug.Log($"Hit on {inputIndex} note");
                         return;
                     }
-
-                    // quando o jogador errar :P
-                    MissNote();
                 }
 
+                // quando o jogador errar :P
+                MissNote();
                 inputIndex++;
                 // Debug.Log($"Missed {inputIndex} note");
             }
