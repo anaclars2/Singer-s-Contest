@@ -119,7 +119,7 @@ namespace RhythmSystem
 
         private void CheckErrorNotes()
         {
-            /*if (notesError > allowedErrorRate && statisticsActived == false)
+            if (notesError > allowedErrorRate && statisticsActived == false)
             {
                 statisticsActived = true;
                 AudioManager.instance.StopPlayer();
@@ -128,7 +128,7 @@ namespace RhythmSystem
                 int indexCurrentScene = SceneManager.GetActiveScene().buildIndex;
                 UIManager.instance.Transition(TRANSITION.CrossFade, (SCENES)indexCurrentScene);
                 // UIManager.instance.Transition(TRANSITION.CloseAndOpen, SCENES.Exploration);
-            }*/
+            }
         }
 
         private void CheckVictory()
@@ -143,7 +143,13 @@ namespace RhythmSystem
                 if (nextScene < SceneManager.sceneCountInBuildSettings)
                 {
                     UIManager.instance.Transition(TRANSITION.CrossFade, (SCENES)nextScene);
-                }                
+                }
+                else
+                {
+                    nextScene = 0;
+                    UIManager.instance.Transition(TRANSITION.CrossFade, (SCENES)nextScene);
+                }
+
                 // UIManager.instance.Transition(TRANSITION.CloseAndOpen, SCENES.Exploration);
             }
         }

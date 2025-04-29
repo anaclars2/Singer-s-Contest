@@ -1086,7 +1086,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 0.8}
+  m_Size: {x: 1.8, y: 1.4}
   m_EdgeRadius: 0
 --- !u!50 &446793748
 Rigidbody2D:
@@ -1498,7 +1498,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 0.8}
+  m_Size: {x: 1.8, y: 1.4}
   m_EdgeRadius: 0
 --- !u!50 &505783349
 Rigidbody2D:
@@ -1753,7 +1753,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 0.8}
+  m_Size: {x: 1.8, y: 1.4}
   m_EdgeRadius: 0
 --- !u!50 &600236053
 Rigidbody2D:
@@ -2528,7 +2528,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 0.8}
+  m_Size: {x: 1.8, y: 1.4}
   m_EdgeRadius: 0
 --- !u!50 &1071312338
 Rigidbody2D:

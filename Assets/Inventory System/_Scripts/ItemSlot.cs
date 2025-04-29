@@ -1,10 +1,8 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 using SaveSystem;
-using static UnityEditor.Progress;
 
 namespace InventorySystem
 {

@@ -53,11 +53,11 @@ namespace UISystem
                 track.sprite = character.track;
                 blur.sprite = character.blur;
 
-               // characterLeft.sprite = character.characterLeft;
+                characterLeft.sprite = character.characterLeft;
                 nameCharacterLeft.sprite = character.nameCharacterLeft;
                 backgroundCharacterLeft.sprite = character.backgroundCharacterLeft;
 
-               // characterRight.sprite = character.characterRight;
+                characterRight.sprite = character.characterRight;
                 nameCharacterRight.sprite = character.nameCharacterRight;
                 backgroundCharacterRight.sprite = character.backgroundCharacterRight;
 

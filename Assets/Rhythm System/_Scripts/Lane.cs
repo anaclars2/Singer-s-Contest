@@ -169,12 +169,12 @@ namespace RhythmSystem
                         // Debug.Log($"Hit on {inputIndex} note");
                         return;
                     }
+
+                    // quando o jogador errar :P
+                    MissNote();
                 }
 
-                // quando o jogador errar :P
-                MissNote();
                 inputIndex++;
-
                 // Debug.Log($"Missed {inputIndex} note");
             }
         }
@@ -187,15 +187,11 @@ namespace RhythmSystem
                 AudioManager.instance.playerSource.volume = volume;
 
                 // currentHeld.UpdateLine(holdTimer / currentHeld.duration);
-                Debug.Log("PRESSED LONG NOTE HAPPEN");
-
                 if (holdTimer >= currentHeld.duration) // nota longa concluida com sucesso
                 {
                     float colliderPosition = currentHeld.colliderPosition;
                     float position = currentHeld.transform.position.y;
                     CheckMargin(colliderPosition, position);
-
-                    Debug.Log("PRESSED LONG NOTE SUCESS");
 
                     RemoveNote(currentHeld);
                     inputIndex++;
@@ -213,8 +209,6 @@ namespace RhythmSystem
                 RemoveNote(currentHeld);
                 inputIndex++;
                 currentHeld = null;
-
-                Debug.Log("DOWN LONG NOTE PROBLEM");
             }
         }
 
