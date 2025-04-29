@@ -76,20 +76,8 @@ namespace InventorySystem
             }
         }
 
-        private void GetAllEvidences()
-        {
-            for (int i = 0; i < slots.Length; i++)
-            {
-                if (slots[i].isFull == true && evidences.Contains(slots[i].itemType) == false)
-                {
-                    evidences.Add(slots[i].itemType);
-                }
-            }
-        }
-
         public bool CheckIfContains(EVIDENCES evidence)
         {
-            GetAllEvidences();
             if (evidences.Contains(evidence) == true) { Debug.Log($"Inventory contains item {evidence} necessary."); return true; }
             else { Debug.Log($"Inventory doesn't contains item {evidence} necessary."); return false; }
         }

@@ -2,20 +2,18 @@ using UnityEngine;
 using InventorySystem;
 using SaveSystem;
 using NUnit.Framework.Internal;
+using UISystem;
 
 namespace CharacterSystem
 {
     public class Player : MonoBehaviour, IDataPersistence
     {
-        public Animator animatorAnimations;
-        [SerializeField] Animator animatorFlip;
         bool isMoving;
-        bool isMovingBackwards;
 
         [Header("Move Settings")]
         [SerializeField] protected float moveSpeed = 5f;
         protected Vector3 moveDirection;
-        [SerializeField] protected SpriteRenderer sprite;
+        [SerializeField] Camera _camera;
 
         [Header("Interact Settings")]
         [SerializeField] float detectionRadius = 3f;
@@ -26,22 +24,13 @@ namespace CharacterSystem
 
         GameObject currentTarget; // alvo visivel mais proximo
 
-        private void Start()
-        {
-            if (animatorFlip == null) { animatorFlip = GetComponent<Animator>(); }
-            if (animatorAnimations == null) { animatorAnimations = GetComponentInChildren<Animator>(); }
-            if (sprite == null) { sprite = GetComponentInChildren<SpriteRenderer>(); }
-        }
-
         private void Update()
         {
-            CharacterMove();
-            // if (UIManager.instance.pauseActive == false) { CharacterMove(); }
+            if (UIManager.instance.pauseActive == false) { CharacterMove(); }
             DetectObjects();
 
             if (UnityEngine.Input.GetKeyDown(input))
             {
-                animatorAnimations.SetTrigger("isInteracting");
                 Interact();
             }
         }
@@ -59,16 +48,6 @@ namespace CharacterSystem
 
             // movendo-se
             isMoving = moveDirection.magnitude > 0;
-            animatorAnimations.SetBool("isMoving", isMoving);
-
-            // flip em x, para andar direita e esquerda
-            if (sprite.flipX == false && moveDirection.x < 0) { animatorFlip.SetTrigger("Flip"); sprite.flipX = true; }
-            else if (sprite.flipX == true && moveDirection.x > 0) { animatorFlip.SetTrigger("Flip"); sprite.flipX = false; }
-
-            // movendo-se de costas
-            /* if (isMovingBackwards == false && moveDirection.y > 0) { isMovingBackwards = true; animatorFlip.SetTrigger("Flip"); }
-            else if(isMovingBackwards == true && moveDirection.y < 0) { isMovingBackwards = false; animatorFlip.SetTrigger("Flip"); }
-            animatorAnimations.SetBool("isMovingBackwards", isMovingBackwards);*/
         }
         #endregion
 

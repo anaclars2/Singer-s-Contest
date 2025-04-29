@@ -5,6 +5,7 @@ using SaveSystem;
 using RhythmSystem;
 using AudioSystem;
 using System.Collections.Generic;
+using InventorySystem;
 
 public class GameManager : MonoBehaviour, IDataPersistence
 {
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
     // int totalScenesInBuild;
     public SCENES sceneToLoad;
     public List<bool> rhythmVictory; // marca quais fases de combate o jogador ja passou
+    public Dictionary<EVIDENCES, bool> currentsItem; // true = tem 
 
     public static GameManager instance;
 
