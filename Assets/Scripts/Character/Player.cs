@@ -114,7 +114,7 @@ namespace CharacterSystem
 
                     item.RemoveFromScene();
 
-                    ItemPopup.instance.ShowItem(item._name, item.description);
+                    ItemPopup.instance.ShowItem(item._name, item.thought);
                 }
                 else if (currentTarget.GetComponent<NPC>() == true)
                 {

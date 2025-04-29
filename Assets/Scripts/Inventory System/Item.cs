@@ -11,7 +11,7 @@ namespace InventorySystem
         [HideInInspector] public string thought;
         [HideInInspector] public Sprite spriteIcon;
         [HideInInspector] public EVIDENCES evidenceType;
-        [SerializeField] private GameObject dialogueBox;
+        [SerializeField] private GameObject dialogueThought;
 
         [HideInInspector] public ItemSlot slot;
         [SerializeField] GameObject visual;
@@ -27,7 +27,6 @@ namespace InventorySystem
             _name = itemData._name;
             description = itemData.description;
             thought = itemData.thought;
-            spriteIcon = GetComponent<Sprite>();
             spriteIcon = itemData.spriteIcon;
             evidenceType = itemData.evidenceType;
         }
