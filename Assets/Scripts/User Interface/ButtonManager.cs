@@ -31,7 +31,7 @@ public class ButtonManager : MonoBehaviour, ISelectHandler
     public void ChangeScene()
     {
         Debug.Log("teste funcionou");
-        if (withTransition) { GameManager.instance.LoadScene(sceneToLoad); }
+        if (withTransition) { GameManager.instance.LoadScene(); }
         else { SceneManager.LoadScene((int)sceneToLoad); }
     }
 

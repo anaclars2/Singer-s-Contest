@@ -65,7 +65,7 @@ public class Transition2 : MonoBehaviour
     private IEnumerator DelayedSceneLoad()
     {
         yield return new WaitForSeconds(0.2f); // Um pequeno delay para garantir o preenchimento
-        GameManager.instance.FinishSceneLoad(sceneToLoad);
+        
     }
 
     public void StartTransition(SCENES targetScene)

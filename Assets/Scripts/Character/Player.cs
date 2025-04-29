@@ -131,15 +131,6 @@ namespace CharacterSystem
 
                     ItemPopup.instance.ShowItem(item._name, item.thought);
                 }
-<<<<<<< HEAD
-                else if (currentTarget.GetComponent<NPC>() == true)
-                {
-                    NPC npc = currentTarget.GetComponent <NPC>();
-                    npc.Interact();
-                }
-               
-=======
->>>>>>> main
             }
         }
 
