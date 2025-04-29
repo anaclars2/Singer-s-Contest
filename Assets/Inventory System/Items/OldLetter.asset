@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50abcfebabb6cf8408983cb8ddf38f58, type: 3}
+  m_Name: OldLetter
+  m_EditorClassIdentifier: 
+  _name: OldLetter
+  description: "Uma carta escrita \xE0 m\xE3o, com tinta azul desbotada. O papel
+    est\xE1 amarelado e levemente quebradi\xE7o nas bordas. As palavras s\xE3o delicadas,
+    sentimentais, mas h\xE1 interrup\xE7\xF5es... frases incompletas, como se o autor
+    tivesse perdido a coragem. Um desabafo que talvez nunca tenha chegado ao seu
+    destino."
+  spriteIcon: {fileID: 21300000, guid: 3e33d8a352cf0854c95a4aab9d0fb1af, type: 3}
+  evidenceType: 12
+  group: F
+  isCollectible: 1

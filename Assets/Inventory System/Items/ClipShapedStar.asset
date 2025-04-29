@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: ClipShapedStar
   m_EditorClassIdentifier: 
   _name: ClipShapedStar
-  description: asudhiasdjasdasda
+  description: "Uma pequena presilha de cabelo, azul, com o formato de uma estrela
+    de cinco pontas. Ainda exala um perfume doce e forte, marcante o suficiente para
+    ficar no ar por minutos. Foi deixada \xE0s pressas sobre a bancada, como se algu\xE9m
+    tivesse sido interrompido no meio de algo."
   spriteIcon: {fileID: 21300000, guid: 853d1bcb34d9f404faee99a645858d60, type: 3}
   evidenceType: 0
   group: A
+  isCollectible: 1

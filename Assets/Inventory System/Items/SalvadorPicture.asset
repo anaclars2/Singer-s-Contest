@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50abcfebabb6cf8408983cb8ddf38f58, type: 3}
+  m_Name: SalvadorPicture
+  m_EditorClassIdentifier: 
+  _name: SalvadorPicture
+  description: "Metade de uma fotografia, cortada com viol\xEAncia. Dom Salvador
+    aparece sorrindo, posando com sua express\xE3o carism\xE1tica habitual. Na parte
+    inferior esquerda, algumas carinhas de raiva foram desenhadas com batom rosa
+    claro \u2014 rabiscado com pressa, quase com raiva. A outra metade da foto est\xE1
+    desaparecida."
+  spriteIcon: {fileID: 21300000, guid: efe5e8b90441bdd43b66c0bfc46fd7fa, type: 3}
+  evidenceType: 5
+  group: C
+  isCollectible: 1
