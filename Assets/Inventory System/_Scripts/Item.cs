@@ -10,6 +10,8 @@ namespace InventorySystem
         [HideInInspector] public Sprite spriteIcon;
         [HideInInspector] public EVIDENCES evidenceType;
         [HideInInspector] public string group;
+        [HideInInspector] public bool isCollectible;
+        [HideInInspector] public string idea;
 
         [HideInInspector] public ItemSlot slot;
         [SerializeField] GameObject visual;
@@ -27,6 +29,8 @@ namespace InventorySystem
             spriteIcon = itemData.spriteIcon;
             evidenceType = itemData.evidenceType;
             group = itemData.group;
+            isCollectible = itemData.isCollectible;
+            idea = itemData.idea;
         }
 
         public void RemoveFromScene()

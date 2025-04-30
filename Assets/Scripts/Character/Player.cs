@@ -3,6 +3,7 @@ using InventorySystem;
 using UISystem;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 
 namespace CharacterSystem
 {
@@ -26,8 +27,14 @@ namespace CharacterSystem
         [SerializeField] LayerMask obstructionLayer;
         [SerializeField] LayerMask playerLayer;
         public KeyCode input = KeyCode.E;
+        [SerializeField] GameObject ideaArea;
 
         GameObject currentTarget; // alvo visivel mais proximo
+
+        private void Start()
+        {
+            if (ideaArea != null) { ideaArea.SetActive(false); }
+        }
 
         private void Update()
         {
@@ -123,32 +130,44 @@ namespace CharacterSystem
                 if (currentTarget.GetComponent<Item>() == true)
                 {
                     Item item = currentTarget.GetComponent<Item>();
-                    InventoryManager.instance.AddItem(item);
-                    item.collected = true;
-                    InventoryManager.instance.evidences.Add(item.evidenceType);
-
-                    string group = item.group;
-                    List<Item> items = FindAllItemObjects();
-                    List<Item> itemsGroup = ItemsByGroup(items, group);
-                    bool groupIsEnded = InventoryHasAllItems(itemsGroup);
-
-                    item.RemoveFromScene();
-
-                    if (groupIsEnded == true)
+                    if (item.isCollectible == true)
                     {
-                        SCENES scene = SCENES.None;
-                        switch (group)
+                        InventoryManager.instance.AddItem(item);
+                        item.collected = true;
+                        InventoryManager.instance.evidences.Add(item.evidenceType);
+
+                        if (ideaArea != null)
                         {
-                            case "A": scene = SCENES.Menu; break;
-                            case "B": scene = SCENES.None; break;
-                            case "C": scene = SCENES.None; break;
-                            case "D": scene = SCENES.None; break;
-                            case "E": scene = SCENES.None; break;
-                            case "F": scene = SCENES.None; break;
+                            ideaArea.SetActive(true);
+                            TMP_Text text = ideaArea.GetComponentInChildren<TMP_Text>();
+                            text.text = item.idea;
+
+                            // timer e desativar
                         }
 
-                        GameManager.instance.sceneToLoad = scene;
-                        GameManager.instance.LoadSceneWithTransition(TRANSITION.CrossFade);
+                        string group = item.group;
+                        List<Item> items = FindAllItemObjects();
+                        List<Item> itemsGroup = ItemsByGroup(items, group);
+                        bool groupIsEnded = InventoryHasAllItems(itemsGroup);
+
+                        item.RemoveFromScene();
+
+                        if (groupIsEnded == true)
+                        {
+                            SCENES scene = SCENES.None;
+                            switch (group)
+                            {
+                                case "A": scene = SCENES.Menu; break;
+                                case "B": scene = SCENES.None; break;
+                                case "C": scene = SCENES.None; break;
+                                case "D": scene = SCENES.None; break;
+                                case "E": scene = SCENES.None; break;
+                                case "F": scene = SCENES.None; break;
+                            }
+
+                            GameManager.instance.sceneToLoad = scene;
+                            GameManager.instance.LoadSceneWithTransition(TRANSITION.CrossFade);
+                        }
                     }
                 }
             }
