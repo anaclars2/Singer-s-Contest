@@ -7,7 +7,7 @@ public class DialogueTriggerZone : MonoBehaviour
 
     private bool triggered = false;
     public string requiredFlag;
-    public bool invertCondition = false;
+    public bool invertCondition = false; //se quiser que o diálogo só aconteça quando a flag NÃO estiver ativa
 
 
     private void OnTriggerEnter(Collider other)
