@@ -151,6 +151,7 @@ namespace CharacterSystem
                             TMP_Text text = ideaArea.GetComponentInChildren<TMP_Text>();
                             text.text = item.idea;
 
+                            StartCoroutine(HideIdeaAfterSeconds(3f));// tempo de pensamento
                             // timer e desativar
                         }
 
