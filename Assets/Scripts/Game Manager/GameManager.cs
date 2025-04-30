@@ -1,12 +1,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UISystem;
-using RhythmSystem;
-using AudioSystem;
+using SaveSystem;
 using System.Collections.Generic;
 using InventorySystem;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour, IDataPersistence
 {
     // static int indexScene = 1;
     // int totalScenesInBuild;
@@ -44,14 +43,22 @@ public class GameManager : MonoBehaviour
 
     public void LoadScene()
     {
+        DataPersistenceManager.instance.SaveGame();
         SceneManager.LoadScene((int)sceneToLoad);
+        DataPersistenceManager.instance.LoadGame();
     }
 
     public void LoadSceneWithTransition(TRANSITION transition = TRANSITION.CloseAndOpen)
     {
+        DataPersistenceManager.instance.SaveGame();
         UIManager.instance.Animation(ANIMATION.SlideInAndOut, false);
         UIManager.instance.Transition(transition, sceneToLoad);
+        DataPersistenceManager.instance.LoadGame();
     }
+
+    public void LoadData(GameData data) { rhythmVictory = data.rhythmVictory; }
+
+    public void SaveData(GameData data) { data.rhythmVictory = rhythmVictory; }
 
     public void RhythmCombatVictory() { rhythmVictory.Add(true); }
 

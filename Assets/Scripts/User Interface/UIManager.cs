@@ -26,6 +26,7 @@ namespace UISystem
         public GameObject menuPanel;
         public GameObject settingsPanel;
         public GameObject creditsPanel;
+        public GameObject inventoryPanel;
         [HideInInspector] public bool pauseActive = false;
 
         public static UIManager instance;
@@ -98,6 +99,7 @@ namespace UISystem
             {
                 pausePanel.SetActive(true);
                 pauseActive = true;
+                if (inventoryPanel.activeInHierarchy == true && inventoryPanel != null) { inventoryPanel.SetActive(false); }
                 Animation(ANIMATION.SlideInAndOut, true);
             }
             else
@@ -111,8 +113,9 @@ namespace UISystem
 
         private void Update()
         {
-            if (settingsPanel == null) { settingsPanel = GameObject.Find("SettingsPanel"); }
-            if (creditsPanel == null) { creditsPanel = GameObject.Find("CreditsPanel"); }
+            if (settingsPanel == null) { settingsPanel = GameObject.Find("SettingsPanel") ?? FindAllObjects("SettingsPanel"); }
+            if (creditsPanel == null) { creditsPanel = GameObject.Find("CreditsPanel") ?? FindAllObjects("CreditsPanel"); }
+            if (inventoryPanel == null) { inventoryPanel = GameObject.Find("InventoryPanel") ?? FindAllObjects("InventoryPanel"); }
 
             if (SceneManager.GetActiveScene().buildIndex == (int)SCENES.Menu)
             {
@@ -137,5 +140,16 @@ namespace UISystem
                 }
             }
         }
+
+        private GameObject FindAllObjects(string name)
+        {
+            Transform[] allObjects = Resources.FindObjectsOfTypeAll<Transform>();
+            foreach (Transform obj in allObjects)
+            {
+                if (obj.name == name) { return obj.gameObject; }
+            }
+            return null;
+        }
+
     }
 }

@@ -37,6 +37,10 @@ public class ButtonManager : MonoBehaviour, ISelectHandler
 
     // public void StartNewGame() { DataPersistenceManager.instance.NewGame(); }
 
+    public void LoadGameProgress() { DataPersistenceManager.instance.LoadGame(); }
+
+    public void SaveGameProgress() { DataPersistenceManager.instance.SaveGame(); }
+
     public void OnSelect(BaseEventData eventData) { AudioManager.instance.PlaySfx(soundSelected); }
 
     private void SoundClick() { AudioManager.instance.PlaySfx(soundClick); }

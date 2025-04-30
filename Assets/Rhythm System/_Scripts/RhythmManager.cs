@@ -136,21 +136,8 @@ namespace RhythmSystem
             if (songIsOver == true)
             {
                 GameManager.instance.RhythmCombatVictory();
+                UIManager.instance.Transition(TRANSITION.CrossFade, SCENES.Exploration);
 
-                int indexCurrentScene = SceneManager.GetActiveScene().buildIndex;
-                int nextScene = indexCurrentScene + 1;
-                Debug.Log($"indexCurrentScene: {indexCurrentScene} | nextScene: {nextScene} | (SCENES)nextScene: {(SCENES)nextScene}");
-                if (nextScene < SceneManager.sceneCountInBuildSettings)
-                {
-                    UIManager.instance.Transition(TRANSITION.CrossFade, (SCENES)nextScene);
-                }
-                else
-                {
-                    nextScene = 0;
-                    UIManager.instance.Transition(TRANSITION.CrossFade, (SCENES)nextScene);
-                }
-
-                // UIManager.instance.Transition(TRANSITION.CloseAndOpen, SCENES.Exploration);
             }
         }
     }

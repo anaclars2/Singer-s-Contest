@@ -2,10 +2,11 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
+using SaveSystem;
 
 namespace InventorySystem
 {
-    public class ItemSlot : MonoBehaviour, IPointerClickHandler
+    public class ItemSlot : MonoBehaviour, IDataPersistence, IPointerClickHandler
     {
         [HideInInspector] public Item item;
         string itemName;
@@ -43,6 +44,41 @@ namespace InventorySystem
 
             Debug.Log("Atribuiu!");
             // Debug.Log($"ItemName: {itemName} | ItemDescription: {itemDescription} | ItemSprite: {itemSprite} | SlotFull: {isFull}");
+        }
+
+        public void LoadData(GameData data)
+        {
+            data.itemSlot.TryGetValue(id, out itemId);
+            if (itemId != string.Empty)
+            {
+                Debug.Log("A");
+                foreach (Item item in Resources.FindObjectsOfTypeAll<Item>())
+                {
+                    Debug.Log("B");
+
+                    if (item.gameObject.scene.IsValid() && item.id == itemId)
+                    {
+                        Debug.Log("C");
+
+                        if (item.collected == true)
+                        {
+                            this.item = item;
+                            AddItem(this.item);
+                            Debug.Log("WELCOME TO NEW YORK :D");
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        public void SaveData(GameData data)
+        {
+            // se tiver ja no dicionario entao removemos
+            // e adicionamos denovo para nao dar erro
+            if (data.itemSlot.ContainsKey(id)) { data.itemSlot.Remove(id); }
+            data.itemSlot.Add(id, itemId);
+            Debug.Log($"WELCOME SAVE TS13. ID: {id} ITEM: {itemId}");
         }
 
         public void OnPointerClick(PointerEventData eventData)
