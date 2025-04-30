@@ -32,6 +32,7 @@ namespace AudioSystem
         private void Start()
         {
             LoadVolumes();
+            FindSliders();
         }
 
         // tocar os audios
@@ -123,6 +124,7 @@ namespace AudioSystem
         {
             float volume = PlayerPrefs.GetFloat("VolumeMusic", 0.2f);
             musicSource.volume = volume;
+            Debug.Log("volumeMusic: " + volume);
         }
         public void GetPlayerVolume()
         {
@@ -157,33 +159,25 @@ namespace AudioSystem
         public void PauseSFX() { sfxSource.Pause(); }
         #endregion
 
-        private void Update()
+        private void FindSliders()
         {
-            if (settingsPanel == null) { UpdateSliders(); }
-        }
-
-        private void UpdateSliders()
-        {
-            settingsPanel = GameObject.Find("SettingsPanel");
-            if (settingsPanel != null)
+            Slider[] sliders = GameObject.FindObjectsByType<Slider>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+            foreach (Slider slider in sliders)
             {
-                Slider musicSlider = settingsPanel.GetComponentsInChildren<Slider>()
-                                                  .FirstOrDefault(s => s.gameObject.name == "SliderMusic");
-                if (musicSlider != null)
+                if (slider.name.Contains("Music") && sliderMusic == null)
                 {
-                    musicSlider.value = PlayerPrefs.GetFloat("VolumeMusic", 0.2f);
-                    musicSlider.onValueChanged.AddListener(SetMusicVolume);
+                    sliderMusic = slider;
+                    sliderMusic.value = PlayerPrefs.GetFloat("VolumeMusic", 0.2f);
+                    sliderMusic.onValueChanged.AddListener(SetMusicVolume);
+                    sliderMusic.onValueChanged.AddListener(SetPlayerVolume);
                 }
-
-                Slider soundSlider = settingsPanel.GetComponentsInChildren<Slider>()
-                                                  .FirstOrDefault(s => s.gameObject.name == "SliderSound");
-                if (soundSlider != null)
+                else if (slider.name.Contains("Sound") && sliderSound == null)
                 {
-                    soundSlider.value = PlayerPrefs.GetFloat("VolumeSFX", 0.5f);
-                    soundSlider.onValueChanged.AddListener(SetSFXVolume);
+                    sliderSound = slider;
+                    sliderSound.value = PlayerPrefs.GetFloat("VolumeSFX", 0.5f);
+                    sliderSound.onValueChanged.AddListener(SetSFXVolume);
                 }
             }
         }
-
     }
 }

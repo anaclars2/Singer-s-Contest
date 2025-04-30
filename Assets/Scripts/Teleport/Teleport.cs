@@ -1,5 +1,6 @@
 using UnityEngine;
 using CharacterSystem;
+using UnityEngine.InputSystem.XR;
 
 public class Teleport : MonoBehaviour
 {
@@ -7,10 +8,17 @@ public class Teleport : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<Player>() == true)
+        Player player = other.gameObject.GetComponent<Player>();
+        CharacterController controller = player.gameObject.GetComponent<CharacterController>();
+
+        if (controller != null)
         {
             Debug.Log("oi player");
-            other.transform.position = newPosition;
+
+            controller.enabled = false; 
+            player.transform.position = newPosition; // teletransporta o jogador
+            controller.enabled = true; // reativa apos mover
         }
+
     }
 }

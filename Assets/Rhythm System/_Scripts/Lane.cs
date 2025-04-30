@@ -1,6 +1,7 @@
 using AudioSystem;
 using Melanchall.DryWetMidi.Interaction;
 using System.Collections.Generic;
+using System.Linq;
 using UISystem;
 using UnityEngine;
 
@@ -142,37 +143,34 @@ namespace RhythmSystem
         {
             if (Input.GetKeyDown(input))
             {
-                bool foundNote = false;
-                for (int i = notes.Count - 1; i >= 0; i--)
+                List<Note> validNotes = new List<Note>();
+
+                foreach (Note note in notes)
                 {
-                    Debug.Log(notes[i].canBePressed);
-                    if (notes[i].canBePressed == true)
+                    if (note.canBePressed)
                     {
-                        Note note = notes[i];
-                        AudioManager.instance.playerSource.volume = volume;
-                        foundNote = true;
-
-                        if (note.isLong == true)
-                        {
-                            currentHeld = note;
-                            holdTimer = 0f;
-                            note.isPressed = true;
-                        }
-                        else
-                        {
-                            float colliderPosition = note.colliderPosition;
-                            float position = note.transform.position.y;
-                            CheckMargin(colliderPosition, position);
-                            RemoveNote(note);
-                        }
-
-                        break;
+                        validNotes.Add(note);
                     }
                 }
 
-                // se nenhuma nota valida foi encontrada, NAO conta como erro
+                if (validNotes.Count == 0) return;
+                Note closestNote = validNotes.OrderBy(n => Mathf.Abs(n.transform.position.y - n.colliderPosition)).First();
+
+                AudioManager.instance.playerSource.volume = volume;
+
+                if (closestNote.isLong)
+                {
+                    currentHeld = closestNote;
+                    holdTimer = 0f;
+                    closestNote.isPressed = true;
+                }
+                else
+                {
+                    CheckMargin(closestNote.colliderPosition, closestNote.transform.position.y);
+                    RemoveNote(closestNote);
+                }
+
                 inputIndex++;
-                if (foundNote == false) { return; }
             }
         }
 

@@ -818,7 +818,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 150, y: 131}
+  m_AnchoredPosition: {x: 150, y: 207}
   m_SizeDelta: {x: 684.0862, y: 664.98364}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &321517792
@@ -848,18 +848,15 @@ MonoBehaviour:
     Alice Matoso
 
 
-
     Narrative Design
 
     Alice
     Matoso
 
 
-
     Level Design
 
     Alice Matoso
-
 
 
     Artista 3D
@@ -1780,7 +1777,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -62, y: 167}
+  m_AnchoredPosition: {x: -62, y: 301.18863}
   m_SizeDelta: {x: 684.0862, y: 664.98364}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1116783763
@@ -3234,7 +3231,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 85506aa8edf671a4a841da0e5c7d1d21, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 46433fe6535c25545bd0b9a0229723fc, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

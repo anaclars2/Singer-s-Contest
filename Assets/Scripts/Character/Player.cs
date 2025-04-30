@@ -5,10 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using System.Collections;
+using SaveSystem;
 
 namespace CharacterSystem
 {
-    public class Player : MonoBehaviour
+    public class Player : MonoBehaviour, IDataPersistence
     {
         bool isMoving;
 
@@ -132,53 +133,50 @@ namespace CharacterSystem
                 if (currentTarget.GetComponent<Item>() == true)
                 {
                     Item item = currentTarget.GetComponent<Item>();
-                    if (item.isCollectible == true)
+                    if (item.isCollectible == true) { InventoryManager.instance.AddItem(item); }
+                    item.collected = true;
+                    InventoryManager.instance.evidences.Add(item.evidenceType);
+
+                    if (ideaArea != null)
                     {
-                        InventoryManager.instance.AddItem(item);
-                        item.collected = true;
-                        InventoryManager.instance.evidences.Add(item.evidenceType);
+                        ideaArea.SetActive(true);
+                        TMP_Text text = ideaArea.GetComponentInChildren<TMP_Text>();
+                        text.text = item.idea;
 
-                        if (ideaArea != null)
+                        Invoke("DeactivateIdeaArea", 5f);
+                    }
+
+                    string group = item.group;
+                    List<Item> items = FindAllItemObjects();
+                    List<Item> itemsGroup = ItemsByGroup(items, group);
+                    bool groupIsEnded = InventoryHasAllItems(itemsGroup);
+
+                    item.RemoveFromScene();
+
+                    if (groupIsEnded == true)
+                    {
+                        scene = SCENES.None;
+                        switch (group)
                         {
-                            ideaArea.SetActive(true);
-                            TMP_Text text = ideaArea.GetComponentInChildren<TMP_Text>();
-                            text.text = item.idea;
-
-                            Invoke("DeactivateIdeaArea", 5f);
+                            // AQUI VAI FICAR A LOGICA DE CADA FALA
+                            // NAO PRECISA SER CENARIO, SE NAO FOR VC DEVE REORGANIZAR
+                            case "A": scene = SCENES.Menu; break;
+                            case "B": scene = SCENES.None; break;
+                            case "C": scene = SCENES.None; break;
+                            case "D": scene = SCENES.None; break;
+                            case "E": scene = SCENES.None; break;
+                            case "F": scene = SCENES.None; break;
                         }
 
-                        string group = item.group;
-                        List<Item> items = FindAllItemObjects();
-                        List<Item> itemsGroup = ItemsByGroup(items, group);
-                        bool groupIsEnded = InventoryHasAllItems(itemsGroup);
-
-                        item.RemoveFromScene();
-
-                        if (groupIsEnded == true)
+                        if (ideaArea.activeInHierarchy == false)
                         {
-                            scene = SCENES.None;
-                            switch (group)
-                            {
-                                // AQUI VAI FICAR A LOGICA DE CADA FALA
-                                // NAO PRECISA SER CENARIO, SE NAO FOR VC DEVE REORGANIZAR
-                                case "A": scene = SCENES.Menu; break;
-                                case "B": scene = SCENES.None; break;
-                                case "C": scene = SCENES.None; break;
-                                case "D": scene = SCENES.None; break;
-                                case "E": scene = SCENES.None; break;
-                                case "F": scene = SCENES.None; break;
-                            }
-
-                            if (ideaArea.activeInHierarchy == false)
-                            {
-                                // NAO PRECISA SER CENARIO, SE NAO FOR VC DEVE REORGANIZAR
-                                GameManager.instance.sceneToLoad = scene;
-                                GameManager.instance.LoadSceneWithTransition(TRANSITION.CrossFade);
-                            }
-                            else
-                            {
-                                StartCoroutine(WaitAndLoadScene(3f));
-                            }
+                            // NAO PRECISA SER CENARIO, SE NAO FOR VC DEVE REORGANIZAR
+                            GameManager.instance.sceneToLoad = scene;
+                            GameManager.instance.LoadSceneWithTransition(TRANSITION.CrossFade);
+                        }
+                        else
+                        {
+                            StartCoroutine(WaitAndLoadScene(3f));
                         }
                     }
                 }
@@ -239,6 +237,12 @@ namespace CharacterSystem
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(transform.position, detectionRadius);
         }
+        #endregion
+
+        #region SaveData
+        public void LoadData(GameData data) { transform.position = data.playerPosition; }
+
+        public void SaveData(GameData data) { data.playerPosition = transform.position; }
         #endregion
     }
 }
