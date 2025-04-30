@@ -1,10 +1,8 @@
 using AudioSystem;
 using UISystem;
 using UnityEngine;
-using SaveSystem;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using Unity.VisualScripting.InputSystem;
 
 public class ButtonManager : MonoBehaviour, ISelectHandler
 {
@@ -36,10 +34,6 @@ public class ButtonManager : MonoBehaviour, ISelectHandler
     }
 
     // public void StartNewGame() { DataPersistenceManager.instance.NewGame(); }
-
-    public void LoadGameProgress() { DataPersistenceManager.instance.LoadGame(); }
-
-    public void SaveGameProgress() { DataPersistenceManager.instance.SaveGame(); }
 
     public void OnSelect(BaseEventData eventData) { AudioManager.instance.PlaySfx(soundSelected); }
 

@@ -1,9 +1,8 @@
-using SaveSystem;
 using UnityEngine;
 
 namespace InventorySystem
 {
-    public class Item : MonoBehaviour, IDataPersistence
+    public class Item : MonoBehaviour
     {
         [SerializeField] ItemData itemData;
         [HideInInspector] public string _name;
@@ -28,25 +27,6 @@ namespace InventorySystem
             spriteIcon = itemData.spriteIcon;
             evidenceType = itemData.evidenceType;
             group = itemData.group;
-        }
-
-        public void LoadData(GameData data)
-        {
-            data.collectedItems.TryGetValue(id, out collected);
-            if (collected == true)
-            {
-                RemoveFromScene();
-            }
-        }
-
-        public void SaveData(GameData data)
-        {
-            // se tiver ja no dicionario entao removemos
-            // e adicionamos denovo para nao dar erro
-            if (data.collectedItems.ContainsKey(id)) { data.collectedItems.Remove(id); }
-            data.collectedItems.Add(id, collected);
-            Debug.Log("WELCOME SAVE TS15");
-
         }
 
         public void RemoveFromScene()

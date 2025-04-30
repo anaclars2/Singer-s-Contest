@@ -1,15 +1,12 @@
 using UnityEngine;
 using InventorySystem;
-using SaveSystem;
-using NUnit.Framework.Internal;
 using UISystem;
 using System.Collections.Generic;
 using System.Linq;
-using RhythmSystem;
 
 namespace CharacterSystem
 {
-    public class Player : MonoBehaviour, IDataPersistence
+    public class Player : MonoBehaviour
     {
         bool isMoving;
 
@@ -201,12 +198,6 @@ namespace CharacterSystem
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(transform.position, detectionRadius);
         }
-        #endregion
-
-        #region SaveData
-        public void LoadData(GameData data) { transform.position = data.playerPosition; }
-
-        public void SaveData(GameData data) { data.playerPosition = transform.position; }
         #endregion
     }
 }
