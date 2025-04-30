@@ -138,38 +138,21 @@ namespace CharacterSystem
                     item.collected = true;
                     InventoryManager.instance.evidences.Add(item.evidenceType);
 
+                   if (!string.IsNullOrEmpty(item.flagOnCollect))
+                   {
+                       GameManager.instance.SetFlag(item.flagOnCollect, true);
+                   }
+
+                    item.RemoveFromScene();
+
                     if (ideaArea != null)
                     {
-                        ideaArea.SetActive(true);
-                        TMP_Text text = ideaArea.GetComponentInChildren<TMP_Text>();
-                        text.text = item.idea;
+                       ideaArea.SetActive(true);
+                       TMP_Text text = ideaArea.GetComponentInChildren<TMP_Text>();
+                       text.text = item.idea;
 
-                        if (!string.IsNullOrEmpty(item.flagOnCollect))
-                        {
-                            GameManager.instance.SetFlag(item.flagOnCollect, true);
-                        }
-
-                        item.RemoveFromScene();
-
-                        if (ideaArea != null)
-                        {
-                            ideaArea.SetActive(true);
-                            TMP_Text text = ideaArea.GetComponentInChildren<TMP_Text>();
-                            text.text = item.idea;
-
-                            StartCoroutine(HideIdeaAfterSeconds(3f));// tempo de pensamento
+                       StartCoroutine(HideIdeaAfterSeconds(3f));// tempo de pensamento
                             // timer e desativar
-                        }
-
-                        string group = item.group;
-                        List<Item> items = FindAllItemObjects();
-                        List<Item> itemsGroup = ItemsByGroup(items, group);
-                        bool groupIsEnded = InventoryHasAllItems(itemsGroup);
-
-                        //item.RemoveFromScene();
-
-                        if (groupIsEnded == true)
-                        Invoke("DeactivateIdeaArea", 5f);
                     }
 
                     string group = item.group;
@@ -177,7 +160,8 @@ namespace CharacterSystem
                     List<Item> itemsGroup = ItemsByGroup(items, group);
                     bool groupIsEnded = InventoryHasAllItems(itemsGroup);
 
-                    item.RemoveFromScene();
+                        if (groupIsEnded == true)
+                        Invoke("DeactivateIdeaArea", 5f);
 
                     if (groupIsEnded == true)
                     {
@@ -194,16 +178,17 @@ namespace CharacterSystem
                             case "F": scene = SCENES.None; break;
                         }
 
-                        if (ideaArea.activeInHierarchy == false)
+                        if (ideaArea.activeInHierarchy && ideaArea != null)
                         {
+                            StartCoroutine(WaitAndLoadScene(3f));
                             // NAO PRECISA SER CENARIO, SE NAO FOR VC DEVE REORGANIZAR
-                            GameManager.instance.sceneToLoad = scene;
-                            GameManager.instance.LoadSceneWithTransition(TRANSITION.CrossFade);
                         }
                         else
                         {
-                            StartCoroutine(WaitAndLoadScene(3f));
+                            GameManager.instance.sceneToLoad = scene;
+                            GameManager.instance.LoadSceneWithTransition(TRANSITION.CrossFade);
                         }
+                    
                     }
 
                 }
