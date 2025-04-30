@@ -12,11 +12,14 @@ EditorBuildSettings:
     path: Assets/Scenes/BUILD-OFC/1_RHYTHM-GLORIA.unity
     guid: b5dbbac2853fd2f4690eb875065b65ec
   - enabled: 1
-    path: Assets/Scenes/BUILD-PLAYTEST/2_RHYTHM-FRANK.unity
-    guid: 93b6f2da377d13448b5cab8d060f9b1d
+    path: Assets/Scenes/BUILD-OFC/2_RHYTHM-FRANK.unity
+    guid: 831868f5bff38b943a9dda4954c426e9
   - enabled: 1
-    path: Assets/Scenes/BUILD-PLAYTEST/3_RHYTHM-ZAZZY.unity
-    guid: 1ed1829ec45649f428578f6c2a179c64
+    path: Assets/Scenes/BUILD-OFC/3_RHYTHM-ZAZZY.unity
+    guid: fa54369691831d04f8a4336bab80dab4
+  - enabled: 1
+    path: Assets/Scenes/BUILD-OFC/4_EXPLORATION.unity
+    guid: 285dbca6e7cff46408c6a395ea7df903
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

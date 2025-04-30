@@ -4,8 +4,8 @@ public enum SCENES
     RythmLatin = 1,
     RythmJazz = 2,
     RythmPop = 3,
-    Exploration = 5,
-    Statistics = 6,
-    VisualNovel = 7,
+    Exploration = 4,
+    Statistics = 5,
+    VisualNovel = 6,
     None = 100
 }

@@ -3,6 +3,9 @@ using InventorySystem;
 using SaveSystem;
 using NUnit.Framework.Internal;
 using UISystem;
+using System.Collections.Generic;
+using System.Linq;
+using RhythmSystem;
 
 namespace CharacterSystem
 {
@@ -69,7 +72,7 @@ namespace CharacterSystem
             float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
             xRotation -= mouseY;
-            xRotation = Mathf.Clamp(xRotation, -90f, 90f); 
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
             _camera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
@@ -97,7 +100,6 @@ namespace CharacterSystem
                 {
                     // se o que estiver na frente for o jogador
                     // nao destaca o objeto
-                    if (((1 << hit.collider.gameObject.layer) & playerLayer) != 0) { Debug.Log("Player is blocking the view to " + collider.name); continue; ; }
                     if (hit.collider.gameObject == collider.gameObject)
                     {
                         // Debug.Log("Interactive object detected: " + collider.name);
@@ -126,10 +128,63 @@ namespace CharacterSystem
                     Item item = currentTarget.GetComponent<Item>();
                     InventoryManager.instance.AddItem(item);
                     item.collected = true;
+                    InventoryManager.instance.evidences.Add(item.evidenceType);
+
+                    string group = item.group;
+                    List<Item> items = FindAllItemObjects();
+                    List<Item> itemsGroup = ItemsByGroup(items, group);
+                    bool groupIsEnded = InventoryHasAllItems(itemsGroup);
 
                     item.RemoveFromScene();
+
+                    if (groupIsEnded == true)
+                    {
+                        SCENES scene = SCENES.None;
+                        switch (group)
+                        {
+                            case "A": scene = SCENES.Menu; break;
+                            case "B": scene = SCENES.None; break;
+                            case "C": scene = SCENES.None; break;
+                            case "D": scene = SCENES.None; break;
+                            case "E": scene = SCENES.None; break;
+                            case "F": scene = SCENES.None; break;
+                        }
+
+                        GameManager.instance.sceneToLoad = scene;
+                        GameManager.instance.LoadSceneWithTransition(TRANSITION.CrossFade);
+                    }
                 }
             }
+        }
+
+        private List<Item> FindAllItemObjects()
+        {
+            IEnumerable<Item> _dataPersistenceObjects = Resources.FindObjectsOfTypeAll<MonoBehaviour>()
+       .Where(mb => mb.hideFlags == HideFlags.None && mb.gameObject.scene.IsValid()) // ignora Prefabs e Assets
+       .OfType<Item>();
+
+            return new List<Item>(_dataPersistenceObjects);
+        }
+
+        private bool InventoryHasAllItems(List<Item> itemsGroup)
+        {
+            for (int i = 0; i < itemsGroup.Count; i++)
+            {
+                bool b = InventoryManager.instance.CheckIfContains(itemsGroup[i].evidenceType);
+                if (b == false) { return false; }
+                else { continue; }
+            }
+            return true;
+        }
+
+        private List<Item> ItemsByGroup(List<Item> items, string group)
+        {
+            List<Item> itemsGroup = new List<Item>();
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (items[i].group == group) { itemsGroup.Add(items[i]); }
+            }
+            return itemsGroup;
         }
 
         private void HighlightTarget(GameObject newTarget)

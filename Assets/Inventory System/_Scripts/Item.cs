@@ -10,6 +10,7 @@ namespace InventorySystem
         [HideInInspector] public string description;
         [HideInInspector] public Sprite spriteIcon;
         [HideInInspector] public EVIDENCES evidenceType;
+        [HideInInspector] public string group;
 
         [HideInInspector] public ItemSlot slot;
         [SerializeField] GameObject visual;
@@ -26,6 +27,7 @@ namespace InventorySystem
             description = itemData.description;
             spriteIcon = itemData.spriteIcon;
             evidenceType = itemData.evidenceType;
+            group = itemData.group;
         }
 
         public void LoadData(GameData data)

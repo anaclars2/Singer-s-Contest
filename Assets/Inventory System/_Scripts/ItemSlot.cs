@@ -108,7 +108,7 @@ namespace InventorySystem
             // e adicionamos denovo para nao dar erro
             if (data.itemSlot.ContainsKey(id)) { data.itemSlot.Remove(id); }
             data.itemSlot.Add(id, itemId);
-            Debug.Log("WELCOME SAVE TS13");
+            Debug.Log($"WELCOME SAVE TS13. ID: {id} ITEM: {itemId}");
         }
 
     }
