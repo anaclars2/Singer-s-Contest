@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Dialogue : MonoBehaviour
 {
+    [SerializeField] private bool startOnAwake = false;
+    [SerializeField] private GameObject continueButton;
+    [SerializeField] private SCENES nextScene;
     public TextMeshProUGUI speakerNameText;
     public Image portraitLeft;
     public Image portraitRight;
-    public Image continueIcon;
     public TextMeshProUGUI textComponent;
     public List<DialogueLine> lines = new List<DialogueLine>();
     public float textSpeed;
@@ -19,30 +22,30 @@ public class Dialogue : MonoBehaviour
 
 
     private void OnEnable()
-    {       
+    {
+        if (startOnAwake)
+            StartDialogue();
 
-        StartDialogue();
-        
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
             if (textComponent.text == lines[index].text)
             {
                 NextLine();
             }
-            else { 
-            StopAllCoroutines();
-            textComponent.text = lines[index].text;
+            else {
+                StopAllCoroutines();
+                textComponent.text = lines[index].text;
             }
         }
     }
 
     void StartDialogue()
     {
-   
+
         index = 0;
         textComponent.text = string.Empty;
         StopAllCoroutines();
@@ -56,25 +59,51 @@ public class Dialogue : MonoBehaviour
 
         DialogueLine line = lines[index];
 
-        speakerNameText.text = line.speakerName;
-        textComponent.text = "";
+        speakerNameText.text = string.IsNullOrEmpty(line.speakerName) ? "" : line.speakerName;
 
-        switch(line.side)
+        //    speakerNameText.text = line.speakerName;
+        //textComponent.text = "";
+
+        //switch(line.side)
+        //{
+        //    case DialogueSide.Left:
+        //    portraitLeft.gameObject.SetActive(true);
+        //    portraitLeft.sprite = line.speakerIcon;
+        //    portraitRight.gameObject.SetActive(false);
+        //        StartCoroutine(FadeInUI(portraitLeft));
+        //    break;
+
+        //    case DialogueSide.Right:
+        //    portraitRight.gameObject.SetActive(true);
+        //    portraitRight.sprite =line.speakerIcon;
+        //    portraitLeft.gameObject.SetActive(false);
+        //        StartCoroutine(FadeInUI(portraitRight));
+        //        break;
+        //}
+        if (line.speakerIcon != null)
         {
-            case DialogueSide.Left:
-            portraitLeft.gameObject.SetActive(true);
-            portraitLeft.sprite = line.speakerIcon;
-            portraitRight.gameObject.SetActive(false);
+            if (line.side == DialogueSide.Left)
+            {
+                portraitLeft.gameObject.SetActive(true);
+                portraitLeft.sprite = line.speakerIcon;
+                portraitRight.gameObject.SetActive(false);
                 StartCoroutine(FadeInUI(portraitLeft));
-            break;
-
-            case DialogueSide.Right:
-            portraitRight.gameObject.SetActive(true);
-            portraitRight.sprite =line.speakerIcon;
-            portraitLeft.gameObject.SetActive(false);
+            }
+            else
+            {
+                portraitRight.gameObject.SetActive(true);
+                portraitRight.sprite = line.speakerIcon;
+                portraitLeft.gameObject.SetActive(false);
                 StartCoroutine(FadeInUI(portraitRight));
-                break;
+            }
         }
+        else
+        {
+            portraitLeft.gameObject.SetActive(false);
+            portraitRight.gameObject.SetActive(false);
+        }
+
+        textComponent.text = "";
 
         foreach (char c in line.text.ToCharArray())
         {
@@ -94,28 +123,39 @@ public class Dialogue : MonoBehaviour
         }
         else
         {
-            gameObject.SetActive(false);
+            if (continueButton != null)
+            {
+                continueButton.SetActive(true);
+            }
+            else
+            {
+                gameObject.SetActive(false);
+            }
         }
-        
     }
 
 
-   IEnumerator FadeInUI(Graphic uiElement, float duration =  0.4f)
-   {
-          Color color = uiElement.color;
-          color.a = 0f;
-          uiElement.color = color;
+    IEnumerator FadeInUI(Graphic uiElement, float duration = 0.4f)
+    {
+        Color color = uiElement.color;
+        color.a = 0f;
+        uiElement.color = color;
 
-          float t = 0;
-           while (t < 1f)
-           {
-             t += Time.deltaTime / duration;
-             color.a = Mathf.Lerp(0f, 1f, t);
-             uiElement.color = color;
-             yield return null;
-           }
+        float t = 0;
+        while (t < 1f)
+        {
+            t += Time.deltaTime / duration;
+            color.a = Mathf.Lerp(0f, 1f, t);
+            uiElement.color = color;
+            yield return null;
+        }
     }
 
+    public void ContinueToNextScene()
+    {
+        GameManager.instance.sceneToLoad = nextScene;
+        GameManager.instance.LoadScene();
+    }
     
 }
 
