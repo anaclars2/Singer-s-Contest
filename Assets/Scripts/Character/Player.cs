@@ -4,6 +4,7 @@ using UISystem;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using System.Collections;
 
 namespace CharacterSystem
 {
@@ -181,7 +182,13 @@ namespace CharacterSystem
                 }
             }
         }
+        IEnumerator HideIdeaAfterSeconds(float seconds)
+        {
+            yield return new WaitForSeconds(seconds);
 
+            if (ideaArea != null)
+                ideaArea.SetActive(false);
+        }
         private List<Item> FindAllItemObjects()
         {
             IEnumerable<Item> _dataPersistenceObjects = Resources.FindObjectsOfTypeAll<MonoBehaviour>()

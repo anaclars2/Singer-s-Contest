@@ -5118,7 +5118,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 74990550154885098, guid: f8bfaa0e329624645adbb85eb8b921f8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.65
+      value: 18.31
       objectReference: {fileID: 0}
     - target: {fileID: 74990550154885098, guid: f8bfaa0e329624645adbb85eb8b921f8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5126,7 +5126,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 74990550154885098, guid: f8bfaa0e329624645adbb85eb8b921f8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -18.09
+      value: -15.27
       objectReference: {fileID: 0}
     - target: {fileID: 74990550154885098, guid: f8bfaa0e329624645adbb85eb8b921f8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5158,7 +5158,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1638260828255019750, guid: f8bfaa0e329624645adbb85eb8b921f8, type: 3}
       propertyPath: requiredFlag
-      value: pegou_lenco
+      value: pegou_presilha
       objectReference: {fileID: 0}
     - target: {fileID: 1638260828255019750, guid: f8bfaa0e329624645adbb85eb8b921f8, type: 3}
       propertyPath: dialogueCanvas
@@ -12860,31 +12860,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7346293732505792525, guid: 5341ad3d540deda43a90a673cca8ac28, type: 3}
       propertyPath: lines.Array.size
-      value: 4
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7346293732505792525, guid: 5341ad3d540deda43a90a673cca8ac28, type: 3}
+      propertyPath: lines.Array.data[0].side
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7346293732505792525, guid: 5341ad3d540deda43a90a673cca8ac28, type: 3}
       propertyPath: lines.Array.data[0].text
-      value: "O Concurso di Stelle est\xE1 prestes a come\xE7ar. Nos bastidores,
-        Beep, um jovem m\xFAsico talentoso, mas inseguro, se prepara para sua primeira
-        apresenta\xE7\xE3o. "
+      value: "Oi, Gl\xF3ria! Preparada para a competi\xE7\xE3o?"
       objectReference: {fileID: 0}
     - target: {fileID: 7346293732505792525, guid: 5341ad3d540deda43a90a673cca8ac28, type: 3}
       propertyPath: lines.Array.data[1].text
-      value: "Esse concurso \xE9 minha chance de mudar de vida. Cantar e dan\xE7ar
-        \xE9 uma celebra\xE7\xE3o da vida e da minha cultura."
+      value: "Sempre! Vou trazer salsa que vai fazer o palco pegar fogo. Mas, Beep,
+        voc\xEA t\xE1 bem? T\xE1 com cara de preocupado."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7346293732505792525, guid: 5341ad3d540deda43a90a673cca8ac28, type: 3}
+      propertyPath: lines.Array.data[2].side
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7346293732505792525, guid: 5341ad3d540deda43a90a673cca8ac28, type: 3}
       propertyPath: lines.Array.data[2].text
-      value: "J\xE1 passei por muitos palcos, garoto. Esse aqui? S\xF3 mais um. Mas
-        n\xE3o se engane, a competi\xE7\xE3o \xE9 cruel."
+      value: "\xC9 que\u2026 minhas anota\xE7\xF5es sumiram. E achei isso."
       objectReference: {fileID: 0}
     - target: {fileID: 7346293732505792525, guid: 5341ad3d540deda43a90a673cca8ac28, type: 3}
       propertyPath: lines.Array.data[3].text
-      value: "O palco \xE9 onde mostramos quem somos. E eu? Sou uma estrela."
+      value: "Bonita, mas n\xE3o \xE9 minha. Talvez seja da Nina? Ela usa coisas
+        brilhantes assim. Por falar nisso, ela foi eliminada ontem. Derrubou o microfone
+        no palco, um desastre."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7346293732505792525, guid: 5341ad3d540deda43a90a673cca8ac28, type: 3}
+      propertyPath: lines.Array.data[4].side
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7346293732505792525, guid: 5341ad3d540deda43a90a673cca8ac28, type: 3}
+      propertyPath: lines.Array.data[4].text
+      value: "S\xE9rio? Que estranho\u2026 Mas n\xE3o fa\xE7o ideia de como isso
+        foi parar no meu camarim..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7346293732505792525, guid: 5341ad3d540deda43a90a673cca8ac28, type: 3}
+      propertyPath: lines.Array.data[5].text
+      value: Relaxa, Beep, foca no duelo!
       objectReference: {fileID: 0}
     - target: {fileID: 7346293732505792525, guid: 5341ad3d540deda43a90a673cca8ac28, type: 3}
       propertyPath: lines.Array.data[0].isSpeech
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7346293732505792525, guid: 5341ad3d540deda43a90a673cca8ac28, type: 3}
       propertyPath: lines.Array.data[1].isSpeech
@@ -12899,17 +12919,25 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7346293732505792525, guid: 5341ad3d540deda43a90a673cca8ac28, type: 3}
-      propertyPath: lines.Array.data[0].speakerIcon
-      value: 
+      propertyPath: lines.Array.data[4].isSpeech
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7346293732505792525, guid: 5341ad3d540deda43a90a673cca8ac28, type: 3}
-      propertyPath: lines.Array.data[0].speakerName
+      propertyPath: lines.Array.data[5].isSpeech
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7346293732505792525, guid: 5341ad3d540deda43a90a673cca8ac28, type: 3}
+      propertyPath: lines.Array.data[0].speakerIcon
       value: 
+      objectReference: {fileID: 21300000, guid: 4aec9f54404bef442a6ce2dc6d751d54, type: 3}
+    - target: {fileID: 7346293732505792525, guid: 5341ad3d540deda43a90a673cca8ac28, type: 3}
+      propertyPath: lines.Array.data[0].speakerName
+      value: Beep
       objectReference: {fileID: 0}
     - target: {fileID: 7346293732505792525, guid: 5341ad3d540deda43a90a673cca8ac28, type: 3}
       propertyPath: lines.Array.data[1].speakerIcon
       value: 
-      objectReference: {fileID: 21300000, guid: 66673c2b9ff7be243bf123ace4d59989, type: 3}
+      objectReference: {fileID: 21300000, guid: 62aa19482ca80cf418802efa56a7ff74, type: 3}
     - target: {fileID: 7346293732505792525, guid: 5341ad3d540deda43a90a673cca8ac28, type: 3}
       propertyPath: lines.Array.data[1].speakerName
       value: "Gl\xF3ria"
@@ -12917,18 +12945,34 @@ PrefabInstance:
     - target: {fileID: 7346293732505792525, guid: 5341ad3d540deda43a90a673cca8ac28, type: 3}
       propertyPath: lines.Array.data[2].speakerIcon
       value: 
-      objectReference: {fileID: 21300000, guid: 2a8d80a68c1c39d43b614b932afb7e06, type: 3}
+      objectReference: {fileID: 21300000, guid: fc0e0234348d9194eb620c36133f15e9, type: 3}
     - target: {fileID: 7346293732505792525, guid: 5341ad3d540deda43a90a673cca8ac28, type: 3}
       propertyPath: lines.Array.data[2].speakerName
-      value: Frank
+      value: Beep
       objectReference: {fileID: 0}
     - target: {fileID: 7346293732505792525, guid: 5341ad3d540deda43a90a673cca8ac28, type: 3}
       propertyPath: lines.Array.data[3].speakerIcon
       value: 
-      objectReference: {fileID: 21300000, guid: 0702e226ba7cce7408b52e4103f8dab1, type: 3}
+      objectReference: {fileID: 21300000, guid: 62aa19482ca80cf418802efa56a7ff74, type: 3}
     - target: {fileID: 7346293732505792525, guid: 5341ad3d540deda43a90a673cca8ac28, type: 3}
       propertyPath: lines.Array.data[3].speakerName
-      value: Zazzy
+      value: "Gl\xF3ria"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7346293732505792525, guid: 5341ad3d540deda43a90a673cca8ac28, type: 3}
+      propertyPath: lines.Array.data[4].speakerIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 00f5f109940685b4a8b56b7ffbc7df32, type: 3}
+    - target: {fileID: 7346293732505792525, guid: 5341ad3d540deda43a90a673cca8ac28, type: 3}
+      propertyPath: lines.Array.data[4].speakerName
+      value: Beep
+      objectReference: {fileID: 0}
+    - target: {fileID: 7346293732505792525, guid: 5341ad3d540deda43a90a673cca8ac28, type: 3}
+      propertyPath: lines.Array.data[5].speakerIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 66673c2b9ff7be243bf123ace4d59989, type: 3}
+    - target: {fileID: 7346293732505792525, guid: 5341ad3d540deda43a90a673cca8ac28, type: 3}
+      propertyPath: lines.Array.data[5].speakerName
+      value: "Gl\xF3ria"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13441,7 +13485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7610547524799646123, guid: f8bfaa0e329624645adbb85eb8b921f8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
