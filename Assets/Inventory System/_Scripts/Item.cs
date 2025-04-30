@@ -1,17 +1,17 @@
-using SaveSystem;
 using UnityEngine;
 
 namespace InventorySystem
 {
-    public class Item : MonoBehaviour, IDataPersistence
+    public class Item : MonoBehaviour
     {
         [SerializeField] ItemData itemData;
         [HideInInspector] public string _name;
         [HideInInspector] public string description;
-        [HideInInspector] public string thought;
         [HideInInspector] public Sprite spriteIcon;
         [HideInInspector] public EVIDENCES evidenceType;
-        [SerializeField] private GameObject dialogueThought;
+        [HideInInspector] public string group;
+        [HideInInspector] public bool isCollectible;
+        [HideInInspector] public string idea;
 
         [HideInInspector] public ItemSlot slot;
         [SerializeField] GameObject visual;
@@ -26,28 +26,11 @@ namespace InventorySystem
         {
             _name = itemData._name;
             description = itemData.description;
-            thought = itemData.thought;
             spriteIcon = itemData.spriteIcon;
             evidenceType = itemData.evidenceType;
-        }
-
-        public void LoadData(GameData data)
-        {
-            data.collectedItems.TryGetValue(id, out collected);
-            if (collected == true)
-            {
-                RemoveFromScene();
-            }
-        }
-
-        public void SaveData(GameData data)
-        {
-            // se tiver ja no dicionario entao removemos
-            // e adicionamos denovo para nao dar erro
-            if (data.collectedItems.ContainsKey(id)) { data.collectedItems.Remove(id); }
-            data.collectedItems.Add(id, collected);
-            Debug.Log("WELCOME SAVE TS15");
-
+            group = itemData.group;
+            isCollectible = itemData.isCollectible;
+            idea = itemData.idea;
         }
 
         public void RemoveFromScene()

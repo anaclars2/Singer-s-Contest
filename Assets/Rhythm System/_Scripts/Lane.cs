@@ -140,41 +140,38 @@ namespace RhythmSystem
 
         private void KeyDown()
         {
-            if (Input.GetKeyDown(input)) // deu input
+            if (Input.GetKeyDown(input))
             {
+                bool foundNote = false;
                 for (int i = notes.Count - 1; i >= 0; i--)
                 {
-                    if (notes[i].canBePressed == true)
+                    if (notes[i].canBePressed)
                     {
                         Note note = notes[i];
                         AudioManager.instance.playerSource.volume = volume;
+                        foundNote = true;
 
-                        if (note.isLong == true) // se for longa 
+                        if (note.isLong == true)
                         {
                             currentHeld = note;
                             holdTimer = 0f;
                             note.isPressed = true;
-                            Debug.Log("DOWN LONG NOTE");
                         }
-                        else // se for uma nota curta
+                        else
                         {
-                            // tem que destruir ela pq eke acertou
                             float colliderPosition = note.colliderPosition;
                             float position = note.transform.position.y;
                             CheckMargin(colliderPosition, position);
-
                             RemoveNote(note);
                         }
 
-                        // Debug.Log($"Hit on {inputIndex} note");
-                        return;
+                        break;
                     }
                 }
 
-                // quando o jogador errar :P
-                MissNote();
+                // se nenhuma nota valida foi encontrada, NAO conta como erro
+                if (!foundNote) { return; }
                 inputIndex++;
-                // Debug.Log($"Missed {inputIndex} note");
             }
         }
 
@@ -204,7 +201,6 @@ namespace RhythmSystem
             // soltou antes do tempo
             if (Input.GetKeyUp(input) == true && currentHeld != null)
             {
-                MissNote();
                 RemoveNote(currentHeld);
                 inputIndex++;
                 currentHeld = null;

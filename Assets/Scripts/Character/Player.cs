@@ -1,12 +1,13 @@
 using UnityEngine;
 using InventorySystem;
-using SaveSystem;
-using NUnit.Framework.Internal;
 using UISystem;
+using System.Collections.Generic;
+using System.Linq;
+using TMPro;
 
 namespace CharacterSystem
 {
-    public class Player : MonoBehaviour, IDataPersistence
+    public class Player : MonoBehaviour
     {
         bool isMoving;
 
@@ -26,8 +27,14 @@ namespace CharacterSystem
         [SerializeField] LayerMask obstructionLayer;
         [SerializeField] LayerMask playerLayer;
         public KeyCode input = KeyCode.E;
+        [SerializeField] GameObject ideaArea;
 
         GameObject currentTarget; // alvo visivel mais proximo
+
+        private void Start()
+        {
+            if (ideaArea != null) { ideaArea.SetActive(false); }
+        }
 
         private void Update()
         {
@@ -69,7 +76,7 @@ namespace CharacterSystem
             float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
             xRotation -= mouseY;
-            xRotation = Mathf.Clamp(xRotation, -90f, 90f); 
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
             _camera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
@@ -97,7 +104,6 @@ namespace CharacterSystem
                 {
                     // se o que estiver na frente for o jogador
                     // nao destaca o objeto
-                    if (((1 << hit.collider.gameObject.layer) & playerLayer) != 0) { Debug.Log("Player is blocking the view to " + collider.name); continue; ; }
                     if (hit.collider.gameObject == collider.gameObject)
                     {
                         // Debug.Log("Interactive object detected: " + collider.name);
@@ -124,14 +130,83 @@ namespace CharacterSystem
                 if (currentTarget.GetComponent<Item>() == true)
                 {
                     Item item = currentTarget.GetComponent<Item>();
-                    InventoryManager.instance.AddItem(item);
-                    item.collected = true;
+                    if (item.isCollectible == true)
+                    {
+                        InventoryManager.instance.AddItem(item);
+                        item.collected = true;
+                        InventoryManager.instance.evidences.Add(item.evidenceType);
 
+<<<<<<< HEAD
                     item.RemoveFromScene();
 
                     ItemPopup.instance.ShowItem(item._name, item.thought);
+=======
+                        if (ideaArea != null)
+                        {
+                            ideaArea.SetActive(true);
+                            TMP_Text text = ideaArea.GetComponentInChildren<TMP_Text>();
+                            text.text = item.idea;
+
+                            // timer e desativar
+                        }
+
+                        string group = item.group;
+                        List<Item> items = FindAllItemObjects();
+                        List<Item> itemsGroup = ItemsByGroup(items, group);
+                        bool groupIsEnded = InventoryHasAllItems(itemsGroup);
+
+                        item.RemoveFromScene();
+
+                        if (groupIsEnded == true)
+                        {
+                            SCENES scene = SCENES.None;
+                            switch (group)
+                            {
+                                case "A": scene = SCENES.Menu; break;
+                                case "B": scene = SCENES.None; break;
+                                case "C": scene = SCENES.None; break;
+                                case "D": scene = SCENES.None; break;
+                                case "E": scene = SCENES.None; break;
+                                case "F": scene = SCENES.None; break;
+                            }
+
+                            GameManager.instance.sceneToLoad = scene;
+                            GameManager.instance.LoadSceneWithTransition(TRANSITION.CrossFade);
+                        }
+                    }
+>>>>>>> AnaCode
                 }
             }
+        }
+
+        private List<Item> FindAllItemObjects()
+        {
+            IEnumerable<Item> _dataPersistenceObjects = Resources.FindObjectsOfTypeAll<MonoBehaviour>()
+       .Where(mb => mb.hideFlags == HideFlags.None && mb.gameObject.scene.IsValid()) // ignora Prefabs e Assets
+       .OfType<Item>();
+
+            return new List<Item>(_dataPersistenceObjects);
+        }
+
+        private bool InventoryHasAllItems(List<Item> itemsGroup)
+        {
+            for (int i = 0; i < itemsGroup.Count; i++)
+            {
+                bool b = InventoryManager.instance.CheckIfContains(itemsGroup[i].evidenceType);
+                if (b == false) { return false; }
+                else { continue; }
+            }
+            return true;
+        }
+
+        private List<Item> ItemsByGroup(List<Item> items, string group)
+        {
+            List<Item> itemsGroup = new List<Item>();
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (items[i].group == group) { itemsGroup.Add(items[i]); }
+            }
+            return itemsGroup;
         }
 
         private void HighlightTarget(GameObject newTarget)
@@ -148,12 +223,6 @@ namespace CharacterSystem
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(transform.position, detectionRadius);
         }
-        #endregion
-
-        #region SaveData
-        public void LoadData(GameData data) { transform.position = data.playerPosition; }
-
-        public void SaveData(GameData data) { data.playerPosition = transform.position; }
         #endregion
     }
 }

@@ -841,8 +841,30 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Game Design\r\nVitor Lemes\r\nAlice Matoso\r\n\r\nNarrative Design\r\nAlice
-    Matoso\r\n\r\nLevel Design\r\nAlice Matoso\r\n\r\nArtista 3D\r\nJo\xE3o Miguel\r\r"
+  m_text: 'Game Design
+
+    Vitor Lemes
+
+    Alice Matoso
+
+
+
+    Narrative Design
+
+    Alice
+    Matoso
+
+
+
+    Level Design
+
+    Alice Matoso
+
+
+
+    Artista 3D
+
+    Leonor Figueiredo'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2d6bb7ef7aa424b47bf530196c9e4005, type: 2}
   m_sharedMaterial: {fileID: 6122531266390251697, guid: 2d6bb7ef7aa424b47bf530196c9e4005, type: 2}
@@ -1781,8 +1803,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Leonor Figueiredo\n\nArtista 2D\r\nNadine Nakamura\r\n\r\nPrograma\xE7\xE3o\r\nAmanda
-    Nobre\r\nAna Clara Freitas\r\n\r\nDesign de Som\r\nVin\xEDcius Santos\r"
+  m_text: "Artista 2D\r\nNadine Nakamura\r\n\r\nPrograma\xE7\xE3o\r\nAmanda Nobre\r\nAna
+    Clara Freitas\r\n\r\nDesign de Som\r\nVin\xEDcius Santos\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2d6bb7ef7aa424b47bf530196c9e4005, type: 2}
   m_sharedMaterial: {fileID: 6122531266390251697, guid: 2d6bb7ef7aa424b47bf530196c9e4005, type: 2}
@@ -3064,14 +3086,6 @@ PrefabInstance:
       propertyPath: menuPanel
       value: 
       objectReference: {fileID: 1304199182}
-    - target: {fileID: 8994474545028463953, guid: f804d03a01a3d71419407a6dbd31df9a, type: 3}
-      propertyPath: creditsPanel
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8994474545028463953, guid: f804d03a01a3d71419407a6dbd31df9a, type: 3}
-      propertyPath: settingsPanel
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -16,10 +16,10 @@ MonoBehaviour:
   background: {fileID: 21300000, guid: 7b4361f40069a3345be67fb46a7ac806, type: 3}
   track: {fileID: 21300000, guid: 3d8e07643f77572419c1ceffa91cc558, type: 3}
   blur: {fileID: 21300000, guid: 4bec19eb33de3bf4ebd8f1fd654e7bd4, type: 3}
-  characterLeft: {fileID: 0}
+  characterLeft: {fileID: 21300000, guid: b853750993c4f024182193fb9fc2713e, type: 3}
   nameCharacterLeft: {fileID: 21300000, guid: 074b7c91937d4f7439ab2d2d9af65f19, type: 3}
   backgroundCharacterLeft: {fileID: 21300000, guid: 0eab98d47e4991a49bf8e05fec05cbcf, type: 3}
-  characterRight: {fileID: 0}
+  characterRight: {fileID: 21300000, guid: 0c477d390964ebc48a50d48b4cdbd5f9, type: 3}
   nameCharacterRight: {fileID: 21300000, guid: a2cc109ee5b83714d9f9906a2b3780bb, type: 3}
   backgroundCharacterRight: {fileID: 21300000, guid: 499fab0d485180e42b10689b866572f5, type: 3}
   iconProgressBar: {fileID: 21300000, guid: 285dddc1584498947a83b1b3958cec5f, type: 3}
