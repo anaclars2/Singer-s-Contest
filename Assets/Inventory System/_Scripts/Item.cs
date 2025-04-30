@@ -16,6 +16,7 @@ namespace InventorySystem
         [HideInInspector] public ItemSlot slot;
         [SerializeField] GameObject visual;
         [SerializeField] Collider _collider;
+        [SerializeField] public string flagOnCollect;
 
         [HideInInspector] public bool collected = false;
         public string id;

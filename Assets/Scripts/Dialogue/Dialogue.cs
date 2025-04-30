@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using CharacterSystem;
 using TMPro;
+using UISystem;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -18,7 +20,7 @@ public class Dialogue : MonoBehaviour
     public GameObject headerObject;
     public List<DialogueLine> lines = new List<DialogueLine>();
     public float textSpeed;
-
+    private Player player;
 
     private int index;
 
@@ -45,8 +47,11 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    void StartDialogue()
+    public void StartDialogue()
     {
+        player = GameObject.FindGameObjectWithTag("Player")?.GetComponent<Player>();
+        if (player != null)
+            player.isLocked = true;
 
         index = 0;
         textComponent.text = string.Empty;
@@ -127,19 +132,35 @@ public class Dialogue : MonoBehaviour
         }
         else
         {
+            if (player != null)
+                player.isLocked = false;
+
             if (continueButton != null)
             {
                 continueButton.SetActive(true);
+
+                Button btn = continueButton.GetComponent<Button>();
+                if (btn != null)
+                {
+                    btn.onClick.RemoveAllListeners();
+                    btn.onClick.AddListener(ContinueToNextScene);
+                }
+            }
+            else if (nextScene != SCENES.None)
+            {
+                GameManager.instance.sceneToLoad = nextScene;
+                GameManager.instance.LoadScene(); // ou LoadSceneWithTransition se quiser
             }
             else
             {
-                gameObject.SetActive(false);
+                transform.root.gameObject.SetActive(false);
             }
         }
+
     }
 
 
-    IEnumerator FadeInUI(Graphic uiElement, float duration = 0.4f)
+    IEnumerator FadeInUI(Graphic uiElement, float duration = 0.3f)
     {
         Color color = uiElement.color;
         color.a = 0f;

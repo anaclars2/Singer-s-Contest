@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public SCENES sceneToLoad;
     public List<bool> rhythmVictory; // marca quais fases de combate o jogador ja passou
     public Dictionary<EVIDENCES, bool> currentsItem; // true = tem 
+    public Dictionary<string, bool> dialogueFlags = new Dictionary<string, bool>();
 
     public static GameManager instance;
 
@@ -73,4 +74,20 @@ public class GameManager : MonoBehaviour
          }
      }*/
     #endregion
+
+    public void SetFlag(string flagName, bool value)
+    {
+        if (dialogueFlags.ContainsKey(flagName))
+        {
+            dialogueFlags[flagName] = value;
+        } else
+        {
+            dialogueFlags.Add(flagName, value);
+        }
+    }
+
+    public bool GetFlag(string flagName)
+    { 
+        return dialogueFlags.ContainsKey(flagName) && dialogueFlags[flagName];
+    }
 }

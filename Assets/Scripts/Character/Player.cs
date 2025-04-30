@@ -20,6 +20,7 @@ namespace CharacterSystem
         [SerializeField] Camera _camera;
         [SerializeField] float mouseSensitivity = 100f;
         private float xRotation = 0f;
+        public bool isLocked = false;
 
         [Header("Interact Settings")]
         [SerializeField] float detectionRadius = 3f;
@@ -38,7 +39,7 @@ namespace CharacterSystem
 
         private void Update()
         {
-            if (UIManager.instance.pauseActive == false)
+            if (!UIManager.instance.pauseActive && !isLocked)
             {
                 CharacterMove();
                 CharacterLook(); // rotacao da camera
@@ -136,11 +137,13 @@ namespace CharacterSystem
                         item.collected = true;
                         InventoryManager.instance.evidences.Add(item.evidenceType);
 
-<<<<<<< HEAD
-                    item.RemoveFromScene();
+                        if (!string.IsNullOrEmpty(item.flagOnCollect))
+                        {
+                            GameManager.instance.SetFlag(item.flagOnCollect, true);
+                        }
 
-                    ItemPopup.instance.ShowItem(item._name, item.thought);
-=======
+                        item.RemoveFromScene();
+
                         if (ideaArea != null)
                         {
                             ideaArea.SetActive(true);
@@ -155,7 +158,7 @@ namespace CharacterSystem
                         List<Item> itemsGroup = ItemsByGroup(items, group);
                         bool groupIsEnded = InventoryHasAllItems(itemsGroup);
 
-                        item.RemoveFromScene();
+                        //item.RemoveFromScene();
 
                         if (groupIsEnded == true)
                         {
@@ -174,7 +177,7 @@ namespace CharacterSystem
                             GameManager.instance.LoadSceneWithTransition(TRANSITION.CrossFade);
                         }
                     }
->>>>>>> AnaCode
+
                 }
             }
         }

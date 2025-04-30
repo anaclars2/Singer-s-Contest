@@ -3,11 +3,9 @@ using UISystem;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-<<<<<<< HEAD
 using Unity.VisualScripting.InputSystem;
 using UnityEngine.SceneManagement;
-=======
->>>>>>> AnaCode
+
 
 public class ButtonManager : MonoBehaviour, ISelectHandler
 {
