@@ -145,7 +145,8 @@ namespace RhythmSystem
                 bool foundNote = false;
                 for (int i = notes.Count - 1; i >= 0; i--)
                 {
-                    if (notes[i].canBePressed)
+                    Debug.Log(notes[i].canBePressed);
+                    if (notes[i].canBePressed == true)
                     {
                         Note note = notes[i];
                         AudioManager.instance.playerSource.volume = volume;
@@ -170,8 +171,8 @@ namespace RhythmSystem
                 }
 
                 // se nenhuma nota valida foi encontrada, NAO conta como erro
-                if (!foundNote) { return; }
                 inputIndex++;
+                if (foundNote == false) { return; }
             }
         }
 

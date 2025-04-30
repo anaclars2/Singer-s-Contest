@@ -4,6 +4,7 @@ using UISystem;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using System.Collections;
 
 namespace CharacterSystem
 {
@@ -30,6 +31,7 @@ namespace CharacterSystem
         [SerializeField] GameObject ideaArea;
 
         GameObject currentTarget; // alvo visivel mais proximo
+        SCENES scene;
 
         private void Start()
         {
@@ -142,7 +144,7 @@ namespace CharacterSystem
                             TMP_Text text = ideaArea.GetComponentInChildren<TMP_Text>();
                             text.text = item.idea;
 
-                            // timer e desativar
+                            Invoke("DeactivateIdeaArea", 5f);
                         }
 
                         string group = item.group;
@@ -154,9 +156,11 @@ namespace CharacterSystem
 
                         if (groupIsEnded == true)
                         {
-                            SCENES scene = SCENES.None;
+                            scene = SCENES.None;
                             switch (group)
                             {
+                                // AQUI VAI FICAR A LOGICA DE CADA FALA
+                                // NAO PRECISA SER CENARIO, SE NAO FOR VC DEVE REORGANIZAR
                                 case "A": scene = SCENES.Menu; break;
                                 case "B": scene = SCENES.None; break;
                                 case "C": scene = SCENES.None; break;
@@ -165,12 +169,30 @@ namespace CharacterSystem
                                 case "F": scene = SCENES.None; break;
                             }
 
-                            GameManager.instance.sceneToLoad = scene;
-                            GameManager.instance.LoadSceneWithTransition(TRANSITION.CrossFade);
+                            if (ideaArea.activeInHierarchy == false)
+                            {
+                                // NAO PRECISA SER CENARIO, SE NAO FOR VC DEVE REORGANIZAR
+                                GameManager.instance.sceneToLoad = scene;
+                                GameManager.instance.LoadSceneWithTransition(TRANSITION.CrossFade);
+                            }
+                            else
+                            {
+                                StartCoroutine(WaitAndLoadScene(3f));
+                            }
                         }
                     }
                 }
             }
+        }
+
+        private void DeactivateIdeaArea() { ideaArea.SetActive(false); }
+
+        IEnumerator WaitAndLoadScene(float delay)
+        {
+            // NAO PRECISA SER CENARIO, SE NAO FOR VC DEVE REORGANIZAR
+            yield return new WaitForSeconds(delay);
+            GameManager.instance.sceneToLoad = scene;
+            GameManager.instance.LoadSceneWithTransition(TRANSITION.CrossFade);
         }
 
         private List<Item> FindAllItemObjects()

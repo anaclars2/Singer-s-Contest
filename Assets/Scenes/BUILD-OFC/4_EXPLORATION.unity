@@ -613,6 +613,73 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8007961498541435068, guid: e0b7a6ccf353ab245b48175227816f83, type: 3}
+--- !u!1 &140535166
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 140535167}
+  - component: {fileID: 140535168}
+  - component: {fileID: 140535169}
+  m_Layer: 0
+  m_Name: PortaZazzy (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &140535167
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140535166}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 25.65, y: 0, z: -1.86}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1755154675}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &140535168
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140535166}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.11120415, y: 5.3714566, z: 1.5850697}
+  m_Center: {x: -1.3813848, y: 2.1857278, z: -0.025528908}
+--- !u!114 &140535169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140535166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18087f7a7c57f94498fa14cc1a67dc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newPosition: {x: 22.58, y: 1.5, z: -1.71}
 --- !u!1001 &187721392
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -988,6 +1055,73 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.3703411, y: 2.2015748, z: 0.7295265}
   m_Center: {x: -4.4958453, y: 1.1546082, z: 18.26556}
+--- !u!1 &301135328
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 301135329}
+  - component: {fileID: 301135330}
+  - component: {fileID: 301135331}
+  m_Layer: 0
+  m_Name: PortaFrank
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &301135329
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301135328}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -23.13, y: 0, z: -8.87}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1755154675}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &301135330
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301135328}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.25777245, y: 5.3714566, z: 1.5850697}
+  m_Center: {x: -1.1020002, y: 2.1857278, z: -0.025528908}
+--- !u!114 &301135331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301135328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18087f7a7c57f94498fa14cc1a67dc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newPosition: {x: -22.55, y: 1.5, z: -8.69}
 --- !u!1 &304027439
 GameObject:
   m_ObjectHideFlags: 0
@@ -1174,6 +1308,73 @@ MonoBehaviour:
   _collider: {fileID: 353588676}
   collected: 0
   id: 68b12df9-dc5c-4207-9f46-64c8121f667b
+--- !u!1 &355817152
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 355817153}
+  - component: {fileID: 355817154}
+  - component: {fileID: 355817155}
+  m_Layer: 0
+  m_Name: PortaDomSalvador (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &355817153
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355817152}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 25.65, y: 0, z: 11}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1755154675}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &355817154
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355817152}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.1328125, y: 5.3714566, z: 1.5850697}
+  m_Center: {x: -1.3705807, y: 2.1857278, z: -0.025528908}
+--- !u!114 &355817155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355817152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18087f7a7c57f94498fa14cc1a67dc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newPosition: {x: 22.58, y: 1.5, z: 11.19}
 --- !u!65 &358079726
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1312,6 +1513,73 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.5625153, y: 2.03144, z: 2.5882435}
   m_Center: {x: 23.443598, y: 1.0023235, z: 16.28902}
+--- !u!1 &384663767
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 384663768}
+  - component: {fileID: 384663769}
+  - component: {fileID: 384663770}
+  m_Layer: 0
+  m_Name: PortaGloria
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &384663768
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384663767}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 25, y: 0, z: -8.87}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1755154675}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &384663769
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384663767}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.17305565, y: 5.3714566, z: 1.5850697}
+  m_Center: {x: -1.0596418, y: 2.1857278, z: -0.025528908}
+--- !u!114 &384663770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384663767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18087f7a7c57f94498fa14cc1a67dc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newPosition: {x: 26.93, y: 1.5, z: -8.05}
 --- !u!65 &400099909
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1368,7 +1636,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6022651682412617094, guid: 4d3eacf69ece1324e965e632b65ae308, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.33
       objectReference: {fileID: 0}
     - target: {fileID: 6022651682412617094, guid: 4d3eacf69ece1324e965e632b65ae308, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1376,7 +1644,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6022651682412617094, guid: 4d3eacf69ece1324e965e632b65ae308, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -26.83
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6022651682412617094, guid: 4d3eacf69ece1324e965e632b65ae308, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2186,7 +2454,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 427.5, y: -150}
-  m_SizeDelta: {x: 736, y: 1275.42}
+  m_SizeDelta: {x: 736, y: 284.198}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &508742319
 CanvasRenderer:
@@ -2216,34 +2484,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam mauris
-    lectus, varius nec nisl id, sagittis ultricies metus. Phasellus ultricies ultrices
-    nisi in commodo. Proin cursus dictum tellus ac ornare. Integer in nisl laoreet
-    tortor molestie pharetra tempor sit amet neque. Integer laoreet sapien ex, sed
-    facilisis dolor maximus a. Phasellus sit amet nisl elit. Quisque in quam nulla.
-    Donec lacinia dui ut leo porta, a viverra arcu eleifend. Quisque eleifend vulputate
-    odio. Integer quam urna, dignissim sit amet commodo nec, facilisis condimentum
-    tellus. Praesent vehicula dolor odio, ut ullamcorper velit varius sit amet. Nam
-    odio eros, laoreet quis tortor non, viverra laoreet quam. Curabitur imperdiet
-    tempor dapibus. Ut porta tempor turpis, vitae laoreet ligula porta sit amet.
-    Phasellus ut pellentesque mauris. Morbi lobortis rhoncus erat sed varius.
-
-
-
-    Suspendisse
-    consequat semper augue. Nunc sapien risus, pretium eget aliquet quis, sollicitudin
-    et tortor. Vestibulum at odio porttitor, gravida felis at, elementum est. Pellentesque
-    ac ante ut dui aliquet malesuada sed quis velit. In ornare nibh vel libero molestie
+  m_text: 'ue. Nunc sapien risus, pretium eget aliquet quis, sollicitudin et tortor.
+    Vestibulum at odio porttitor, gravida felis at, elementum est. Pellentesque ac
+    ante ut dui aliquet malesuada sed quis velit. In ornare nibh vel libero molestie
     dignissim. Donec facilisis, nisl et rutrum fringilla, lacus ipsum commodo diam,
-    sit amet rutrum turpis nulla quis lectus. Integer hendrerit, tortor id cursus
-    maximus, orci massa scelerisque velit, at lobortis nisi leo nec risus. Etiam
-    dignissim tellus ut neque porttitor, pharetra laoreet mi rutrum. Fusce vestibulum
-    cursus sem, non pretium nibh facilisis a. Proin hendrerit nec enim quis accumsan.
-    Praesent commodo mauris quis nunc posuere ornare. Cras aliquam diam egestas,
-    finibus sapien non, tempus velit. Nulla a odio tempor, ornare mauris ut, ultricies
-    odio. Mauris felis ante, euismod vitae semper fermentum, pretium convallis lectus.
-    Etiam sit amet gravida velit, eu interdum ex. Phasellus vitae ultricies est,
-    non consequat nunc.'
+    sit amet rutrum turpis nulla quis lectus. Integer hendrerit, tortor id cursus  '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2591,6 +2836,73 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8315639536711244842, guid: 75dd9fa62bd240b419a522f450a34ad5, type: 3}
   m_PrefabInstance: {fileID: 544578427}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &548059472
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 548059473}
+  - component: {fileID: 548059474}
+  - component: {fileID: 548059475}
+  m_Layer: 0
+  m_Name: PortaBeep
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &548059473
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548059472}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 25, y: 0, z: 4.65}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1755154675}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &548059474
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548059472}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.2539711, y: 5.3714566, z: 1.5850697}
+  m_Center: {x: -1.1000996, y: 2.1857278, z: -0.025528908}
+--- !u!114 &548059475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548059472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18087f7a7c57f94498fa14cc1a67dc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newPosition: {x: 26.93, y: 1.5, z: 4.08}
 --- !u!1 &576490417
 GameObject:
   m_ObjectHideFlags: 0
@@ -3245,59 +3557,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 634195474}
   m_CullTransparentMesh: 1
---- !u!1 &641415758
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 641415759}
-  - component: {fileID: 641415760}
-  m_Layer: 0
-  m_Name: PortaFrank
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &641415759
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 641415758}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.05, y: 0, z: -8.65}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1755154675}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &641415760
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 641415758}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0422535, y: 5.3714566, z: 1.5850697}
-  m_Center: {x: -0.9158602, y: 2.1857278, z: -0.025528908}
 --- !u!1001 &642749196
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3533,6 +3792,73 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 657492339}
   m_CullTransparentMesh: 1
+--- !u!1 &668006346
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 668006347}
+  - component: {fileID: 668006348}
+  - component: {fileID: 668006349}
+  m_Layer: 0
+  m_Name: PortaGloria (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &668006347
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668006346}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 25.65, y: 0, z: -8.87}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1755154675}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &668006348
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668006346}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.1456089, y: 5.3714566, z: 1.5850697}
+  m_Center: {x: -1.3641825, y: 2.1857278, z: -0.025528908}
+--- !u!114 &668006349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668006346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18087f7a7c57f94498fa14cc1a67dc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newPosition: {x: 22.58, y: 1.5, z: -8.05}
 --- !u!65 &676775406
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3804,6 +4130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 728291591}
   - component: {fileID: 728291592}
+  - component: {fileID: 728291593}
   m_Layer: 0
   m_Name: PortaDeposito
   m_TagString: Untagged
@@ -3820,7 +4147,7 @@ Transform:
   m_GameObject: {fileID: 728291590}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 13.17}
+  m_LocalPosition: {x: 0, y: 0, z: 13.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3841,12 +4168,92 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.2723913, y: 5.3714566, z: 1.5850697}
-  m_Center: {x: 0.07341814, y: 2.1857278, z: -0.025528908}
+  m_Size: {x: 6.2723913, y: 5.3714566, z: 0.25924778}
+  m_Center: {x: 0.07341814, y: 2.1857278, z: -0.2760291}
+--- !u!114 &728291593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728291590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18087f7a7c57f94498fa14cc1a67dc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newPosition: {x: 0, y: 1.5, z: 15}
+--- !u!1 &734142767
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 734142768}
+  - component: {fileID: 734142769}
+  - component: {fileID: 734142770}
+  m_Layer: 0
+  m_Name: PortaZazzy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &734142768
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734142767}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 25, y: 0, z: -1.86}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1755154675}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &734142769
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734142767}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.251009, y: 5.3714566, z: 1.5850697}
+  m_Center: {x: -1.0986185, y: 2.1857278, z: -0.025528908}
+--- !u!114 &734142770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734142767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18087f7a7c57f94498fa14cc1a67dc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newPosition: {x: 26.93, y: 1.5, z: -1.71}
 --- !u!1 &737551299
 GameObject:
   m_ObjectHideFlags: 0
@@ -4078,59 +4485,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.7631035, y: 1.0571669, z: 2}
   m_Center: {x: -30.095673, y: 0.60826963, z: 1.9952469}
---- !u!1 &826484963
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 826484964}
-  - component: {fileID: 826484965}
-  m_Layer: 0
-  m_Name: PortaGloria
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &826484964
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 826484963}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25, y: 0, z: -8.65}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1755154675}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &826484965
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 826484963}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0422535, y: 5.3714566, z: 1.5850697}
-  m_Center: {x: -0.9158602, y: 2.1857278, z: -0.025528908}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -4963,6 +5317,73 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.76311684, y: 1.0571673, z: 2.0000038}
   m_Center: {x: -30.082382, y: 0.6036583, z: 10.6436}
+--- !u!1 &1059933591
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1059933592}
+  - component: {fileID: 1059933593}
+  - component: {fileID: 1059933594}
+  m_Layer: 0
+  m_Name: PortaBeep (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1059933592
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059933591}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 25.65, y: 0, z: 4.65}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1755154675}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1059933593
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059933591}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.16340637, y: 5.3714566, z: 1.5850697}
+  m_Center: {x: -1.3552837, y: 2.1857278, z: -0.025528908}
+--- !u!114 &1059933594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059933591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18087f7a7c57f94498fa14cc1a67dc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newPosition: {x: 22.58, y: 1.5, z: 4.08}
 --- !u!1001 &1065183131
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6423,7 +6844,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 6.3249826, y: 4.7651515, z: 0.3323269}
   m_Center: {x: -0.16118181, y: 2.463319, z: 18.828564}
---- !u!1 &1307664101
+--- !u!1 &1324469302
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6431,37 +6852,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1307664102}
-  - component: {fileID: 1307664103}
+  - component: {fileID: 1324469303}
+  - component: {fileID: 1324469304}
+  - component: {fileID: 1324469305}
   m_Layer: 0
-  m_Name: PortaZazzy
+  m_Name: PortaFrank (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1307664102
+--- !u!4 &1324469303
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1307664101}
+  m_GameObject: {fileID: 1324469302}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25, y: 0, z: -1.88}
+  m_LocalPosition: {x: -22.480001, y: 0, z: -8.87}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1755154675}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1307664103
+--- !u!65 &1324469304
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1307664101}
+  m_GameObject: {fileID: 1324469302}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -6470,12 +6892,25 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.0422535, y: 5.3714566, z: 1.5850697}
-  m_Center: {x: -0.9158602, y: 2.1857278, z: -0.025528908}
+  m_Size: {x: 0.1752758, y: 5.3714566, z: 1.5850697}
+  m_Center: {x: -1.349349, y: 2.1857278, z: -0.025528908}
+--- !u!114 &1324469305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1324469302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18087f7a7c57f94498fa14cc1a67dc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newPosition: {x: -26.12, y: 1.5, z: -8.69}
 --- !u!65 &1333902065
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6787,6 +7222,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1399771501}
   - component: {fileID: 1399771502}
+  - component: {fileID: 1399771503}
   m_Layer: 0
   m_Name: PortaRecepcao
   m_TagString: Untagged
@@ -6803,8 +7239,8 @@ Transform:
   m_GameObject: {fileID: 1399771500}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -18.75}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -19.18}
+  m_LocalScale: {x: 1, y: 1, z: 0.46235}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1755154675}
@@ -6824,12 +7260,25 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.2723913, y: 5.3714566, z: 1.5850697}
-  m_Center: {x: 0.07341814, y: 2.1857278, z: -0.025528908}
+  m_Size: {x: 6.2723913, y: 5.3714566, z: 0.6790619}
+  m_Center: {x: 0.07341814, y: 2.1857278, z: 0.42747483}
+--- !u!114 &1399771503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399771500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18087f7a7c57f94498fa14cc1a67dc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newPosition: {x: 0, y: 1.5, z: -16.67}
 --- !u!1 &1417508288
 GameObject:
   m_ObjectHideFlags: 0
@@ -7071,6 +7520,73 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1456001550}
   m_CullTransparentMesh: 1
+--- !u!1 &1471004901
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1471004902}
+  - component: {fileID: 1471004903}
+  - component: {fileID: 1471004904}
+  m_Layer: 0
+  m_Name: PortaRecepcao (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1471004902
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471004901}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -18.29}
+  m_LocalScale: {x: 1, y: 1, z: 0.46235}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1755154675}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1471004903
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471004901}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 6.2723913, y: 5.3714566, z: 0.6276831}
+  m_Center: {x: 0.07341814, y: 2.1857278, z: -0.5042216}
+--- !u!114 &1471004904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471004901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18087f7a7c57f94498fa14cc1a67dc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newPosition: {x: 0, y: 1.5, z: -20.84}
 --- !u!65 &1473420480
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7102,6 +7618,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1482624699}
   - component: {fileID: 1482624700}
+  - component: {fileID: 1482624701}
   m_Layer: 0
   m_Name: PortaDomSalvador
   m_TagString: Untagged
@@ -7139,12 +7656,25 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.0422535, y: 5.3714566, z: 1.5850697}
-  m_Center: {x: -0.9158602, y: 2.1857278, z: -0.025528908}
+  m_Size: {x: 0.19892311, y: 5.3714566, z: 1.5850697}
+  m_Center: {x: -1.0725756, y: 2.1857278, z: -0.025528908}
+--- !u!114 &1482624701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482624698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18087f7a7c57f94498fa14cc1a67dc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newPosition: {x: 26.93, y: 1.5, z: 11.19}
 --- !u!1 &1483670194
 GameObject:
   m_ObjectHideFlags: 0
@@ -10034,12 +10564,19 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1399771501}
+  - {fileID: 1471004902}
   - {fileID: 728291591}
+  - {fileID: 2043125073}
   - {fileID: 1482624699}
-  - {fileID: 2012783759}
-  - {fileID: 1307664102}
-  - {fileID: 826484964}
-  - {fileID: 641415759}
+  - {fileID: 355817153}
+  - {fileID: 548059473}
+  - {fileID: 1059933592}
+  - {fileID: 734142768}
+  - {fileID: 140535167}
+  - {fileID: 384663768}
+  - {fileID: 668006347}
+  - {fileID: 301135329}
+  - {fileID: 1324469303}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1763999330
@@ -11920,59 +12457,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.2687492, y: 2.3108902, z: 1.2493515}
   m_Center: {x: -25.900095, y: 1.203484, z: -13.533943}
---- !u!1 &2012783758
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2012783759}
-  - component: {fileID: 2012783760}
-  m_Layer: 0
-  m_Name: PortaBeep
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2012783759
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2012783758}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25, y: 0, z: 4.68}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1755154675}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2012783760
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2012783758}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0422535, y: 5.3714566, z: 1.5850697}
-  m_Center: {x: -0.9158602, y: 2.1857278, z: -0.025528908}
 --- !u!1 &2020557582
 GameObject:
   m_ObjectHideFlags: 0
@@ -12283,6 +12767,73 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2036646591}
   m_CullTransparentMesh: 1
+--- !u!1 &2043125072
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2043125073}
+  - component: {fileID: 2043125074}
+  - component: {fileID: 2043125075}
+  m_Layer: 0
+  m_Name: PortaDeposito (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2043125073
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043125072}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 14.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1755154675}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2043125074
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043125072}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 6.2723913, y: 5.3714566, z: 0.41520596}
+  m_Center: {x: 0.07341814, y: 2.1857278, z: -0.61046076}
+--- !u!114 &2043125075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043125072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18087f7a7c57f94498fa14cc1a67dc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newPosition: {x: 0, y: 1.5, z: 11.71}
 --- !u!65 &2054066937
 BoxCollider:
   m_ObjectHideFlags: 0
