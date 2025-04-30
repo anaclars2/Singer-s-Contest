@@ -15,8 +15,10 @@ public class Dialogue : MonoBehaviour
     public Image portraitLeft;
     public Image portraitRight;
     public TextMeshProUGUI textComponent;
+    public GameObject headerObject;
     public List<DialogueLine> lines = new List<DialogueLine>();
     public float textSpeed;
+
 
     private int index;
 
@@ -59,7 +61,9 @@ public class Dialogue : MonoBehaviour
 
         DialogueLine line = lines[index];
 
-        speakerNameText.text = string.IsNullOrEmpty(line.speakerName) ? "" : line.speakerName;
+        headerObject.SetActive(line.isSpeech);
+
+        speakerNameText.text = line.isSpeech ? line.speakerName : "";
 
         //    speakerNameText.text = line.speakerName;
         //textComponent.text = "";
@@ -167,6 +171,7 @@ public class DialogueLine
     public DialogueSide side;
     public string speakerName;
     public Sprite speakerIcon;
+    public bool isSpeech;
     [TextArea(3, 10)] public string text;
 }
 

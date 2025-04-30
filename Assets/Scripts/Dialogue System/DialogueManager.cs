@@ -8,6 +8,7 @@ namespace DialogueSystem
 {
     public class DialogueManager : MonoBehaviour
     {
+        public GameObject headerObject;
         public TextMeshProUGUI speakerNameText;
         public Image portraitLeft;
         public Image portraitRight;
@@ -53,6 +54,9 @@ namespace DialogueSystem
             speakerNameText.text = line.speakerName;
             textComponent.text = "";
 
+            headerObject.SetActive(line.isSpeech);
+            speakerNameText.text = line.isSpeech ? line.speakerName : "";
+
             switch (line.side)
             {
                 case DialogueSide.Left:
@@ -96,6 +100,7 @@ namespace DialogueSystem
         public DialogueSide side;
         public string speakerName;
         public Sprite speakerIcon;
+        public bool isSpeech;
         [TextArea(3, 10)] public string text;
     }
 

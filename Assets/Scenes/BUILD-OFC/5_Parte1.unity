@@ -1332,15 +1332,21 @@ MonoBehaviour:
   continueButton: {fileID: 2073641254472968346}
   nextScene: 1
   speakerNameText: {fileID: 4950665655907343465}
-  portraitLeft: {fileID: 0}
+  portraitLeft: {fileID: 1661502724}
   portraitRight: {fileID: 4276444613979880556}
   textComponent: {fileID: 3008852690837078264}
+  headerObject: {fileID: 7335851235916711630}
   lines:
   - side: 0
-    speakerName: 
+    speakerName: Beep
+    speakerIcon: {fileID: 21300000, guid: fc0e0234348d9194eb620c36133f15e9, type: 3}
+    isSpeech: 1
+    text: testestestes
+  - side: 0
+    speakerName: Beep
     speakerIcon: {fileID: 0}
-    text: "O Concurso di Stelle est\xE1 prestes a come\xE7ar. Nos bastidores, Beep,
-      um jovem m\xFAsico talentoso, mas inseguro, se prepara para sua primeira apresenta\xE7\xE3o. "
+    isSpeech: 0
+    text: Aqui eh so uma descricao
   textSpeed: 0.1
 --- !u!222 &7255564095347245698
 CanvasRenderer:
